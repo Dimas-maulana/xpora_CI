@@ -1,0 +1,58 @@
+Satuan :
+
+1. kg = kilogram
+2. hg(ons) = hektogram
+3. dag = dekagram
+4. g = gram
+5. dg = desigram
+6. cg = sentigram
+7. mg = miligram
+
+
+Bidang Usaha :
+1. Pertanian dan perkebunan
+2. Tesktill
+3. Perikanan
+4. Buah dan sayur
+
+User Type :
+1. Seller
+2. Buyer
+3. Direct Exportir
+4. Indirect Exportir
+5. Diaspora
+
+Domisili per kota :
+1. Aceh
+2. Bali
+3. Bangka Belitung
+4. Banten
+4. Bengkulu
+5. Daerah Istimewa Yogyakarta
+6. DKI Jakarta
+7. Gorontalo
+8. Jambi
+9. Jawa Barat
+10. Jawa Tengah
+11. Jawa Timur
+12. Kalimantan Barat
+13. Kalimantan Selatan
+14. Kalimantan Tengah
+15. Kalimantan Timur
+16. Kalimantan Utara
+17. Kepulauan Riau
+18. Lampung
+19. Maluku Utara
+20. Maluku
+21. Nusa Tenggara Barat
+22. Nusa Tenggara Timur
+23. Papua Barat
+24. Papua
+25. Riau
+26. Sulawesi Selatan
+27. Sulawesi Tengah
+28. Sulawesi Tenggara
+29. Sulawesi Utara
+30. Sumatra Barat
+31. Sumatra Selatan
+32. Sumatra Utara
