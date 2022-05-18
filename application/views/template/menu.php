@@ -2,6 +2,10 @@
 $url = $this->uri->segment(1);
 $akun = $url == "akun" ? "menuActive" : "";
 $proses_verifikasi = $url == "proses_verifikasi" ? "menuActive" : "";
+$ceklevelbisnis = $url == "ceklevelbisnis" ? "menuActive" : "";
+$ekspansirequest = $url == "ekspansirequest" ? "menuActive" : "";
+$ekspansimatchmaking = $url == "ekspansimatchmaking" ? "menuActive" : "";
+$commodities = $url == "commodities" ? "menuActive" : "";
 $urll = $this->uri->segment(2);
 $all = $urll == "" ? "tabActive" : "";
 $buyer = $urll == "buyer" ? "tabActive" : "";
@@ -39,7 +43,7 @@ $diaspora = $urll == "diaspora" ? "tabActive" : "";
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="<?= site_url('#'); ?>">
+            <a class="nav-link <?= $ceklevelbisnis ?>" href="<?= site_url('ceklevelbisnis'); ?>">
                 <span>Cek Level Bisnis</span></a>
         </li>
 
@@ -49,13 +53,12 @@ $diaspora = $urll == "diaspora" ? "tabActive" : "";
             </a>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="#">Matchmaking log</a>
-                    <a class="collapse-item" href="#">Commodities</a>
-                    <a class="collapse-item" href="#">Request</a>
+                    <a class="collapse-item <?= $akun ?>" href="<?= site_url('ekspansimatchmaking'); ?>">Matchmaking log</a>
+                    <a class="collapse-item <?= $akun ?>" href="<?= site_url('commodities'); ?>">Commodities</a>
+                    <a class="collapse-item <?= $akun ?>" href="<?= site_url('ekspansirequest'); ?>">Request</a>
                 </div>
             </div>
         </li>
-
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
                 <span>Inspirasi</span>
@@ -72,12 +75,10 @@ $diaspora = $urll == "diaspora" ? "tabActive" : "";
             <a class="nav-link" href="<?= site_url('#'); ?>">
                 <span>Diaspora</span></a>
         </li>
-
         <li class="nav-item">
             <a class="nav-link" href="<?= site_url('#'); ?>">
                 <span>Produk BNI</span></a>
         </li>
-
         <li class="nav-item">
             <a class="nav-link" href="<?= site_url('#'); ?>">
                 <span>Sistem Digital UMKM</span></a>
@@ -134,7 +135,6 @@ $diaspora = $urll == "diaspora" ? "tabActive" : "";
                             <!-- <a class="dropdown-item" href="<?= base_url('akun/export_filter/' . $this->session->userdata('cari')) ?>">Download filtered data</a> -->
                         </div>
                     </div>
-
                 </ul>
 
             </nav>
@@ -142,9 +142,7 @@ $diaspora = $urll == "diaspora" ? "tabActive" : "";
 
             <!-- Begin Page Content -->
             <div class="container-fluid">
-
                 <!-- Page Heading -->
-
                 <div>
                     <?php
                     $this->load->view($content);

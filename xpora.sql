@@ -16,6 +16,93 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`xpora` /*!40100 DEFAULT CHARACTER SET u
 
 USE `xpora`;
 
+/*Table structure for table `akun` */
+
+DROP TABLE IF EXISTS `akun`;
+
+CREATE TABLE `akun` (
+  `user_id` int(20) NOT NULL,
+  `user_name` varchar(50) NOT NULL,
+  `company_name` varchar(100) NOT NULL,
+  `region` varchar(15) NOT NULL,
+  `commodity_category` varchar(50) NOT NULL,
+  `user_type` varchar(15) NOT NULL,
+  `create_date` date NOT NULL,
+  `verifikasi` varchar(20) NOT NULL,
+  `picture` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `akun` */
+
+insert  into `akun`(`user_id`,`user_name`,`company_name`,`region`,`commodity_category`,`user_type`,`create_date`,`verifikasi`,`picture`) values 
+(1,'Mandin Penyaluhan','asasapo','Indonesia','asasasa','Seller','2022-03-11','Verified','Mermaid.png'),
+(2,'modal_test','asasapoasasa','Malaysia','asasasa','Buyer','2022-03-11','Not Verified','37_Short_Motivational_Quotes_To_Light_Up_Your_Fire_In_6_Words.jpg');
+
+/*Table structure for table `clb` */
+
+DROP TABLE IF EXISTS `clb`;
+
+CREATE TABLE `clb` (
+  `attempt` varchar(10) NOT NULL,
+  `kd_data_diri` varchar(20) CHARACTER SET utf8mb4 NOT NULL,
+  `date` date NOT NULL,
+  `type_of_rest` varchar(20) NOT NULL,
+  `result` varchar(100) NOT NULL,
+  `recomendation` varchar(20) NOT NULL,
+  `follow_up_recomendation` varchar(20) NOT NULL,
+  PRIMARY KEY (`attempt`),
+  KEY `kd_data_diri` (`kd_data_diri`),
+  CONSTRAINT `clb_ibfk_1` FOREIGN KEY (`kd_data_diri`) REFERENCES `data_diri` (`kd_data_diri`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `clb` */
+
+/*Table structure for table `commodities_post` */
+
+DROP TABLE IF EXISTS `commodities_post`;
+
+CREATE TABLE `commodities_post` (
+  `id_commoditi` int(15) NOT NULL,
+  `nama_komoditas` varchar(50) NOT NULL,
+  `qty_komoditas` varchar(50) NOT NULL,
+  `status` varchar(30) NOT NULL,
+  `buyer` varchar(50) NOT NULL,
+  `seller` varchar(50) NOT NULL,
+  `tanggal_mulai` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `commodities_post` */
+
+/*Table structure for table `data_buyer` */
+
+DROP TABLE IF EXISTS `data_buyer`;
+
+CREATE TABLE `data_buyer` (
+  `Id_Buyer` int(255) NOT NULL,
+  `Nama_Buyer` varchar(500) NOT NULL,
+  `Kontak` varchar(255) NOT NULL,
+  `Email` varchar(255) NOT NULL,
+  `Negara` varchar(500) NOT NULL,
+  `Alamat` varchar(500) NOT NULL,
+  `Perusahaan` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `data_buyer` */
+
+insert  into `data_buyer`(`Id_Buyer`,`Nama_Buyer`,`Kontak`,`Email`,`Negara`,`Alamat`,`Perusahaan`) values 
+(101,'Hanan Al Jaber','+971 4 224 4224','Hananjaber@arab-email.com','Dubai','-','JABER COMPANY'),
+(121,'Tom Hanks','+14081238967','hanks_tom@mail.co.us','USA','-','H CORP'),
+(243,'Muhammad Ibrahim','+966001966','ibrahim77@arab-email.com','Uni Emirates Arab','-','IBR CORP'),
+(247,'Catherine Halderman','+33 1 4503 0760','halderman91@mail.com.fr','France','-','VIRGO INCH'),
+(298,'Tim Shaecker','+4900149892','tim_june@yahoo.de','German','-','GER INCH'),
+(321,'Kim Mingyu','+82123456789','min_gyu@mail.co.kr','Korea Selatan','-','SVT INCH'),
+(366,'Louis T','+109673452','louiss_16@mail.co.us','USA','-','1D FLAG CORPLAN'),
+(455,'Issabella Hadid','+14526178999\r\n','bellahadid@mail.co.us','USA','-','HGH INCH'),
+(623,'Jacob T','+49980055555\r\n','jacobrtt@mail.de','German','-','JJ CORP'),
+(695,'Adora ','+852 2120 4688','adora91@mail.com.hk','Hongkong','-','-'),
+(746,'Habibie Khair','+96612345678','habibiekhair@mail.com.sa','Saudi Arabia','-','-'),
+(888,'Fabio Daud','+447260837818','daud_fabio@mail.co.uk','United Kingdom','-','-');
+
 /*Table structure for table `data_diri` */
 
 DROP TABLE IF EXISTS `data_diri`;

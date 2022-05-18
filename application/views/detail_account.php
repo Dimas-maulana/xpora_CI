@@ -1,4 +1,6 @@
 <?php
+$url = $this->uri->segment(1);
+$clb_record = $url == "c_clbrecord" ? "menuActive" : "";
 //if ($data->gambar != "") $gambar = explode(",", $data->gambar); //kenapa pake explode? karna pake koma di databasenya
 //contoh: img_1.jpg, img_2.jpg dipisah setiap ada koma jadi index array, makenya explode
 //kebalikannya namanya implode, dari array jadi string terus disimpen ke database
@@ -10,7 +12,7 @@
 <h5>Detail Account / User Data</h5>
 <ul class="nav nav-tabs">
     <li class="nav-item">
-        <a class="nav-link active" href="#">User Data</a>
+        <a class="nav-link" href="#">User Data</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="#">Verification Data</a>
@@ -22,7 +24,7 @@
         <a class="nav-link" href="#">Inspirasi Produk BNI</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">CLB Record</a>
+        <a class="nav-link <?= $clb_record ?>" href="<?= site_url('c_clbrecord'); ?>"><span>CLB Record</span></a>
     </li>
 </ul>
 <div class="row">
