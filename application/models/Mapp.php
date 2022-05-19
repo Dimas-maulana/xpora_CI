@@ -96,5 +96,16 @@ WHERE d.user_type = 'Diaspora') dspr
 
         return $query->row_array();
     }
+ 
+    public function getselectall($table)
+    {
+        $query  = $this->db->query("
+            select *
+            from $table
+        ");
+
+        return $query->result_array();
+    }
+
 
 }   
