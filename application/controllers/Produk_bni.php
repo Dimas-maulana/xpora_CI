@@ -106,7 +106,7 @@ class produk_bni extends CI_Controller
     {
         $img = $this->input->post('download');
 
-        force_download('assets/foto/produk/'. $img , NULL);
+        force_download('assets/foto/produk/'. $img .'.jpg' , NULL);
 
         redirect('produk_bni/index');
     }

@@ -11,17 +11,20 @@ $clb_record = $url == "c_clbrecord" ? "menuActive" : "";
 </div>
 <h5>Detail Account / CLB Record</h5>
 <ul class="nav nav-tabs">
-    <li class="nav-item">
-        <a class="nav-link"><span>User Data</span></a>
+<li class="nav-item">
+        <a class="nav-link " href="">User Data</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Verification Data</a>
+        <a class="nav-link" href=<?= site_url('detail_akun'); ?>>Verification Data</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Ekspansi Bisnis</a>
+        <a class="nav-link" href=<?= site_url('c_ekspansibisnis'); ?>>Ekspansi Bisnis</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Inspirasi Produk BNI</a>
+        <a class="nav-link" href="<?= site_url('inspirasi'); ?>">Inspirasi</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="<?= site_url('produk_bni'); ?>">Produk BNI</a>
     </li>
     <li class="nav-item">
         <a class="nav-link <?= $clb_record ?>" href="<?= site_url('c_clbrecord'); ?>"><span>CLB Record</span></a>

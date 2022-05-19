@@ -85,17 +85,19 @@
                     <div class="col-sm-5 text-secondary">
                       <label for="">Proof Pict</label>
                       <input type="file" name="foto" class="form-control" placeholder="Proof pict" value="<?php echo $produk["cif"]; ?>">
+
                       <form action="/xpora/produk_bni/download" method="post" enctype="multipart/form-data">
-                        <div cclass="col-sm-2 text-secondary">
-                          <button class="btn btn-success" type="submit" value=<?php echo $produk["cif"]; ?> name="download">Download</button>
+                        <div class="col-sm-2 text-secondary">
+                          <button class="btn btn-success" type="submit" value=<?php echo $produk["foto"]; ?> name="download">Download</button>
                         </div>
                       </form>
+
                     </div>
                     <div class="col-sm-2 text-secondary">
                       <label for="">CIF</label>
                       <input type="text" name="cif" class="form-control" placeholder="CIF" value="<?php echo $produk["cif"]; ?>">
                     </div>
-
+                    
 
                   </div>
                 </div>
@@ -125,7 +127,25 @@
 
 
     <!-- Edit Modal HTML -->
-    <div id="addEmployeeModal" class="modal fade">
+    <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+    <div id="exampleModal" class="modal fade">
       <div class="modal-dialog">
         <div class="modal-content">
           <form>
