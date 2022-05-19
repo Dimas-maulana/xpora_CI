@@ -12,6 +12,14 @@ $buyer = $urll == "buyer" ? "tabActive" : "";
 $indirect_exportir = $urll == "indirect_exportir" ? "tabActive" : "";
 $direct_exportir = $urll == "direct_exportir" ? "tabActive" : "";
 $diaspora = $urll == "diaspora" ? "tabActive" : "";
+$posted = $urll == "posted" ? "tabActive" : "";
+$waiting_for_approval = $urll == "waiting_forapproval" ? "tabActive" : "";
+$draft = $urll == "draft" ? "tabActive" : "";
+$unposted = $urll == "unposted" ? "tabActive" : "";
+$requested = $urll == "requested" ? "tabActive" : "";
+$on_progress = $urll == "on_progress" ? "tabActive" : "";
+$done = $urll == "done" ? "tabActive" : "";
+$cancel = $urll == "cancel" ? "tabActive" : "";
 ?>
 <!-- Page Wrapper -->
 <div id="wrapper">
@@ -53,7 +61,7 @@ $diaspora = $urll == "diaspora" ? "tabActive" : "";
             </a>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item <?= $akun ?>" href="<?= site_url('ekspansimatchmaking'); ?>">Matchmaking log</a>
+                    <a class="collapse-item <?= $akun ?>" href="<?= site_url('matchmaking_log'); ?>">Matchmaking log</a>
                     <a class="collapse-item <?= $akun ?>" href="<?= site_url('commodities'); ?>">Commodities</a>
                     <a class="collapse-item <?= $akun ?>" href="<?= site_url('ekspansirequest'); ?>">Request</a>
                 </div>
@@ -98,7 +106,11 @@ $diaspora = $urll == "diaspora" ? "tabActive" : "";
 
         <!-- Main Content -->
         <div id="content">
-            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+            <?php
+            $listURL = ["dashboard", "akun", "proses_verifikasi", "matchmaking_log", "ekspansirequest"];
+            if (in_array($url, $listURL) && $this->uri->segment(3) != "detail_akun") { ?>
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <?php if ($url == "akun") { ?>
 
                 <!-- Sidebar Toggle (Topbar) -->
                 <ul class="navbar-nav mr-auto">
@@ -119,12 +131,56 @@ $diaspora = $urll == "diaspora" ? "tabActive" : "";
                     </li>
                 </ul>
 
+                <?php } ?>
+                    <?php if ($url == "matchmaking_log") { ?>
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link <?= $all; ?>" href="<?= site_url('matchmaking_log'); ?>">All</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link <?= $requested; ?>" href="<?= site_url('matchmaking_log/requested'); ?>">Requested</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link <?= $on_progress; ?>" href="<?= site_url('matchmaking_log/on_progress'); ?>">On Progress</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link <?= $done; ?>" href="<?= site_url('matchmaking_log/done'); ?>">Done</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link <?= $cancel; ?>" href="<?= site_url('matchmaking_log/cancel'); ?>">Cancel</a>
+                            </li>
+                        </ul>
+                    <?php } ?>
+
+                <?php } ?>
+                    <?php if ($url == "ekspansirequest") { ?>
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link <?= $all; ?>" href="<?= site_url('ekspansirequest'); ?>">All</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link <?= $posted; ?>" href="<?= site_url('ekspansirequest/posted'); ?>">Posted</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link <?= $waiting_for_approval; ?>" href="<?= site_url('ekspansirequest/waiting_for_approval'); ?>">Waiting For Approval</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link <?= $draft; ?>" href="<?= site_url('ekspansirequest/draft'); ?>">Draft</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link <?= $unposted; ?>" href="<?= site_url('ekspansirequest/unposted'); ?>">Unposted</a>
+                            </li>
+                        </ul>
+                    <?php } ?>
+
+
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <div class="topbar-divider d-none d-sm-block"></div>
                     <div style="padding-right: 20px;">
                         <a href="<?= site_url('akun/create_akun') ?>"><button type="submit" class="btn btn-primary">Create Account</button></a>
                     </div>
+                    
 
                     <div class="dropdown">
                         <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="false">
@@ -138,7 +194,6 @@ $diaspora = $urll == "diaspora" ? "tabActive" : "";
                 </ul>
 
             </nav>
-
 
             <!-- Begin Page Content -->
             <div class="container-fluid">
