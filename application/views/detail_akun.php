@@ -100,7 +100,7 @@
 
                                                 </div>
                                             </div>
-                                            <div class="mt-2">Verification
+                                            <div class="mt-2">Verification Status
                                             </div>
                                             <div class="row mb-3">
                                                 <div class="col-sm-7 text-secondary">
