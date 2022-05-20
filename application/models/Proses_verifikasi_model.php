@@ -18,4 +18,15 @@ class proses_verifikasi_model extends CI_ModeL
         $query = $this->db->get();
         return $query->result();
     }
+
+    public function set_officer($data)
+    {
+        $this->db->insert('assigned_officer', $data);
+    }
+
+    public function upd_officer($data)
+    {
+        $this->db->where('id_data_diri', 111);
+        $this->db->update('data_diri', $data);
+    }
 }

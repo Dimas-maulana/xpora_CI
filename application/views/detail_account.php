@@ -12,10 +12,10 @@ $clb_record = $url == "c_clbrecord" ? "menuActive" : "";
 <h5>Detail Account / User Data</h5>
 <ul class="nav nav-tabs">
     <li class="nav-item">
-        <a class="nav-link " href="">User Data</a>
+        <a class="nav-link active" href="">User Data</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link active" href=<?= site_url('detail_akun'); ?>>Verification Data</a>
+        <a class="nav-link" href=<?= site_url('detail_akun'); ?>>Verification Data</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href=<?= site_url('c_ekspansibisnis'); ?>>Ekspansi Bisnis</a>
