@@ -34,7 +34,7 @@
             <tr onclick="sData(this)">
               <td style="text-align:right; white-space:nowrap;"><input class="form-check-input" type="checkbox" onclick="csData(this)" value="option1"></td>
               <td style="vertical-align: middle; white-space:nowrap;" onclick="sData(this)"><?= $rs->comodity_name; ?></td>
-              <td style="vertical-align: middle; white-space:nowrap;" onclick="sData(this)"><?= $rs->user_id; ?></td>
+              <td style="vertical-align: middle; white-space:nowrap;" onclick="sData(this)"><?= $rs->kd_data_diri; ?></td>
               <td style="vertical-align: middle; white-space:nowrap;" onclick="sData(this)"><?= $rs->request_id; ?></td>
               <td style="vertical-align: middle; white-space:nowrap;" onclick="sData(this)"><?= $rs->destination; ?></td>
               <td style="vertical-align: middle; white-space:nowrap;" onclick="sData(this)"><?= $rs->category; ?></td>
@@ -92,7 +92,7 @@
               <div class="modal-content">
                 <form>
                   <div class="modal-header">
-                    <h4 class="modal-title">Detail Commodities</h4>
+                    <h4 class="modal-title">Detail Request</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                   </div>
                   <div class="modal-body">
@@ -114,8 +114,9 @@
                                   </div>
                                     <div class="mt-2">
                                     <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal">Approve</button>
-                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal2">Decline</button>
-                                    </div>
+                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal2">Decline</button>
+                                    <a href="akun/detail_akun/<?= $rs->kd_data_diri ?>" class="btn btn-info btn-sm">Detail</a>  
+                                  </div>
                                   </div>
                                 </div>
                               </div>
@@ -135,9 +136,9 @@
                                         <p>Deskripsi permintaan</p>
                                     </div>
                                     <div class="col-sm-6 text-secondary">
-                                        <p>: Sarang Burung Walet</p>
-                                        <p>: 200Kg</p>
-                                        <p>: Peternakan</p>
+                                        <p> : <?= $rs->comodity_name ?></p>
+                                        <p>: <?= $rs->qty_komoditas?></p>
+                                        <input type="text" name="category=" class="form-control" value="<?= $rs->category ?>" readonly>
                                         <p>: Australia</p>
                                         <p>: FOB</p>
                                         <p>: LC</p>
@@ -151,7 +152,6 @@
                       </div>
                     </div>
                     </tr>
-                    
                   </tbody> 
                 <!-- akhir tbody -->
           </table>

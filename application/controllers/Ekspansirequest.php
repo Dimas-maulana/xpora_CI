@@ -7,12 +7,16 @@ class ekspansirequest extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->helper(array('form', 'url'));
         $this->load->model('ekspansirequest_m', 'ekspansirequest');
     }
 
     function index()
     {
+        $this->load->helper('form') ;
+        $this->load->model('ekspansirequest') ;
         $data = array(
+            
             'title' => 'Ekspansi bisnis Request',
             'header' => 'template/header',
             'menu' => 'template/menu',
@@ -90,6 +94,19 @@ class ekspansirequest extends CI_Controller
             'footer' => 'template/footer',
             'app' => 'ekspansirequest',
             'ekspansirequest' => $this->ekspansirequest->unposted(),
+        );
+        $this->load->view('template/main', $data);
+    }
+
+    function detail_akun($id)
+    {
+        $data = array(
+            'title' => 'Form Detail Akun',
+            'header' => 'template/header',
+            'menu' => 'template/menu',
+            'content' => 'template/content',
+            'app' => 'detail_account',
+            'row' => $this->akun->get_by_id(urldecode($id)),
         );
         $this->load->view('template/main', $data);
     }
