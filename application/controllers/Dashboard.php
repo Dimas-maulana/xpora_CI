@@ -59,7 +59,7 @@ class dashboard extends CI_Controller
             $value2      = 0;
             foreach($q_comodity as $data){
                 if(intval($data['bulan']) == intval(($i+1))){
-                    $value = $value + $data['jumlah_pengajuan'];
+                    $value = $value + $data['Jumlah_pengajuan'];
                     $value2++;
                 }
             }
@@ -72,7 +72,7 @@ class dashboard extends CI_Controller
             $value      = 0;
             foreach($q_transaction as $data){
                 if(intval($data['bulan']) == intval(($i+1))){
-                    $value = $value + $data['profit'];
+                    $value = $value + $data['Profit'];
                 }
             }
             array_push($arvalue_transaction, $value);

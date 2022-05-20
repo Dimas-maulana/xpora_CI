@@ -175,8 +175,8 @@
 							<?php $i = 1; foreach($last5 as $value) { ?>
                 <tr>
                     <td><?= $i++ ?></td>
-                    <td><?= $value['nama_komodity'] ?></td>
-                    <td><?= $value['tgl_transaksi'] ?></td>
+                    <td><?= $value['Nama_Komodity'] ?></td>
+                    <td><?= $value['Tgl_Transaksi'] ?></td>
                 </tr>
 							<?php } ?>
             </tbody>
@@ -322,8 +322,8 @@
                     <td><?= $value['seller_id'] ?></td>
                     <td><?= $value['buyer_id'] ?></td>
                     <td><?= $value['comodity'] ?></td>
-                    <td><?= $value['request_total'] ?></td>
-                    <td><?= $value['available_quantity_comoditas'] ?></td>
+                    <td><?= isset($value['request_total']) ? $value['request_total'] : 'undefined' ?></td>
+                    <td><?= isset($value['available_quantity_comoditas']) ? $value['available_quantity_comoditas'] : 'undefined' ?></td>
                     <td><?= $value['status'] ?></td>
                     <td><?= $value['application_date'] ?></td>
                 </tr>
@@ -463,7 +463,7 @@
                                 <td><?= $value['nama_nasabah'] ?></td>
                                 <td><?= $value['produk_pinjam'] ?></td>
                                 <td><?= $value['saldo_pinjam'] ?></td>
-                                <td><?= $value['lama_pinjam'] ?></td>
+                                <td><?= isset($value['lama_pinjam']) ? $value['available_quantity_comoditas'] : 'undefined' ?></td>
                                 <td><?= $value['tgl_pinjam'] ?></td>
                             </tr>
 							<?php } ?>
@@ -513,12 +513,12 @@
 							<?php $i = 1; foreach($schema_komodity as $value) { ?>
                             <tr>
                                 <td><?= $i++ ?></td>
-                                <td><?= $value['created_at'] ?></td>
-                                <td><?= $value['komoditas'] ?></td>
-                                <td><?= $value['jumlah_pengajuan'] ?></td>
-                                <td><?= $value['unit'] ?></td>
-                                <td><?= $value['target_pasar'] ?></td>
-                                <td><?= $value['nama_pengaju'] ?></td>
+                                <td><?= $value['Created_at'] ?></td>
+                                <td><?= $value['Komoditas'] ?></td>
+                                <td><?= $value['Jumlah_pengajuan'] ?></td>
+                                <td><?= $value['Unit'] ?></td>
+                                <td><?= $value['Target_Pasar'] ?></td>
+                                <td><?= $value['Nama_Pengaju'] ?></td>
                             </tr>
 							<?php } ?>
                         </tbody>
@@ -567,13 +567,13 @@
 							<?php $i = 1; foreach($schema_transaksi as $value) { ?>
                             <tr>
                                 <td><?= $i++ ?></td>
-                                <td><?= $value['id_transaksi'] ?></td>
-                                <td><?= $value['nama_komodity'] ?></td>
-                                <td><?= $value['metode_bayar'] ?></td>
-                                <td><?= $value['total_pengajuan'] ?></td>
-                                <td><?= $value['total_bayar'] ?></td>
-                                <td><?= $value['profit'] ?></td>
-                                <td><?= $value['tgl_transaksi'] ?></td>
+                                <td><?= $value['Id_Transaksi'] ?></td>
+                                <td><?= $value['Nama_Komodity'] ?></td>
+                                <td><?= $value['Metode_Bayar'] ?></td>
+                                <td><?= isset($value['total_pengajuan']) ? $value['total_pengajuan'] : 'undefined' ?></td>
+                                <td><?= $value['Total_Bayar'] ?></td>
+                                <td><?= $value['Profit'] ?></td>
+                                <td><?= $value['Tgl_Transaksi'] ?></td>
                             </tr>
 							<?php } ?>
                         </tbody>
