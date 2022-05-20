@@ -13,7 +13,7 @@ class commodities extends CI_Controller
     function index()
     {
         $data = array(
-            'title' => 'Commodities',
+            'title' => 'Form Proses Verifikasi',
             'header' => 'template/header',
             'menu' => 'template/menu',
             'content' => 'template/content',
