@@ -24,6 +24,20 @@ class ekspansirequest extends CI_Controller
         $this->load->view('template/main', $data);
     }
 
+    function approved($id)
+    {
+        $data = array(
+            'status' => $this->input->post('approve')
+        );
+        $this->ekspansirequest->update('ekspansi_request', $data, array('request_post_id' => $id));
+
+        echo '
+		<script>
+			window.alert("Data berhasil diubah !");
+			window.location=("' . site_url('ekspansirequest') . '");
+		</script>';
+    }
+
     function draft()
     {
         $data = array(
