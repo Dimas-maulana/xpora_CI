@@ -9,7 +9,7 @@
                         <th rowspan="2" class="align-middle">#</th>
                         <th>User ID</th>
                         <th>User Name</th>
-
+                        <th>Company Name</th>
                         <th>Number Attempt</th>
                         <th>Last Result</th>
                         <th>Follow Up Recomendation</th>
@@ -20,7 +20,7 @@
                     <tr>
                         <th class="searchHeader">User ID</th>
                         <th class="searchHeader">User Name</th>
-
+                        <th class="searchHeader">Company Name</th>
                         <th class="searchHeader">Number Attempt</th>
                         <th class="searchHeader">Last Result</th>
                         <th class="searchHeader">Follow Up Recomendation</th>
@@ -35,7 +35,7 @@
                             <td style="text-align:right; white-space:nowrap;"><input class="form-check-input" type="checkbox" onclick="csData(this)" value="option1"></td>
                             <td style="vertical-align: middle; white-space:nowrap;"><?= $rs->kd_data_diri; ?></td>
                             <td style="vertical-align: middle; white-space:nowrap;"><?= $rs->nama_pemilik; ?></td>
-
+                            <td style="vertical-align: middle; white-space:nowrap;"><?= $rs->nama_usaha; ?></td>
                             <td style="vertical-align: middle; white-space:nowrap;"><?= $rs->number_attempt; ?></td>
                             <td style="vertical-align: middle; white-space:nowrap;"><?= $rs->result; ?></td>
                             <td style="vertical-align: middle; white-space:nowrap;"><?= $rs->follow_up_recomendation; ?></td>
