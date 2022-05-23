@@ -62,3 +62,15 @@
 .selectVerif {
 	height: 30px;
 }
+
+#detailTable {
+	display:none;
+}
+.detailDonlod > .dt-buttons {
+	width:100%;
+	font-size:14px;
+}
+.detailDonlod button {
+	width:100%;
+	font-size:14px;
+}

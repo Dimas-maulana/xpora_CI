@@ -25,12 +25,12 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="<?= site_url('#'); ?>">
+                <a class="nav-link" href="<?= site_url('proses_verifikasi'); ?>">
                     <span>Proses Verifikasi</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="<?= site_url('#'); ?>">
+                <a class="nav-link" href="<?= site_url('ceklevelbisnis'); ?>">
                     <span>Cek Level Bisnis</span></a>
             </li>
 
@@ -40,9 +40,9 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="#">Matchmaking log</a>
-                        <a class="collapse-item" href="#">Commodities</a>
-                        <a class="collapse-item" href="#">Request</a>
+                        <a class="collapse-item" href="<?= site_url('matchmaking_log'); ?>">Matchmaking log</a>
+                        <a class="collapse-item" href="<?= site_url('commodities'); ?>">Commodities</a>
+                        <a class="collapse-item" href="<?= site_url('ekspansirequest'); ?>">Request</a>
                     </div>
                 </div>
             </li>
