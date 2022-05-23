@@ -40,11 +40,7 @@
                                 else { ?> <div style="color:green; text-align:center;"> Verified</div> <?php } ?>
                             </td>
                             <td style="vertical-align: middle; text-align:center; white-space:nowrap;" onclick="sData(this)">
-<<<<<<< HEAD
-                                <a  href="#deleteEmployeeModal" class="btn btn-info btn-sm" data-toggle="modal">Chose</a>
-=======
                                 <a href="#deleteEmployeeModal" class="btn btn-info btn-sm" data-toggle="modal">Chose</a>
->>>>>>> 94c397ee8d02c88dc29aa241fe7bc4ec87427e6c
                             </td>
 
                             <td style="text-align:center; white-space:nowrap;">
@@ -57,66 +53,6 @@
         </div>
     </div>
     <!-- Modal HTML -->
-<<<<<<< HEAD
-<div div id="deleteEmployeeModal" class="modal fade">
-            <div class="modal-dialog modal-lg" style="width:950px;">
-              <div class="modal-content">
-                <form>
-                  <div class="modal-header">
-                    <h5>Assigned officer</h5>
-                                    </div>
-                                    <?php
-                                    foreach ($officer as $key) {
-                                    ?>
-                                        <form action="/xpora/detail_akun/set_officer" method="post" enctype="multipart/form-data">
-                                            <div class="row mb-3">
-                                                <div class="col-sm-12 text-secondary">
-                                                    
-                                                        <fieldset disabled>
-                                                            <label for="disabledTextInput" class="form-label">Negara</label>
-                                                            <input type="text" id="disabledTextInput" class="form-control disabled" placeholder="<?php foreach ($officer as $office) {
-                                                                                                                                                        echo $office['negara'];
-                                                                                                                                                    } ?>">
-                                                        </fieldset>
-                                                    
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col-sm-12 text-secondary">
-                                                   
-                                                        <fieldset disabled>
-                                                            <label for="disabledTextInput" class="form-label">Kota</label>
-                                                            <input type="text" id="disabledTextInput" class="form-control disabled" placeholder="<?php foreach ($officer as $office) {
-                                                                                                                                                        echo $office['kota'];
-                                                                                                                                                    } ?>">
-                                                        </fieldset>
-                                                    
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col-sm-12 text-secondary">
-                                                    
-                                                        <fieldset disabled>
-                                                            <label for="disabledTextInput" class="form-label">Nama</label>
-                                                            <input type="text" id="disabledTextInput" class="form-control disabled" placeholder="<?php foreach ($officer as $office) {
-                                                                                                                                                        echo $office['nama'];
-                                                                                                                                                    } ?>">
-                                                        </fieldset>
-                                                    
-
-                                                </div>
-                                            </div><?php
-                                    }
-                                                    ?>
-          </table>
-        </div>
-        <div class="modal-footer">
-          <input type="submit" class="btn btn-primary" value="Ok" />
-        </div>
-      </form>
-    </div>
-  </div>
-=======
     <div div id="deleteEmployeeModal" class="modal fade">
         <div class="modal-dialog modal-lg" style="width:950px;">
             <div class="modal-content">
@@ -162,5 +98,4 @@
             </form>
         </div>
     </div>
->>>>>>> 94c397ee8d02c88dc29aa241fe7bc4ec87427e6c
 </div>
