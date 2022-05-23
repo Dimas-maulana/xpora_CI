@@ -4,13 +4,20 @@ $(document).ready(function() {
         var title = $(this).text();
         if( title == "Verification"){
             $(this).html(`
-                <select class="selectVerif">
-                    <option value="">All</option>
-                    <option value="Verified">Verified</option>
-                    <option value="Need to Verification">Need to Verification</option>
-                </select>
+            <select class="selectVerif">
+            <option value="">All</option>
+            <option value="Verified">Verified</option>
+            <option value="Need to Verification">Need to Verification</option>
+            <option value="On Progress">On Progress</option>
+            <option value="Cancel">Cancel</option>
+            </select>
             `);
             
+        }else if( title == "Verification Date"){
+            $(this).html(`
+                <input type="date">
+            `);
+
         }else if( title == "User Type"){
             $(this).html(`
                 <select class="selectUser">
@@ -19,6 +26,38 @@ $(document).ready(function() {
                     <option value="Indirect Exportir">Indirect Exportir</option>
                     <option value="Direct Exportir">Direct Exportir</option>
                     <option value="Diaspora">Diaspora</option>
+                </select>
+            `); 
+        
+        }else if( title == "Priority"){
+            $(this).html(`
+                <select class="selectPriority">
+                    <option value="">All</option>
+                    <option value="High">High</option>
+                    <option value="Middle">Middle</option>
+                    <option value="Low">Low</option>
+                </select>
+            `); 
+        }else if( title == "Application Date"){
+            $(this).html(`
+                <input type="date">
+            `);
+        }else if( title == "Status"){
+            $(this).html(`
+                <select class="selectStatus">
+                    <option value="">All</option>
+                    <option value="Requested">Requested</option>
+                    <option value="On Progress">On Progress</option>
+                    <option value="Done">Done</option>
+                    <option value="Cancel">Cancel</option>
+                </select>
+            `); 
+        }else if( title == "Payment System"){
+            $(this).html(`
+                <select class="selectPaymentSystem">
+                    <option value="">All</option>
+                    <option value="LC">LC</option>
+                    <option value="TT">TT</option>
                 </select>
             `); }
         else if(title == "Create Date"){
@@ -49,6 +88,7 @@ $(document).ready(function() {
                 className: 'dropdown-item',
                 text: 'Download all data',
                 exportOptions: {
+                    columns: [1,2,3,4,5,6,7,8],
                     modifier: {
                         selected: null
                     }
@@ -59,6 +99,7 @@ $(document).ready(function() {
                 className: 'dropdown-item',
                 text: 'Download filtered data',
                 exportOptions: {
+                    columns: [1,2,3,4,5,6,7,8],
                     modifier: {
                         selected: true
                     }
@@ -71,11 +112,34 @@ $(document).ready(function() {
             style: 'multi'
         }
     });
-    tabel.buttons().container().appendTo( $('.sekuy') );
-    var sekuy = $('.sekuy')[0].children[0].children[0];
-    var sekuy2 = $('.sekuy')[0].children[0].children[1];
-    sekuy.classList.remove("dt-button");
-    sekuy2.classList.remove("dt-button");
+
+    var detailTable = $('#detailTable').DataTable({
+        dom: 'B',
+        buttons: [
+            {
+                extend: 'excel',
+                className: 'btn btn-outline-primary btn-lg',
+                text: 'Download Detail Akun',
+                exportOptions: {
+                    modifier: {
+                        selected: null
+                    }
+                }
+            }
+        ]
+    });
+
+    if($('#dataTable').length){
+        tabel.buttons().container().appendTo( $('.sekuy') );
+        var sekuy = $('.sekuy')[0].children[0].children[0];
+        var sekuy2 = $('.sekuy')[0].children[0].children[1];
+        sekuy.classList.remove("dt-button");
+        sekuy2.classList.remove("dt-button");
+    } else if($('#detailTable').length){
+        detailTable.buttons().container().appendTo( $('.detailDonlod') );
+        var detailDonlod = $('.detailDonlod')[0].children[0].children[0];
+        detailDonlod.classList.remove("dt-button");
+    }
 });
 
 function sData (check){
