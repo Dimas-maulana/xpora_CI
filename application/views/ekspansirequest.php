@@ -47,7 +47,6 @@
                   <td style="text-align:center; white-space:nowrap;">
                     <button class="btn btn-success btn-sm" type="submit" name="approve" value="Posted" style="font-size: 8px;">Approve</button>
                     <button class="btn btn-danger btn-sm" type="submit" name="approve" value="Un-Posted" style="font-size: 8px;">Decline</button>
-
                     <a href="#deleteEmployeeModal" class="btn btn-info btn-sm" data-toggle="modal">Detail</a>
 
                   </td>
@@ -113,8 +112,8 @@
                                                 </div>
                                   </div>
                                     <div class="mt-2">
-                                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal">Approve</button>
-                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal2">Decline</button>
+                                    <button class="btn btn-success btn-sm" type="submit" name="approve" value="Posted" style="font-size: 8px;">Approve</button>
+                                    <button class="btn btn-danger btn-sm" type="submit" name="approve" value="Un-Posted" style="font-size: 8px;">Decline</button>
                                     <a href="akun/detail_akun/<?= $rs->kd_data_diri ?>" class="btn btn-info btn-sm">Detail</a>  
                                   </div>
                                   </div>
