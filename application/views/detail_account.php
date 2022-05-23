@@ -1,6 +1,4 @@
 <?php
-$url = $this->uri->segment(1);
-$clb_record = $url == "c_clbrecord" ? "menuActive" : "";
 //if ($data->gambar != "") $gambar = explode(",", $data->gambar); //kenapa pake explode? karna pake koma di databasenya
 //contoh: img_1.jpg, img_2.jpg dipisah setiap ada koma jadi index array, makenya explode
 //kebalikannya namanya implode, dari array jadi string terus disimpen ke database
@@ -12,7 +10,7 @@ $clb_record = $url == "c_clbrecord" ? "menuActive" : "";
 <h5>Detail Account / User Data</h5>
 <ul class="nav nav-tabs">
     <li class="nav-item">
-        <a class="nav-link" href="#">User Data</a>
+        <a class="nav-link active" href="#">User Data</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="#">Verification Data</a>
@@ -24,9 +22,61 @@ $clb_record = $url == "c_clbrecord" ? "menuActive" : "";
         <a class="nav-link" href="#">Inspirasi Produk BNI</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link <?= $clb_record ?>" href="<?= site_url('c_clbrecord'); ?>"><span>CLB Record</span></a>
+        <a class="nav-link" href="#">CLB Record</a>
     </li>
 </ul>
+<table class="table table-bordered" id="detailTable" width="100%" cellspacing="0" border="1">
+    <thead>
+        <tr>
+            <th>Kode Data Diri</th>
+            <th>Nama Pemilik</th>
+            <th>Email</th>
+            <th>No. Telepon</th>
+            <th>NIK</th>
+            <th>NPWP</th>
+            <th>Domisili</th>
+            <th>Nama Perusahaan</th>
+            <th>Domisili Perusahaan</th>
+            <th>Email Perusahaan</th>
+            <th>Website</th>
+            <th>Bidang Usaha</th>
+            <th>Komoditi Usaha</th>
+            <th>Skala Produksi</th>
+            <th>Satuan</th>
+            <th>NIB Perusahaan</th>
+            <th>NPWP Perusahaan</th>
+            <th>No. SIUP</th>
+            <th>No. PEB</th>
+            <th>No. Akta</th>
+            <th>User Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><?= $row->kd_data_diri ?></td>
+            <td><?= $row->nama_pemilik ?></td>
+            <td><?= $row->email ?></td>
+            <td><?= $row->no_telp ?></td>
+            <td><?= $row->nik ?></td>
+            <td><?= $row->npwp ?></td>
+            <td><?= $row->domisili ?></td>
+            <td><?= $row->nama_usaha ?></td>
+            <td><?= $row->domisili_perusahaan ?></td>
+            <td><?= $row->email_perusahaan ?></td>
+            <td><?= $row->website ?></td>
+            <td><?= $row->bidang_usaha ?></td>
+            <td><?= $row->komoditi_usaha ?></td>
+            <td><?= $row->skala ?></td>
+            <td><?= $row->satuan ?></td>
+            <td><?= $row->nib ?></td>
+            <td><?= $row->npwp_perusahaan ?></td>
+            <td><?= $row->no_siup ?></td>
+            <td><?= $row->no_peb ?></td>
+            <td><?= $row->no_akta ?></td>
+            <td><?= $row->user_type ?></td>
+        </tr>
+    </tbody>
+</table>
 <div class="row">
     <div class="col-lg-3">
         <div class="card">
@@ -36,10 +86,8 @@ $clb_record = $url == "c_clbrecord" ? "menuActive" : "";
                     <img src="<?= base_url('images/' . $row->foto) ?>" alt="Admin" class="rounded-circle p-1 " width="150" value="<?= $row->foto ?>">
                 </div>
 
-                <div style="padding-top:20px;">
-                    <form action="/xpora/detail_akun/excel_datadiri">
-                        <button type="button" class="btn btn-outline-primary btn-lg" style="width:100%; font-size:14px;">Download Detail Diri</button>
-                    </form>
+                <div style="padding-top:20px;" class="detailDonlod">
+                    <!-- <button type="button" class="btn btn-outline-primary btn-lg" style="width:100%; font-size:14px;">Download Detail Account</button> -->
                 </div>
 
             </div>
