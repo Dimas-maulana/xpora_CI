@@ -127,11 +127,7 @@
                                             </div>
                                         </form>
                                     <?php } ?>
-                                    <div class="mt-2">
-                                        <form action="/xpora/detail_akun/excel_all">
-                                            <button class="btn btn-secondary" type="submit" style="font-size: 12px;">Download all data</button>
-                                        </form>
-                                    </div>
+                                   
                                     <div class="mt-2">
                                         <form action="/xpora/detail_akun/excel_verif">
                                             <button class="btn btn-secondary" type="submit" style="font-size: 12px;">Download verification data</button>
