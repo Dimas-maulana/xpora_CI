@@ -18,11 +18,11 @@
                         <th rowspan="2" class="align-middle">Action</th>
                     </tr>
                     <tr>
-                        <th class="searchHeader">User ID</th>
-                        <th class="searchHeader">User Name</th>
-                        <th class="searchHeader">Company Name</th>
-                        <th class="searchHeader">Region</th>
-                        <th class="searchHeader">Comodity</th>
+                        <th class="searchHeader">Search</th>
+                        <th class="searchHeader">Search</th>
+                        <th class="searchHeader">Search</th>
+                        <th class="searchHeader">Search</th>
+                        <th class="searchHeader">Search</th>
                         <th class="searchHeader">Verification</th>
                         <th class="searchHeader">User Type</th>
                         <th class="searchHeader">Create Date</th>

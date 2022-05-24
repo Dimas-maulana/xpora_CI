@@ -17,13 +17,13 @@
             <th rowspan="2" class="align-middle">Action</th>
           </tr>
           <tr>
-            <th class="searchHeader">Commodity Name</th>
-            <th class="searchHeader">User ID</th>
-            <th class="searchHeader">Request ID</th>
-            <th class="searchHeader">Destination</th>
-            <th class="searchHeader">Category</th>
+            <th class="searchHeader">Search</th>
+            <th class="searchHeader">Search</th>
+            <th class="searchHeader">Search</th>
+            <th class="searchHeader">Search</th>
+            <th class="searchHeader">Search</th>
             <th class="searchHeader">Status</th>
-            <th class="searchHeader">Application</th>
+            <th class="searchHeader">Search</th>
             <th class="searchHeader">Payment</th>
             <th class="searchHeader">Create Date</th>
           </tr>
