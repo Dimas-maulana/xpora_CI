@@ -2,7 +2,7 @@
     <div class="card-body">
         <button type="button" class="btn btn-dark" style="margin-bottom: 20px;">Assigned Selected User</button>
         <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <table class="table table-bordered" id="Datatable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th rowspan="2" class="align-middle">#</th>
