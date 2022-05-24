@@ -85,7 +85,7 @@ FROM data_diri d
 WHERE d.user_type = 'Indirect Exportir') indrct,
 (SELECT COUNT(user_type)
 FROM data_diri d
-WHERE d.user_type = 'Direct Esxportir ') drct,
+WHERE d.user_type = 'Direct Exportir ') drct,
 (SELECT COUNT(b.Id_buyer)
 FROM data_buyer b) buyer,
 (SELECT COUNT(user_type)
