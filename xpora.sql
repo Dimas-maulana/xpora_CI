@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 24, 2022 at 04:27 AM
+-- Generation Time: May 24, 2022 at 04:46 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -488,18 +488,22 @@ CREATE TABLE `ekspansi_comodities` (
   `status` varchar(75) NOT NULL,
   `application` int(50) NOT NULL,
   `create_date` date NOT NULL,
-  `hs_code` varchar(75) NOT NULL
+  `hs_code` varchar(75) NOT NULL,
+  `details_spesifikasi` varchar(100) DEFAULT NULL,
+  `packing` varchar(50) DEFAULT NULL,
+  `capacity_comodity` varchar(100) DEFAULT NULL,
+  `minimum_order_qty` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `ekspansi_comodities`
 --
 
-INSERT INTO `ekspansi_comodities` (`comodity_posted_id`, `comodity_name`, `user_id`, `comodities_id`, `exwork_price`, `category`, `status`, `application`, `create_date`, `hs_code`) VALUES
-(101, 'Coconut Oil', 'DD0011', '1A', 'USD 1200 ', 'Pertanian dan Perkebunan', 'Waiting for Approval', 22, '2022-01-02', 'ASO9920'),
-(102, 'Handicraft', 'DD0006', '2A', 'USD 1000 ', 'Seni dan Kerajinan tangan', 'Posted', 20, '2022-02-09', 'ASO9921'),
-(103, 'Kerajinan Kayu dan Alumunium', 'DD0002', '5A', 'USD 1500 ', 'Seni dan Kerajinan tangan', 'Draft', 23, '2022-03-16', 'ASO9923'),
-(104, 'Perdagangan ritel dan garment', 'DD0005', '10A', 'USD 1400 ', 'Gaya dan Tekstil', 'Un-Posted', 24, '2022-04-06', 'ASO9924');
+INSERT INTO `ekspansi_comodities` (`comodity_posted_id`, `comodity_name`, `user_id`, `comodities_id`, `exwork_price`, `category`, `status`, `application`, `create_date`, `hs_code`, `details_spesifikasi`, `packing`, `capacity_comodity`, `minimum_order_qty`) VALUES
+(101, 'Coconut Oil', 'DD0011', '1A', 'USD 1200 ', 'Pertanian dan Perkebunan', 'Waiting for Approval', 22, '2022-01-02', 'ASO9920', NULL, NULL, NULL, NULL),
+(102, 'Handicraft', 'DD0006', '2A', 'USD 1000 ', 'Seni dan Kerajinan tangan', 'Posted', 20, '2022-02-09', 'ASO9921', NULL, NULL, NULL, NULL),
+(103, 'Kerajinan Kayu dan Alumunium', 'DD0002', '5A', 'USD 1500 ', 'Seni dan Kerajinan tangan', 'Draft', 23, '2022-03-16', 'ASO9923', NULL, NULL, NULL, NULL),
+(104, 'Perdagangan ritel dan garment', 'DD0005', '10A', 'USD 1400 ', 'Gaya dan Tekstil', 'Un-Posted', 24, '2022-04-06', 'ASO9924', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
