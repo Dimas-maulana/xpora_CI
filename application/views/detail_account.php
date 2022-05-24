@@ -10,19 +10,19 @@
 <h5>Detail Account / User Data</h5>
 <ul class="nav nav-tabs">
     <li class="nav-item">
-        <a class="nav-link active" href="#">User Data</a>
+        <a class="nav-link active" href="">User Data</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Verification Data</a>
+        <a class="nav-link" href="<?= site_url('detail_akun'); ?>">Verification Data</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Ekspansi Bisnis</a>
+        <a class="nav-link" href="<?= site_url('c_ekspansibisnis'); ?>">Ekspansi Bisnis</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Inspirasi Produk BNI</a>
+        <a class="nav-link" href="<?= site_url('inspirasi'); ?>">Inspirasi Produk BNI</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">CLB Record</a>
+        <a class="nav-link" href="<?= site_url('c_clbrecord'); ?>">CLB Record</a>
     </li>
 </ul>
 <table class="table table-bordered" id="detailTable" width="100%" cellspacing="0" border="1">
