@@ -19,7 +19,7 @@ class c_ekspansibisnis extends CI_Controller
             'content' => 'template/content',
             'footer' => 'template/footer',
             'app' => 'v_ekspansibisnis',
-            // 'eks' => $this->eks->all_data(),
+            'eks' => $this->eks->all_data(),
         );
 
         $this->load->view('template/main',  $data);
