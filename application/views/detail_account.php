@@ -13,7 +13,7 @@
         <a class="nav-link active" href="">User Data</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="<?= site_url('detail_akun'); ?>">Verification Data</a>
+        <a class="nav-link" href="<?= site_url('detail_akun'); ?>/index/<?= $id ?>">Verification Data</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="<?= site_url('c_ekspansibisnis'); ?>">Ekspansi Bisnis</a>
@@ -22,7 +22,7 @@
         <a class="nav-link" href="<?= site_url('inspirasi'); ?>">Inspirasi Produk BNI</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="<?= site_url('c_clbrecord'); ?>">CLB Record</a>
+        <a class="nav-link" href="<?= site_url('c_clbrecord'); ?>/index/<?= $id ?>">CLB Record</a>
     </li>
 </ul>
 <table class="table table-bordered" id="detailTable" width="100%" cellspacing="0" border="1">

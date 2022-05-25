@@ -33,13 +33,13 @@
                     <?php foreach ($leftclb as $rs) : ?>
                         <tr onclick="sData(this)">
                             <td style="text-align:right; white-space:nowrap;"><input class="form-check-input" type="checkbox" onclick="csData(this)" value="option1"></td>
-                            <td style="vertical-align: middle; white-space:nowrap;"><?= $rs->attempt; ?></td>
                             <td style="vertical-align: middle; white-space:nowrap;"><?= $rs->kd_data_diri; ?></td>
-                            <td style="vertical-align: middle; white-space:nowrap;"><?= $rs->type_of_rest; ?></td>
-                            <td style="vertical-align: middle; white-space:nowrap;"><?= $rs->attempt; ?></td>
+                            <td style="vertical-align: middle; white-space:nowrap;"><?= $rs->nama_pemilik; ?></td>
+                            <td style="vertical-align: middle; white-space:nowrap;"><?= $rs->nama_usaha; ?></td>
+                            <td style="vertical-align: middle; white-space:nowrap;"><?= $rs->number_attempt; ?></td>
                             <td style="vertical-align: middle; white-space:nowrap;"><?= $rs->result; ?></td>
                             <td style="vertical-align: middle; white-space:nowrap;"><?= $rs->follow_up_recomendation; ?></td>
-                            <td style="vertical-align: middle; white-space:nowrap;"><?= $rs->number_attempt; ?></td>
+                            <td style="vertical-align: middle; white-space:nowrap;"><?= $rs->result; ?></td>
                             <td style="vertical-align: middle; white-space:nowrap;"><?= $rs->date; ?></td>
                             <td style="text-align:center; white-space:nowrap;">
                                 <a href="akun/detail_akun/<?= $rs->kd_data_diri ?>" class="btn btn-info btn-sm">Detail</a>
