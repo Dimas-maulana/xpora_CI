@@ -9,10 +9,11 @@ class inspirasi_model extends CI_Model{
         $this->load->database();
     }
 
-   public function get_data($limit, $start)
+   public function get_data($limit, $start, $id)
    {
       $this->db->order_by('start_date');
       $this->db->limit($limit,$start);
+      $this->db->where('kd_data_diri',$id);      
       $query = $this->db->get("inspirasi");
       if ($query->num_rows() > 0) {
          foreach ($query->result() as $row) {
@@ -35,10 +36,12 @@ class inspirasi_model extends CI_Model{
                     ->get('inspirasi');
     }
 
-    public function get_data_all()
+    public function get_data_all($id)
     {
-        $id_usaha = null;
-        return $this->db->query('SELECT * FROM inspirasi WHERE id_inspirasi=1')->result_array();
+      //   return $this->db->query('SELECT * FROM inspirasi WHERE kd_data_diri= DD0001')->result_array();
+        $this->db->where('kd_data_diri',$id);
+        return $this->db->get('inspirasi');
+
     }
 
 }
