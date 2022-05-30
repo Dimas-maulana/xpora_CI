@@ -13,7 +13,7 @@ class commodities extends CI_Controller
     function index()
     {
         $data = array(
-            'title' => 'Form Proses Verifikasi',
+            'title' => 'Request Komoditas',
             'header' => 'template/header',
             'menu' => 'template/menu',
             'content' => 'template/content',
@@ -21,6 +21,19 @@ class commodities extends CI_Controller
             'app' => 'commodities',
             'commodities' => $this->commodities->all_data(),
         );
+        $this->load->view('template/main', $data);
+    }
+
+    function detail ($id) {
+        $data = array(
+            'title' => 'Detail Request Komoditas',
+            'header' => 'template/header',
+            'menu' => 'template/menu',
+            'content' => 'template/content',
+            'app' => 'commodities_detail',
+            'commodity' => $this->commodities->get_data_by_id($id)[0]
+        );
+        // echo json_encode($data); die;
         $this->load->view('template/main', $data);
     }
 }
