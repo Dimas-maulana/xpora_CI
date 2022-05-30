@@ -4,13 +4,13 @@ $(document).ready(function () {
 		var title = $(this).text();
 		if (title == "Verification") {
 			$(this).html(`
-            <select class="selectVerif">
-            <option value="">All</option>
-            <option value="Verified">Verified</option>
-            <option value="Need to Verification">Need to Verification</option>
-            <option value="On Progress">On Progress</option>
-            <option value="Cancel">Cancel</option>
-            </select>
+                <select class="selectVerif">
+                <option value="">All</option>
+                <option value="Verified">Verified</option>
+                <option value="Need to Verification">Need to Verification</option>
+                <option value="On Progress">On Progress</option>
+                <option value="Cancel">Cancel</option>
+                </select>
             `);
 		} else if (title == "Verification Date") {
 			$(this).html(`
@@ -57,6 +57,14 @@ $(document).ready(function () {
                     <option value="TT">TT</option>
                 </select>
             `);
+		} else if (title == "Payment") {
+			$(this).html(`
+				<select class="selectPayment">
+					<option value="">All</option>
+					<option value="LC">LC</option>
+					<option value="TT">TT</option>
+				</select>
+			`);
 		} else if (title == "Create Date") {
 			$(this).html(`
                 <input type="date">
@@ -70,6 +78,20 @@ $(document).ready(function () {
 					'" />'
 			);
 	});
+
+	$("#dataTable thead .searchHeaderr").each(function () {
+		var title = $(this).text();
+		if (title == "Status") {
+			$(this).html(`
+                <select class="selectStatus">
+                    <option value="">All</option>
+                    <option value="Verified">Verified</option>
+                    <option value="Need to Verification">Need to Verification</option>
+                </select>
+            `);
+		} else $(this).html('<input size="' + $(this).text().length + '" type="text" placeholder="' + title + '" />');
+	});
+
 	var tabel = $("#dataTable").DataTable({
 		initComplete: function () {
 			// Apply the search document.getElementById("dataTable_filter").lastChild.children[0].value

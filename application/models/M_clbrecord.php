@@ -17,5 +17,6 @@
         $query = $this->db->get();
         return $query->result();
     }
+    
     }
 ?>

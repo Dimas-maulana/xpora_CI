@@ -57,7 +57,7 @@ class ekspansirequest_m extends CI_ModeL
     public function unposted()
     {
         $this->db->from('ekspansi_request');
-        $this->db->where('status', 'unposted');
+        $this->db->where('status', 'un-posted');
         $query = $this->db->get();
         return $query->result();
     }

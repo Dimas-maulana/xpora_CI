@@ -45,9 +45,12 @@ $clb_record = $url == "c_clbrecord" ? "menuActive" : "";
                         <label class="custom-file-label" for="uploadImageFile">Choose file</label>
                     </div>
                 </div>
-                <div style="padding-top:20px;">
-                    <button type="button" class="btn btn-outline-primary btn-sm" style="margin-bottom: 10px; padding-right:55px;">Download All Data</button>
-                </div>
+                <div class="mt-2">
+                                        <form action="/xpora-dashboard-ukm/c_clbrecord/excel_all/<?php echo $id ?>">
+                                        <input type="hidden" name="kd_data_diri" value=" <?php $id ?>"> 
+                                            <button class="btn btn-success" type="submit" style="font-size: 15px;">Download CLB Record</button>
+                                        </form>
+                                    </div>
             </div>
         </div>
 </div>
@@ -92,7 +95,7 @@ $clb_record = $url == "c_clbrecord" ? "menuActive" : "";
         </div>
     </div>
 </div>
-                <!-- Delete Modal HTML -->
+        <!-- Delete Modal HTML -->
         <div  div id="deleteEmployeeModal" class="modal fade">
             <div class="modal-dialog">
               <div class="modal-content">
