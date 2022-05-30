@@ -112,9 +112,10 @@ class inspirasi extends CI_Controller
         }
     }
 
-    public function excel_verif()
+    public function excel_verif($id)
     {
-        $data['verification'] = $this->inspirasi_model->get_data_all();
+        // $id = $this->input->post('id');
+        $data['verification'] = $this->inspirasi_model->get_data_all($id);
 
         require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel.php');
         require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel/Writer/Excel2007.php');
@@ -138,7 +139,7 @@ class inspirasi extends CI_Controller
         $baris = 3;
 
         foreach ($data['verification'] as $verif) {
-            $object->getActiveSheet()->setCellValue('A' . $baris, $verif['id_inspirasi']);
+            $object->getActiveSheet()->setCellValue('A' . $baris, $verif['kd_data_diri']);
             $object->getActiveSheet()->setCellValue('B' . $baris, $verif['nama_kelas']);
             $object->getActiveSheet()->setCellValue('C' . $baris, $verif['kategory']);
             $object->getActiveSheet()->setCellValue('D' . $baris, $verif['level']);
@@ -164,7 +165,7 @@ class inspirasi extends CI_Controller
     }
 
     
-    function index()
+    function index($id)
     {
         //konfigurasi pagination
         $config['base_url'] = site_url('inspirasi'); //site url
@@ -205,7 +206,8 @@ class inspirasi extends CI_Controller
             'content' => 'template/content',
             'footer' => 'template/footer',
             'app' => 'inspirasi',
-            'inspirasi' => $this->inspirasi_model->get_data($config["per_page"], $data['page']),
+            'id'=>$id,
+            'inspirasi' => $this->inspirasi_model->get_data($config["per_page"], $data['page'],$id),
         );
         $this->load->view('template/main', $data);
     }

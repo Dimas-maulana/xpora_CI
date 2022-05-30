@@ -21,7 +21,7 @@ $clb_record = $url == "c_clbrecord" ? "menuActive" : "";
         <a class="nav-link" href=<?= site_url('c_ekspansibisnis'); ?>>Ekspansi Bisnis</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="<?= site_url('inspirasi'); ?>">Inspirasi</a>
+        <a class="nav-link" href="<?= site_url('inspirasi/index'); ?>">Inspirasi</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="<?= site_url('produk_bni'); ?>">Produk BNI</a>

@@ -18,28 +18,30 @@ class detail_akun extends CI_Controller
         $this->load->model('detail_akun_model');
     }
 
-    public  function index()
+    public  function index($id)
     {
         $this->load->helper('form');
         $this->load->model('detail_akun_model');
         $data = array(
+            'id' => $id,
             'title' => 'detail_akun',
             'header' => 'template/header',
             'menu' => 'template/menu',
             'content' => 'template/content',
             'app' => 'detail_akun',
-            'akun' => $this->detail_akun_model->get_akun(),
-            'verif' => $this->detail_akun_model->get_data(),
-            'ekspor' => $this->detail_akun_model->get_ekspor(),
-            'kuantitas' => $this->detail_akun_model->get_kuantitas(),
-            'officer' => $this->detail_akun_model->get_officer(),
+
+            'verif' => $this->detail_akun_model->get_data($id),
+            'ekspor' => $this->detail_akun_model->get_ekspor($id),
+            'kuantitas' => $this->detail_akun_model->get_kuantitas($id),
+            'officer' => $this->detail_akun_model->get_officer($id),
             'img_riwayat' => $this->detail_akun_model->get_img_riwayat(),
             'img_kuantitas' => $this->detail_akun_model->get_img_kuantitas(),
+
         );
         $this->load->view('template/main', $data);
     }
 
-    public function update_nib()
+    public function update_nib($id)
     {
 
         $nib = $this->input->post('nib');
@@ -58,16 +60,16 @@ class detail_akun extends CI_Controller
                 'qyc_nib' => $this->input->post('qyc'),
                 'foto_nib' => $filename,
             );
-            $this->detail_akun_model->update($data);
+            $this->detail_akun_model->update($data,$id);
         } else {
             $data = array(
                 'nib' => $nib,
                 'qyc_nib' => $this->input->post('qyc'),
             );
-            $this->detail_akun_model->update($data);
+            $this->detail_akun_model->update($data,$id);
         }
-
-        redirect('detail_akun/index');
+        
+        redirect($_SERVER['REQUEST_URI'], 'refresh'); 
     }
 
     public function download_nib()
@@ -141,7 +143,7 @@ class detail_akun extends CI_Controller
 
 
 
-    public function update_npwp()
+    public function update_npwp($id)
     {
 
         $npwp = $this->input->post('npwp');
@@ -160,19 +162,19 @@ class detail_akun extends CI_Controller
                 'qyc_npwp' => $this->input->post('qyc'),
                 'foto_npwp' => $filename,
             );
-            $this->detail_akun_model->update($data);
+            $this->detail_akun_model->update($data,$id);
         } else {
             $data = array(
                 'npwp_perusahaan' => $npwp,
                 'qyc_npwp' => $this->input->post('qyc'),
             );
-            $this->detail_akun_model->update($data);
+            $this->detail_akun_model->update($data,$id);
         }
 
         redirect('detail_akun/index');
     }
 
-    public function update_siup()
+    public function update_siup($id)
     {
 
         $siup = $this->input->post('siup');
@@ -191,19 +193,19 @@ class detail_akun extends CI_Controller
                 'qyc_siup' => $this->input->post('qyc'),
                 'foto_siup' => $filename,
             );
-            $this->detail_akun_model->update($data);
+            $this->detail_akun_model->update($data,$id);
         } else {
             $data = array(
                 'no_siup' => $siup,
                 'qyc_siup' => $this->input->post('qyc'),
             );
-            $this->detail_akun_model->update($data);
+            $this->detail_akun_model->update($data,$id);
         }
 
         redirect('detail_akun/index');
     }
 
-    public function update_akta()
+    public function update_akta($id)
     {
 
         $akta = $this->input->post('akta');
@@ -222,19 +224,19 @@ class detail_akun extends CI_Controller
                 'qyc_akta' => $this->input->post('qyc'),
                 'foto_akta' => $filename,
             );
-            $this->detail_akun_model->update($data);
+            $this->detail_akun_model->update($data,$id);
         } else {
             $data = array(
                 'no_akta' => $akta,
                 'qyc_akta' => $this->input->post('qyc'),
             );
-            $this->detail_akun_model->update($data);
+            $this->detail_akun_model->update($data,$id);
         }
 
         redirect('detail_akun/index');
     }
 
-    public function update_peb()
+    public function update_peb($id)
     {
 
         $peb = $this->input->post('peb');
@@ -253,13 +255,13 @@ class detail_akun extends CI_Controller
                 'qyc_peb' => $this->input->post('qyc'),
                 'foto_peb' => $filename,
             );
-            $this->detail_akun_model->update($data);
+            $this->detail_akun_model->update($data,$id);
         } else {
             $data = array(
                 'no_peb' => $peb,
                 'qyc_peb' => $this->input->post('qyc'),
             );
-            $this->detail_akun_model->update($data);
+            $this->detail_akun_model->update($data,$id);
         }
 
         redirect('detail_akun/index');
@@ -403,7 +405,7 @@ class detail_akun extends CI_Controller
         redirect('detail_akun/index');
     }
 
-    public function update_domisili()
+    public function update_domisili($id)
     {
         $domisili = $this->input->post('domisili');
         $config['upload_path'] = './assets/foto/domisili';
@@ -421,13 +423,13 @@ class detail_akun extends CI_Controller
                 'qyc_domisili' => $this->input->post('qyc'),
                 'foto_domisili' => $filename,
             );
-            $this->detail_akun_model->update($data);
+            $this->detail_akun_model->update($data,$id);
         } else {
             $data = array(
                 'domisili' => $domisili,
                 'qyc_domisili' => $this->input->post('qyc'),
             );
-            $this->detail_akun_model->update($data);
+            $this->detail_akun_model->update($data,$id);
         }
 
         redirect('detail_akun/index');
