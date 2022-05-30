@@ -15,6 +15,15 @@ class ekspansirequest_m extends CI_ModeL
         return $query->result();
     }
 
+    public function get_by_request_id($id) {
+        $this->db->from('ekspansi_request as er');
+        $this->db->join('data_diri as dr', 'dr.kd_data_diri = er.kd_data_diri');
+        $this->db->where('er.request_post_id', $id);
+        $query = $this->db->get();
+
+        return $query->row();
+    }
+
     public function get_by_id($id)
     {
         $this->db->from('ekspansi_request');

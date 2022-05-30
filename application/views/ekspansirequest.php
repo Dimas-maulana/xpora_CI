@@ -47,14 +47,12 @@
                   <td style="text-align:center; white-space:nowrap;">
                     <button class="btn btn-success btn-sm" type="submit" name="approve" value="Posted" style="font-size: 8px;">Approve</button>
                     <button class="btn btn-danger btn-sm" type="submit" name="approve" value="Un-Posted" style="font-size: 8px;">Decline</button>
-                    <a href="#deleteEmployeeModal" class="btn btn-info btn-sm" data-toggle="modal">Detail</a>
-
+                    <a href="<?= site_url('ekspansirequest/detail/' . $rs->request_post_id) ?>" class="btn btn-info btn-sm">Detail</a>
                   </td>
                 </form>
               <?php } else { ?>
                 <td style="text-align:center; white-space:nowrap;">
-
-                  <a href="#deleteEmployeeModal" class="btn btn-info btn-sm" data-toggle="modal">Detail</a>
+                  <a href="<?= site_url('ekspansirequest/detail/' . $rs->request_post_id) ?>" class="btn btn-info btn-sm">Detail</a>
                 </td> <?php } ?>
             </tr>
 

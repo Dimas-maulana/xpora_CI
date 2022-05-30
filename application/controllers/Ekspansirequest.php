@@ -110,4 +110,19 @@ class ekspansirequest extends CI_Controller
         );
         $this->load->view('template/main', $data);
     }
+
+    function detail ($id) {
+        $ekspansiRequest = $this->ekspansirequest->get_by_request_id($id);
+
+        $data = array(
+            'title' => 'Detail Ekspansi Request',
+            'header' => 'template/header',
+            'menu' => 'template/menu',
+            'content' => 'template/content',
+            'app' => 'ekspansirequest_detail',
+            'ekspansi_request' => $ekspansiRequest
+        );
+        // echo json_encode($data); die;
+        $this->load->view('template/main', $data);
+    }
 }
