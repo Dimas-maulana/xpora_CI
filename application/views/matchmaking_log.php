@@ -43,9 +43,7 @@
                             <td style="vertical-align: middle; white-space:nowrap;" onclick="sData(this)"><?= $rs->value; ?></td>
                             <td style="vertical-align: middle; white-space:nowrap;" onclick="sData(this)"><?= $rs->application_date; ?></td>
                             <td style="text-align:center; white-space:nowrap;">
-                                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#staticBackdrop">
-                                    Detail
-                                </button>
+                                <a href="<?= site_url('matchmaking_log/detail/' . $rs->matchmaking_id) ?>" class="btn btn-info btn-sm">Detail</a>
                             </td>
                         </tr>
                     <?php endforeach ?>

@@ -9,6 +9,7 @@ class ekspansirequest extends CI_Controller
         parent::__construct();
         $this->load->helper(array('form', 'url'));
         $this->load->model('ekspansirequest_m', 'ekspansirequest');
+        $this->load->model('detail_akun_model', 'detail_akun');
     }
 
     function index()
@@ -120,9 +121,9 @@ class ekspansirequest extends CI_Controller
             'menu' => 'template/menu',
             'content' => 'template/content',
             'app' => 'ekspansirequest_detail',
-            'ekspansi_request' => $ekspansiRequest
+            'ekspansi_request' => $ekspansiRequest,
+            'user' => $this->detail_akun->get_data($ekspansiRequest->kd_data_diri)[0],
         );
-        // echo json_encode($data); die;
         $this->load->view('template/main', $data);
     }
 }

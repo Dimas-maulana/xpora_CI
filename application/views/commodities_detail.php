@@ -2,6 +2,9 @@
     <div class="row">
         <div class="col-12 col-md-6 pt-5">
             <div class="row">
+                <div class="col-12 d-flex mb-4" style="flex-direction: row; justify-content: flex-start; align-items: center;">
+                    <h4 class="mb-0">Detail Komoditas</h4>
+                </div>
                 <div class="col-12 d-flex mb-4" style="flex-direction: column">
                     <label>Komoditas Post ID</label>
                     <span>
@@ -33,6 +36,12 @@
                     </span>
                 </div>
                 <div class="col-12 d-flex mb-4" style="flex-direction: column">
+                    <label>Detail Spesifikasi</label>
+                    <span>
+                        <strong><?= $commodity->details_spesifikasi ?></strong>
+                    </span>
+                </div>
+                <div class="col-12 d-flex mb-4" style="flex-direction: column">
                     <label>Minimum Order</label>
                     <span>
                         <strong><?= $commodity->minimum_order_qty ?></strong>
@@ -60,52 +69,68 @@
         </div>
         <div class="col-12 col-md-6 pt-5">
             <div class="row">
+                <div class="col-12 d-flex mb-4" style="flex-direction: row; justify-content: flex-start; align-items: center;">
+                    <h4 class="mb-0">Data Akun</h4>
+                    <a href="<?= site_url('/akun/detail_akun/'.$user['kd_data_diri']) ?>" class="btn btn-sm btn-info d-inline-block ml-3">Detail Akun</a>
+                </div>
                 <div class="col-12 d-flex mb-4" style="flex-direction: column">
                     <label>KD Data Diri</label>
                     <span>
-                        <strong><?= $commodity->kd_data_diri ?></strong>
+                        <strong><?= $user['kd_data_diri'] ?></strong>
                     </span>
                 </div>
                 <div class="col-12 d-flex mb-4" style="flex-direction: column">
-                    <label>Nama Pemilik</label>
+                    <label>Nama Usaha</label>
                     <span>
-                        <strong><?= $commodity->nama_pemilik ?></strong>
+                        <strong><?= $user['nama_usaha'] ?></strong>
                     </span>
                 </div>
                 <div class="col-12 d-flex mb-4" style="flex-direction: column">
-                    <label>NIK</label>
+                    <label>Bidang Usaha</label>
                     <span>
-                        <strong><?= $commodity->nik ?></strong>
+                        <strong><?= $user['bidang_usaha'] ?></strong>
                     </span>
                 </div>
                 <div class="col-12 d-flex mb-4" style="flex-direction: column">
-                    <label>NPWP</label>
+                    <label>Komoditas Perusahaan</label>
                     <span>
-                        <strong><?= $commodity->npwp ?></strong>
+                        <strong><?= $user['komoditi_usaha'] ?></strong>
                     </span>
                 </div>
                 <div class="col-12 d-flex mb-4" style="flex-direction: column">
                     <label>Nomor Telepon</label>
                     <span>
-                        <strong><?= $commodity->no_telp ?></strong>
+                        <strong><?= $user['no_telp'] ?></strong>
                     </span>
                 </div>
                 <div class="col-12 d-flex mb-4" style="flex-direction: column">
                     <label>Email</label>
                     <span>
-                        <strong><?= $commodity->email ?></strong>
+                        <strong><?= $user['email_perusahaan'] ?></strong>
                     </span>
                 </div>
                 <div class="col-12 d-flex mb-4" style="flex-direction: column">
-                    <label>Domisili</label>
+                    <label>NPWP</label>
                     <span>
-                        <strong><?= $commodity->domisili ?></strong>
+                        <strong><?= $user['npwp_perusahaan'] ?></strong>
                     </span>
                 </div>
                 <div class="col-12 d-flex mb-4" style="flex-direction: column">
-                    <label>Tipe User</label>
+                    <label>SIUP</label>
                     <span>
-                        <strong><?= $commodity->user_type ?></strong>
+                        <strong><?= $user['no_siup'] ?></strong>
+                    </span>
+                </div>
+                <div class="col-12 d-flex mb-4" style="flex-direction: column">
+                    <label>Lokasi Perusahaan</label>
+                    <span>
+                        <strong><?= $user['kecamatan'] ?>, <?= $user['kota'] ?>, <?= $user['provinsi'] ?></strong>
+                    </span>
+                </div>
+                <div class="col-12 d-flex mb-4" style="flex-direction: column">
+                    <label>Domisili Perusahaan</label>
+                    <span>
+                        <strong><?= $user['domisili_perusahaan'] ?></strong>
                     </span>
                 </div>
             </div>

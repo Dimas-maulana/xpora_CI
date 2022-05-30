@@ -8,6 +8,7 @@ class commodities extends CI_Controller
     {
         parent::__construct();
         $this->load->model('commodities_model', 'commodities');
+        $this->load->model('detail_akun_model', 'detail_akun');
     }
 
     function index()
@@ -25,15 +26,16 @@ class commodities extends CI_Controller
     }
 
     function detail ($id) {
+        $commodity = $this->commodities->get_data_by_id($id)[0];
         $data = array(
             'title' => 'Detail Request Komoditas',
             'header' => 'template/header',
             'menu' => 'template/menu',
             'content' => 'template/content',
             'app' => 'commodities_detail',
-            'commodity' => $this->commodities->get_data_by_id($id)[0]
+            'commodity' => $commodity,
+            'user' => $this->detail_akun->get_data($commodity->kd_data_diri)[0]
         );
-        // echo json_encode($data); die;
         $this->load->view('template/main', $data);
     }
 }
