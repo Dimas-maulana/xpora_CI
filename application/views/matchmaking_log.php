@@ -17,14 +17,14 @@
                         <th rowspan="2" class="align-middle">Action</th>
                     </tr>
                     <tr>
-                        <th class="searchHeader">Matchmaking ID</th>
-                        <th class="searchHeader">Seller ID</th>
-                        <th class="searchHeader">Buyer ID</th>
-                        <th class="searchHeader">Destination</th>
-                        <th class="searchHeader">Commodity</th>
+                        <th class="searchHeader">Search</th>
+                        <th class="searchHeader">Search</th>
+                        <th class="searchHeader">Search</th>
+                        <th class="searchHeader">Search</th>
+                        <th class="searchHeader">Search</th>
                         <th class="searchHeader">Status</th>
                         <th class="searchHeader">Payment System</th>
-                        <th class="searchHeader">Value</th>
+                        <th class="searchHeader">Search</th>
                         <th class="searchHeader">Application Date</th>
                     </tr>
                 </thead>

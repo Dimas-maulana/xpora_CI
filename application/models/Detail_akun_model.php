@@ -3,10 +3,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class detail_akun_model extends CI_Model
 {
-    public function get_akun()
+    public function get_akun($id)
     {
-        $id_usaha = null;
-        return $this->db->query('SELECT * FROM akun WHERE user_id=1')->result_array();
+        $id_usaha = $id;
+        return $this->db->query('SELECT * FROM akun WHERE user_id='.$id_usaha)->result_array();
     }
     public function get_data()
     {

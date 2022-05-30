@@ -159,6 +159,7 @@ class akun extends CI_Controller
             'menu' => 'template/menu',
             'content' => 'template/content',
             'app' => 'detail_account',
+            'id' => $id,
             'row' => $this->akun->get_by_id(urldecode($id)),
         );
         $this->load->view('template/main', $data);

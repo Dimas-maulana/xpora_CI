@@ -18,7 +18,7 @@ class detail_akun extends CI_Controller
         $this->load->model('detail_akun_model');
     }
 
-    public  function index()
+    public  function index($id)
     {
         $this->load->helper('form');
         $this->load->model('detail_akun_model');
@@ -28,13 +28,13 @@ class detail_akun extends CI_Controller
             'menu' => 'template/menu',
             'content' => 'template/content',
             'app' => 'detail_akun',
-            'akun' => $this->detail_akun_model->get_akun(),
-            'verif' => $this->detail_akun_model->get_data(),
-            'ekspor' => $this->detail_akun_model->get_ekspor(),
-            'kuantitas' => $this->detail_akun_model->get_kuantitas(),
-            'officer' => $this->detail_akun_model->get_officer(),
-            'img_riwayat' => $this->detail_akun_model->get_img_riwayat(),
-            'img_kuantitas' => $this->detail_akun_model->get_img_kuantitas(),
+            'akun' => $this->detail_akun_model->get_akun($id),
+            'verif' => $this->detail_akun_model->get_data($id),
+            'ekspor' => $this->detail_akun_model->get_ekspor($id),
+            'kuantitas' => $this->detail_akun_model->get_kuantitas($id),
+            'officer' => $this->detail_akun_model->get_officer($id),
+            'img_riwayat' => $this->detail_akun_model->get_img_riwayat($id),
+            'img_kuantitas' => $this->detail_akun_model->get_img_kuantitas($id),
         );
         $this->load->view('template/main', $data);
     }

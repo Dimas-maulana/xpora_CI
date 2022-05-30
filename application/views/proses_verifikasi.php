@@ -2,7 +2,7 @@
     <div class="card-body">
         <button type="button" class="btn btn-dark" style="margin-bottom: 20px;">Assigned Selected User</button>
         <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <table class="table table-bordered" id="Datatable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th rowspan="2" class="align-middle">#</th>
@@ -17,10 +17,10 @@
                         <th rowspan="2" class="align-middle">Action</th>
                     </tr>
                     <tr>
-                        <th class="searchHeader">User ID</th>
-                        <th class="searchHeader">User Name</th>
-                        <th class="searchHeader">Company Name</th>
-                        <th class="searchHeader">Region</th>
+                        <th class="searchHeader">Search</th>
+                        <th class="searchHeader">Search</th>
+                        <th class="searchHeader">Search</th>
+                        <th class="searchHeader">Search</th>
                         <th class="searchHeaderr">Verification</th>
                         <th class="searchHeader">Assigned Officer</th>
                         <th class="searchHeader">Priority</th>

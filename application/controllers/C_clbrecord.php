@@ -10,8 +10,9 @@ class c_clbrecord extends CI_Controller
         $this->load->model('m_clbrecord', 'clb');
     }
 
-    function index()
+    function index($id)
     {
+        // echo $id; die;
         $data = array(
             'title' => 'Cek Level Bisnis',
             'header' => 'template/header',
@@ -19,7 +20,7 @@ class c_clbrecord extends CI_Controller
             'content' => 'template/content',
             'footer' => 'template/footer',
             'app' => 'v_clbrecord',
-            'clb' => $this->clb->all_data(),
+            'clb' => $this->clb->all_data($id),
         );
         $this->load->view('template/main',  $data);
     }
