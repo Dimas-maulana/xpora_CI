@@ -62,7 +62,7 @@
                     </div>
                     <div class="col-lg-8">
                       <?php if (isset($matchmaking_logs) && count($matchmaking_logs) > 0) { ?>
-                        <h5>Matchmaking log</h5>
+                        <h5 class="d-block mb-5">Matchmaking log</h5>
                         <?php foreach ($matchmaking_logs as $ml) { ?>
                           <div class="card mb-1">
                             <div class="card-body">
@@ -109,7 +109,7 @@
                         <?php } ?>
                       <?php } ?>
                       <?php if (isset($ekspansi_komoditas) && count($ekspansi_komoditas) > 0) { ?>
-                        <h5 class="d-block mt-5">Commodities Post</h5>
+                        <h5 class="d-block mb-5">Commodities Post</h5>
                         <?php foreach ($ekspansi_komoditas as $ek) { ?>
                           <div class="card mb-1">
                             <div class="card-body">
@@ -156,7 +156,7 @@
                         <?php } ?>
                       <?php } ?>
                       <?php if (isset($ekspansi_request) && count($ekspansi_request) > 0) { ?>
-                        <h5 class="d-block mt-5">Request Post</h5>
+                        <h5 class="d-block mb-5">Request Post</h5>
                         <?php foreach ($ekspansi_request as $er) { ?>
                           <div class="card">
                             <div class="card-body">
