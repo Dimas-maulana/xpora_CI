@@ -26,10 +26,9 @@ class ekspansirequest_m extends CI_ModeL
     public function get_by_id($id)
     {
         $this->db->from('ekspansi_request');
-        $this->db->join('ekspansi_request', 'ekspansi_request.kd_data_diri=data_diri.kd_data_diri');
         $this->db->where('ekspansi_request.kd_data_diri', $id);
         $query = $this->db->get();
-        return $query->row();
+        return $query->result();
     }
 
     public function update($table, $data, $where)

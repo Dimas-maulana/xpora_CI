@@ -60,256 +60,147 @@
                             </div>
                         </div>
                     </div>
-    
                     <div class="col-lg-8">
+                      <?php if (isset($matchmaking_logs) && count($matchmaking_logs) > 0) { ?>
                         <h5>Matchmaking log</h5>
-                        <div class="card">
-                            <class class="card-body">
-                                <div class="row mb-3">
-                                <div id="carouselExampleControls" class="carousel slide" data-interval="false">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                        <img class="d-block w-100" src="https://praxis.co.id/media/image/161052138715ffe9b2bab481" alt="First slide">
-                                        </div>
-                                        <div class="carousel-item">
-                                        <img class="d-block w-100" src="https://praxis.co.id/media/image/161052138715ffe9b2bab481" alt="Second slide">
-                                        </div>
-                                        <div class="carousel-item">
-                                        <img class="d-block w-100" src="https://praxis.co.id/media/image/161052138715ffe9b2bab481" alt="Third slide">
-                                        </div>
+                        <?php foreach ($matchmaking_logs as $ml) { ?>
+                          <div class="card mb-1">
+                            <div class="card-body">
+                              <div class="row">
+                                <div id="carouselExampleControls" class="col-sm-4 carousel slide" data-interval="false">
+                                  <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                      <img class="d-block w-100" src="https://praxis.co.id/media/image/161052138715ffe9b2bab481" alt="First slide">
                                     </div>
-                                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Next</span>
-                                    </a>
+                                    <div class="carousel-item">
+                                      <img class="d-block w-100" src="https://praxis.co.id/media/image/161052138715ffe9b2bab481" alt="Second slide">
                                     </div>
-                                    <div class="col-sm-4 text-secondary">
-                                        <input type="text" class="form-control" placeholder="Nama Komoditas">
-                                        <input type="text" class="form-control" placeholder="Kategory">
-                                        <input type="text" class="form-control" placeholder="Status">
+                                    <div class="carousel-item">
+                                      <img class="d-block w-100" src="https://praxis.co.id/media/image/161052138715ffe9b2bab481" alt="Third slide">
                                     </div>
-                                    <div class="col-sm-4 text-secondary">
-                                        <input type="text" class="form-control" placeholder="Buyer id">
-                                        <input type="text" class="form-control" placeholder="Seller id">
-                                        <input type="text" class="form-control" placeholder="Tanggal mulai">
-                                    </div>
+                                  </div>
+                                  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                  </a>
+                                  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                  </a>
                                 </div>
-                                <div class="row mb-3 float-lg-right">
-                                    <div class="mt-2">
-                                        <input type="text" placeholder="Assign officer">
-                                        <button class="btn btn-secondary" type="button" style="text-align: end; font-size: 15px; padding: 5px 100px;">Search</button>
-                                    </div>
+                                <div class="col-sm-4 text-secondary">
+                                  <input type="text" class="form-control d-inline-block mb-2" placeholder="Nama Komoditas" disabled value="<?= $ml->comodity ?>">
+                                  <input type="text" class="form-control d-inline-block mb-2" placeholder="Tujuan" disabled value="<?= $ml->destination ?>">
+                                  <input type="text" class="form-control d-inline-block mb-2" placeholder="Status" disabled value="<?= $ml->status ?>">
                                 </div>
-                                <div class="row mb-3 float-lg-right">
-                                    <div class="mt-2">
-                                        <input type="text" placeholder="">
-                                        <button class="btn btn-secondary">Done</button>
-                                    </div>
-                                    <div class="mt-2">
-                                        <button class="btn btn-secondary">Cancel</button>
-                                    </div>
-                                    <div class="mt-2">
-                                    <a href="#deleteEmployeeModal" class="btn btn-secondary" data-toggle="modal">Detail</a>
-                                    </div>
+                                <div class="col-sm-4 text-secondary">
+                                  <input type="text" class="form-control d-inline-block mb-2" placeholder="Buyer id" disabled value="<?= $ml->buyer_id ?>">
+                                  <input type="text" class="form-control d-inline-block mb-2" placeholder="Seller id" disabled value="<?= $ml->seller_id ?>">
+                                  <input type="text" class="form-control d-inline-block mb-2" placeholder="Tanggal mulai" disabled value="<?= $ml->application_date ?>">
                                 </div>
-                        </div>
-                        <div class="card">
-                            <class class="card-body">
-                                <div class="row mb-3">
-                                <div id="carouselExampleControls" class="carousel slide" data-interval="false">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                        <img class="d-block w-100" src="https://praxis.co.id/media/image/161052138715ffe9b2bab481" alt="First slide">
-                                        </div>
-                                        <div class="carousel-item">
-                                        <img class="d-block w-100" src="https://praxis.co.id/media/image/161052138715ffe9b2bab481" alt="Second slide">
-                                        </div>
-                                        <div class="carousel-item">
-                                        <img class="d-block w-100" src="https://praxis.co.id/media/image/161052138715ffe9b2bab481" alt="Third slide">
-                                        </div>
-                                    </div>
-                                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Next</span>
-                                    </a>
-                                    </div>
-                                    <div class="col-sm-4 text-secondary">
-                                        <input type="text" class="form-control" placeholder="Nama Komoditas">
-                                        <input type="text" class="form-control" placeholder="Kategory">
-                                        <input type="text" class="form-control" placeholder="Status">
-                                    </div>
-                                    <div class="col-sm-4 text-secondary">
-                                        <input type="text" class="form-control" placeholder="Buyer id">
-                                        <input type="text" class="form-control" placeholder="Seller id">
-                                        <input type="text" class="form-control" placeholder="Tanggal mulai">
-                                    </div>
+                                <div class="col-12" style="text-align: right">
+                                  <div class="mt-2">
+                                    <a href="<?= site_url('/matchmaking_log/detail/'.$ml->matchmaking_id) ?>" class="btn btn-secondary">Detail</a>
+                                  </div>
                                 </div>
-                                <div class="row mb-3 float-lg-right">
-                                    <div class="mt-2">
-                                        <input type="text" placeholder="Assign officer">
-                                        <button class="btn btn-secondary" type="button" style="text-align: end; font-size: 15px; padding: 5px 100px;">Search</button>
-                                    </div>
-                                </div>
-                                <div class="row mb-3 float-lg-right">
-                                    <div class="mt-2">
-                                        <input type="text" placeholder="">
-                                        <button class="btn btn-secondary">Done</button>
-                                    </div>
-                                    <div class="mt-2">
-                                        <button class="btn btn-secondary">Cancel</button>
-                                    </div>
-                                    <div class="mt-2">
-                                    <a href="#deleteEmployeeModal" class="btn btn-secondary" data-toggle="modal">Detail</a>
-                                    </div>
-                                </div>
-                        </div>
-
-
-                        <div class="col-lg-20">
-                            <h5>Commodities Post</h5>
-                            <div class="card">
-                                <div class="mt-2">
-                                    <button class="btn btn-secondary" type="button" style="text-align: end; font-size: 10px; float: right;">Download</button>
-                                    <button class="btn btn-secondary" type="button" style="text-align: end; font-size: 10px; float: right; margin-right: 1cm;">Select All</button>
-                                </div>
-                                <class class="card-body">
-                                    <div class="row mb-3">
-                                    <div id="carouselExampleControls2" class="carousel slide2" data-interval="false">
-                                    <div class="carousel-inner2">
-                                        <div class="carousel-item active">
-                                        <img class="d-block w-100" src="https://praxis.co.id/media/image/161052138715ffe9b2bab481" alt="First slide">
-                                        </div>
-                                        <div class="carousel-item">
-                                        <img class="d-block w-100" src="https://praxis.co.id/media/image/161052138715ffe9b2bab481" alt="Second slide">
-                                        </div>
-                                        <div class="carousel-item">
-                                        <img class="d-block w-100" src="https://praxis.co.id/media/image/161052138715ffe9b2bab481" alt="Third slide">
-                                        </div>
-                                    </div>
-                                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Next</span>
-                                    </a>
-                                    </div>
-                                        <div class="col-sm-4 text-secondary">
-                                            <input type="text" class="form-control" placeholder="Text Field">
-                                            <input type="text" class="form-control" placeholder="Text Field">
-                                            <input type="text" class="form-control" placeholder="Text Field">
-                                            <a href="Detail-comodities-post.html">
-                                            <a href="#deleteEmployeeModal2" class="btn btn-secondary" data-toggle="modal">Detail</a>
-                                            </a>
-                                            <p>Need Approval</p>
-                                            <button class="btn btn-secondary" type="button">Approve</button>
-                                        </div>
-                                        <div class="col-sm-4 text-secondary">
-                                            <input type="text" class="form-control" placeholder="Text Field">
-                                            <input type="text" class="form-control" placeholder="Text Field">
-                                            <input type="text" class="form-control" placeholder="Text Field">
-                                        </div>
-                                    </div>
+                              </div>
                             </div>
-                            <div class="card">
-                                <class class="card-body">
-                                    <div class="row mb-3">
-                                    <div id="carouselExampleControls3" class="carousel slide3" data-interval="false">
-                                    <div class="carousel-inner3">
-                                        <div class="carousel-item active">
-                                        <img class="d-block w-100" src="https://praxis.co.id/media/image/161052138715ffe9b2bab481" alt="First slide">
-                                        </div>
-                                        <div class="carousel-item">
-                                        <img class="d-block w-100" src="https://praxis.co.id/media/image/161052138715ffe9b2bab481" alt="Second slide">
-                                        </div>
-                                        <div class="carousel-item">
-                                        <img class="d-block w-100" src="https://praxis.co.id/media/image/161052138715ffe9b2bab481" alt="Third slide">
-                                        </div>
+                          </div>
+                        <?php } ?>
+                      <?php } ?>
+                      <?php if (isset($ekspansi_komoditas) && count($ekspansi_komoditas) > 0) { ?>
+                        <h5 class="d-block mt-5">Commodities Post</h5>
+                        <?php foreach ($ekspansi_komoditas as $ek) { ?>
+                          <div class="card mb-1">
+                            <div class="card-body">
+                              <div class="row">
+                                <div id="carouselExampleControls2" class="carousel slide2 col-sm-4" data-interval="false">
+                                  <div class="carousel-inner2">
+                                    <div class="carousel-item active">
+                                      <img class="d-block w-100" src="https://praxis.co.id/media/image/161052138715ffe9b2bab481" alt="First slide">
                                     </div>
-                                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Next</span>
-                                    </a>
+                                    <div class="carousel-item">
+                                      <img class="d-block w-100" src="https://praxis.co.id/media/image/161052138715ffe9b2bab481" alt="Second slide">
                                     </div>
-                                        <div class="col-sm-4 text-secondary">
-                                            <input type="text" class="form-control" placeholder="Text Field">
-                                            <input type="text" class="form-control" placeholder="Text Field">
-                                            <input type="text" class="form-control" placeholder="Text Field">
-                                            <a href="Detail-comodities-post.html">
-                                            <a href="#deleteEmployeeModal2" class="btn btn-secondary" data-toggle="modal">Detail</a>
-                                            </a>
-                                            <p>Approved</p>
-                                            <button class="btn btn-secondary" type="button">Take down</button>
-                                        </div>
-                                        <div class="col-sm-4 text-secondary">
-                                            <input type="text" class="form-control" placeholder="Text Field">
-                                            <input type="text" class="form-control" placeholder="Text Field">
-                                            <input type="text" class="form-control" placeholder="Text Field">
-                                        </div>
+                                    <div class="carousel-item">
+                                      <img class="d-block w-100" src="https://praxis.co.id/media/image/161052138715ffe9b2bab481" alt="Third slide">
                                     </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-20">
-                            <h5>Request Post</h5>
-                            <div class="card">
-                                <div class="mt-2">
-                                    <button class="btn btn-secondary" type="button" style="text-align: end; font-size: 10px; float: right;">Download</button>
-                                    <button class="btn btn-secondary" type="button" style="text-align: end; font-size: 10px; float: right;">Select All</button>
+                                  </div>
+                                  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                  </a>
+                                  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                  </a>
                                 </div>
-                                <class class="card-body">
-                                    <div class="row mb-3">
-                                    <div id="carouselExampleControls3" class="carousel slide3" data-interval="false">
-                                    <div class="carousel-inner3">
-                                        <div class="carousel-item active">
-                                        <img class="d-block w-100" src="https://praxis.co.id/media/image/161052138715ffe9b2bab481" alt="First slide">
-                                        </div>
-                                        <div class="carousel-item">
-                                        <img class="d-block w-100" src="https://praxis.co.id/media/image/161052138715ffe9b2bab481" alt="Second slide">
-                                        </div>
-                                        <div class="carousel-item">
-                                        <img class="d-block w-100" src="https://praxis.co.id/media/image/161052138715ffe9b2bab481" alt="Third slide">
-                                        </div>
-                                    </div>
-                                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Next</span>
-                                    </a>
-                                    </div>
-                                        <div class="col-sm-4 text-secondary">
-                                            <input type="text" class="form-control" placeholder="Nama Komoditas">
-                                            <input type="text" class="form-control" placeholder="Qty Komoditas">
-                                            <input type="text" class="form-control" placeholder="Status">
-                                            <a href="Detail-request-post.html">
-                                            <a href="#deleteEmployeeModal3" class="btn btn-secondary" data-toggle="modal">Detail</a>
-                                            </a>
-                                            <p>Need Approval</p>
-                                            <button class="btn btn-secondary" type="button">Approve</button>
-                                        </div>
-                                        <div class="col-sm-4 text-secondary">
-                                            <input type="text" class="form-control" placeholder="Request id">
-                                            <input type="text" class="form-control" placeholder="Tanggal pembuatan">
-                                        </div>
-                                    </div>
+                                <div class="col-sm-4 text-secondary">
+                                  <input type="text" class="form-control d-inline-block mb-2" placeholder="Komoditas" value="<?= $ek->comodity_name ?>" disabled>
+                                  <input type="text" class="form-control d-inline-block mb-2" placeholder="Harga Exwork" value="<?= $ek->exwork_price ?>" disabled>
+                                  <input type="text" class="form-control d-inline-block mb-2" placeholder="Status" value="<?= $ek->status ?>" disabled>
+                                </div>
+                                <div class="col-sm-4 text-secondary">
+                                    <input type="text" class="form-control d-inline-block mb-2" placeholder="Kapasitas Komoditas" value="<?= $ek->capacity_comodity ?>" disabled>
+                                    <input type="text" class="form-control d-inline-block mb-2" placeholder="Minimum Order" value="<?= $ek->minimum_order_qty ?>" disabled>
+                                    <input type="text" class="form-control d-inline-block mb-2" placeholder="Tanggal Pembuatan" value="<?= $ek->create_date ?>" disabled>
+                                </div>
+                                <div class="col-12" style="text-align: right">
+                                  <div class="mt-2">
+                                    <a href="<?= site_url('/commodities/detail/'.$ek->comodity_posted_id) ?>" class="btn btn-secondary">Detail</a>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
-                        </div>
-                    </div>
+                          </div>
+                        <?php } ?>
+                      <?php } ?>
+                      <?php if (isset($ekspansi_request) && count($ekspansi_request) > 0) { ?>
+                        <h5 class="d-block mt-5">Request Post</h5>
+                        <?php foreach ($ekspansi_request as $er) { ?>
+                          <div class="card">
+                            <div class="card-body">
+                              <div class="row">
+                                <div id="carouselExampleControls3" class="carousel slide3 col-sm-4" data-interval="false">
+                                  <div class="carousel-inner3">
+                                    <div class="carousel-item active">
+                                      <img class="d-block w-100" src="https://praxis.co.id/media/image/161052138715ffe9b2bab481" alt="First slide">
+                                    </div>
+                                    <div class="carousel-item">
+                                      <img class="d-block w-100" src="https://praxis.co.id/media/image/161052138715ffe9b2bab481" alt="Second slide">
+                                    </div>
+                                    <div class="carousel-item">
+                                      <img class="d-block w-100" src="https://praxis.co.id/media/image/161052138715ffe9b2bab481" alt="Third slide">
+                                    </div>
+                                  </div>
+                                  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                  </a>
+                                  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                  </a>
+                                </div>
+                                <div class="col-sm-4 text-secondary">
+                                  <input type="text" class="form-control d-inline-block mb-2" placeholder="Nama Komoditas" value="<?= $er->comodity_name ?>" disabled>
+                                  <input type="text" class="form-control d-inline-block mb-2" placeholder="QTY Komoditas" value="<?= $er->qty_komoditas ?>" disabled>
+                                  <input type="text" class="form-control d-inline-block mb-2" placeholder="Status" value="<?= $er->status ?>" disabled>
+                                </div>
+                                <div class="col-sm-4 text-secondary">
+                                  <input type="text" class="form-control d-inline-block mb-2" placeholder="Request ID" value="<?= $er->request_post_id ?>" disabled>
+                                  <input type="text" class="form-control d-inline-block mb-2" placeholder="Tanggal pembuatan" value="<?= $er->create_date ?>" disabled>
+                                </div>
+                                <div class="col-12" style="text-align: right">
+                                  <div class="mt-2">
+                                    <a href="<?= site_url('/ekspansirequest/detail/'.$er->request_post_id) ?>" class="btn btn-secondary">Detail</a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        <?php } ?>
+                      <?php } ?>
                 </div>
             </div>
         </div>
