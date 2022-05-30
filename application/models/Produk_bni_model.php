@@ -3,10 +3,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class produk_bni_model extends CI_Model
 {
-    public function get_all_produk()
+    public function get_all_produk($id)
     {
-        $id_usaha = '087BN';
-        return $this->db->query('SELECT * FROM data_pembuatan_rekening WHERE id_usaha = 1')->result_array();
+        
+        $this->db->where('kd_data_diri',$id);  
+        return $this->db->get("data_pembuatan_rekening")->result_array();
     }
 
     public function set_produk($data)

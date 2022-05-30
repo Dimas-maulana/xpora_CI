@@ -10,17 +10,18 @@ class produk_bni extends CI_Controller
         $this->load->model('produk_bni_model');
     }
 
-    public  function index()
+    public  function index($id)
     {
         $this->load->helper('form');
         $this->load->model('detail_akun_model');
         $data = array(
+            'id' => $id,
             'title' => 'detail_akun',
             'header' => 'template/header',
             'menu' => 'template/menu',
             'content' => 'template/content',
             'app' => 'produk_bni',
-            'produk' => $this->produk_bni_model->get_all_produk(),
+            'produk' => $this->produk_bni_model->get_all_produk($id),
         );
         $this->load->view('template/main', $data);
     }
