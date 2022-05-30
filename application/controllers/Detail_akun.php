@@ -69,7 +69,7 @@ class detail_akun extends CI_Controller
             $this->detail_akun_model->update($data,$id);
         }
         
-        redirect($_SERVER['REQUEST_URI'], 'refresh'); 
+        redirect(site_url('detail_akun/index/'.$id)); 
     }
 
     public function download_nib()
@@ -78,7 +78,7 @@ class detail_akun extends CI_Controller
 
         force_download('assets/foto/nib/'. $img , NULL);
 
-        redirect('detail_akun/index');
+        redirect($_SERVER['REQUEST_URI'], 'refresh');
     }
 
     public function download_npwp()
@@ -87,7 +87,7 @@ class detail_akun extends CI_Controller
 
         force_download('assets/foto/npwp/'. $img , NULL);
 
-        redirect('detail_akun/index');
+        redirect($_SERVER['REQUEST_URI'], 'refresh');
     }
 
     public function download_siup()
@@ -96,7 +96,7 @@ class detail_akun extends CI_Controller
 
         force_download('assets/foto/siup/'. $img , NULL);
 
-        redirect('detail_akun/index');
+        redirect($_SERVER['REQUEST_URI'], 'refresh');
     }
     public function download_akta()
     {
@@ -104,7 +104,7 @@ class detail_akun extends CI_Controller
 
         force_download('assets/foto/akta/'. $img , NULL);
 
-        redirect('detail_akun/index');
+        redirect($_SERVER['REQUEST_URI'], 'refresh');
     }
     public function download_peb()
     {
@@ -112,7 +112,7 @@ class detail_akun extends CI_Controller
 
         force_download('assets/foto/peb/'. $img , NULL);
 
-        redirect('detail_akun/index');
+        redirect($_SERVER['REQUEST_URI'], 'refresh');
     }
     public function download_domisili()
     {
@@ -120,7 +120,7 @@ class detail_akun extends CI_Controller
 
         force_download('assets/foto/domisili/'. $img , NULL);
 
-        redirect('detail_akun/index');
+        redirect($_SERVER['REQUEST_URI'], 'refresh');
     }
     public function download_riwayat()
     {
@@ -128,7 +128,7 @@ class detail_akun extends CI_Controller
 
         force_download('assets/foto/riwayat/'. $img , NULL);
 
-        redirect('detail_akun/index');
+        redirect($_SERVER['REQUEST_URI'], 'refresh');
     }
     public function download_kuantitas()
     {
@@ -136,7 +136,7 @@ class detail_akun extends CI_Controller
 
         force_download('assets/foto/kuantitas/'. $img , NULL);
 
-        redirect('detail_akun/index');
+        redirect($_SERVER['REQUEST_URI'], 'refresh');
     }
 
 
@@ -171,7 +171,7 @@ class detail_akun extends CI_Controller
             $this->detail_akun_model->update($data,$id);
         }
 
-        redirect('detail_akun/index');
+        redirect($_SERVER['REQUEST_URI'], 'refresh');
     }
 
     public function update_siup($id)
@@ -202,7 +202,7 @@ class detail_akun extends CI_Controller
             $this->detail_akun_model->update($data,$id);
         }
 
-        redirect('detail_akun/index');
+        redirect($_SERVER['REQUEST_URI'], 'refresh');
     }
 
     public function update_akta($id)
@@ -233,7 +233,7 @@ class detail_akun extends CI_Controller
             $this->detail_akun_model->update($data,$id);
         }
 
-        redirect('detail_akun/index');
+        redirect($_SERVER['REQUEST_URI'], 'refresh');
     }
 
     public function update_peb($id)
@@ -264,7 +264,7 @@ class detail_akun extends CI_Controller
             $this->detail_akun_model->update($data,$id);
         }
 
-        redirect('detail_akun/index');
+        redirect($_SERVER['REQUEST_URI'], 'refresh');
     }
 
     public function set_kuantitas()
@@ -437,7 +437,10 @@ class detail_akun extends CI_Controller
 
     public function set_officer()
     {
+        $kd_diri = $this->input->post('kd_data_diri');
+
         $data = array(
+            'kd_data_diri' => $this->input->post('kd_data_diri'),
             'negara' => $this->input->post('negara'),
             'kota' => $this->input->post('kota'),
             'nama' => $this->input->post('officer'),
@@ -448,7 +451,7 @@ class detail_akun extends CI_Controller
         $data = array(
             'verified' => 1,
         );
-        $this->detail_akun_model->set_data_usaha($data);
+        $this->detail_akun_model->set_data_usaha($data,$kd_diri);
 
         redirect('detail_akun/index');
     }
@@ -576,7 +579,8 @@ class detail_akun extends CI_Controller
 
     public function excel_all()
     {
-        $data['verification'] = $this->detail_akun_model->get_data();
+
+        $data['verification'] = $this->detail_akun_model->get_data("DD0001");
         $data['riwayat'] = $this->detail_akun_model->get_ekspor();
         $data['kuantitas'] = $this->detail_akun_model->get_kuantitas();
 
