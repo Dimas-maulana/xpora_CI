@@ -1,3 +1,24 @@
+<?php
+$url = $this->uri->segment(1);
+$akun = $url == "akun" ? "menuActive" : "";
+$proses_verifikasi = $url == "proses_verifikasi" ? "menuActive" : "";
+$metchmaking_log = $url == "metchmaking_log" ? "menuActive" : "";
+$urll = $this->uri->segment(2);
+$all = $urll == "" ? "tabActive" : "";
+$buyer = $urll == "buyer" ? "tabActive" : "";
+$indirect_exportir = $urll == "indirect_exportir" ? "tabActive" : "";
+$direct_exportir = $urll == "direct_exportir" ? "tabActive" : "";
+$diaspora = $urll == "diaspora" ? "tabActive" : "";
+$requested = $urll == "requested" ? "tabActive" : "";
+$on_progress = $urll == "on_progress" ? "tabActive" : "";
+$done = $urll == "done" ? "tabActive" : "";
+$cancel = $urll == "cancel" ? "tabActive" : "";
+$draft = $urll == "draft" ? "tabActive" : "";
+$waiting_for_approval = $urll == "waiting_for_approval" ? "tabActive" : "";
+$posted = $urll == "posted" ? "tabActive" : "";
+$unposted = $urll == "unposted" ? "tabActive" : ""; 
+
+?>
 <body id="page-top">
 
     <!-- Page Wrapper -->
@@ -40,7 +61,7 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?= site_url('matchmaking_log'); ?>">Matchmaking log</a>
+                        <a class="collapse-item <?= $metchmaking_log ?>" href="<?= site_url('matchmaking_log'); ?>">Matchmaking log</a>
                         <a class="collapse-item" href="<?= site_url('commodities'); ?>">Commodities</a>
                         <a class="collapse-item" href="<?= site_url('ekspansirequest'); ?>">Request</a>
                     </div>
@@ -88,50 +109,91 @@
 
             <!-- Main Content -->
             <div id="content">
+            <?php 
+            $listURL = ["dashboard", "akun", "proses_verifikasi", "matchmaking_log", "ekspansirequest", "ceklevelbisnis"];
+            if (in_array($url, $listURL) && $urll != "detail_akun") { ?>
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <?php if ($url == "akun") { ?>
+                        <!-- Sidebar Toggle (Topbar) -->
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link <?= $all ?>" href="<?= site_url('akun'); ?>">All</a>
+                            </li>
+                            <li class="nav-item  ">
+                                <a class="nav-link <?= $buyer ?>" href="<?= site_url('akun/buyer'); ?>">Buyer</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link <?= $indirect_exportir ?>" href="<?= site_url('akun/indirect_exportir'); ?>">Indirect Exportir</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link <?= $direct_exportir ?>" href="<?= site_url('akun/direct_exportir'); ?>">Direct Exportir</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link <?= $diaspora ?>" href="<?= site_url('akun/diaspora'); ?>">Diaspora</a>
+                            </li>
+                        </ul>
+                    <?php } ?>
+                    <?php if ($url == "matchmaking_log") { ?>
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link <?= $all; ?>" href="<?= site_url('matchmaking_log'); ?>">All</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link <?= $requested; ?>" href="<?= site_url('matchmaking_log/requested'); ?>">Requested</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link <?= $on_progress; ?>" href="<?= site_url('matchmaking_log/on_progress'); ?>">On Progress</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link <?= $done; ?>" href="<?= site_url('matchmaking_log/done'); ?>">Done</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link <?= $cancel; ?>" href="<?= site_url('matchmaking_log/cancel'); ?>">Cancel</a>
+                            </li>
+                        </ul>
+                    <?php } ?>
 
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?= site_url('akun'); ?>">All</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?= site_url('buyer'); ?>">Buyer</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?= site_url('indirect_exportir'); ?>">Indirect Exportir</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?= site_url('direct_exportir'); ?>">Direct Exportir</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?= site_url('diaspora'); ?>">Diaspora</a>
-                        </li>
-                    </ul>
+                    <?php if ($url == "ekspansirequest") { ?>
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link <?= $all; ?>" href="<?= site_url('ekspansirequest'); ?>">All</a>
+                            <li class="nav-item">
+                                <a class="nav-link <?= $requested; ?>" href="<?= site_url('ekspansirequest/draft'); ?>">Draft</a>
+                            <li class="nav-item">
+                                <a class="nav-link <?= $waiting_for_approval; ?>" href="<?= site_url('ekspansirequest/waiting_for_approval'); ?>">Waiting For Approval</a>
+                            <li class="nav-item">
+                                <a class="nav-link <?= $done; ?>" href="<?= site_url('ekspansirequest/posted'); ?>">Posted</a>
+                            <li class="nav-item">
+                                <a class="nav-link <?= $cancel; ?>" href="<?= site_url('ekspansirequest/unposted'); ?>">Unposted</a>
+                            
+                         </li>
+                        </ul>
+                    <?php } ?>
 
                     <!-- Topbar Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                   <ul class="navbar-nav ml-auto">
                         <div class="topbar-divider d-none d-sm-block"></div>
-                        <div style="padding-right: 20px;">
-                            <a href="<?= site_url('akun/create_akun') ?>"><button type="submit" class="btn btn-primary">Create Account</button></a>
-                        </div>
+                        <?php if ($url == "akun") { ?>
+                            <div style="padding-right: 20px;">
+                                <a href="<?= site_url('akun/create_akun') ?>"><button type="submit" class="btn btn-primary">Create Account</button></a>
+                            </div>
+                        <?php } ?>
 
-                        <!-- Nav Item - User Information -->
-                        <div class="btn-group">
-                            <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
-                                Download By
-                            </a>
-
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="width: 300px;">
-                                <a class="dropdown-item" href="<?= base_url('akun/export') ?>">Download all data</a>
-                                <a class="dropdown-item" href="<?= base_url('akun/export_filter/' . $this->session->userdata('cari')) ?>">Download filtered data</a>
-                                <a class="dropdown-item" href="#">Share filtered data</a>
+                        <div class="dropdown">
+                            <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="false">
+                                Download
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right sekuy" aria-labelledby="dropdownMenu2">
+                                <!-- <a class="dropdown-item " href="<?= base_url('akun/export') ?>">Download all data</a> -->
+                                <!-- <a class="dropdown-item" href="<?= base_url('akun/export_filter/' . $this->session->userdata('cari')) ?>">Download filtered data</a> -->
                             </div>
                         </div>
-
                     </ul>
-
                 </nav>
+
+            <?php } else {
+                echo '<br>';
+            } ?>
 
 
                 <!-- Begin Page Content -->
