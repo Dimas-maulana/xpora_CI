@@ -62,9 +62,9 @@ class detail_akun_model extends CI_Model
         $this->db->insert('assigned_officer', $data);
     }
 
-    public function set_data_usaha($data)
+    public function set_data_usaha($data,$id)
     {
-        $this->db->where('id_usaha', 1);
+        $this->db->where('kd_data_diri', $id);
         $this->db->update('data_usaha', $data);
     }
 

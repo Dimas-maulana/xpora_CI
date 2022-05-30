@@ -44,7 +44,8 @@
                                     <?php
                                     foreach ($verif as $key) {
                                     ?>
-                                        <form action="/xpora/detail_akun/set_officer" method="post" enctype="multipart/form-data">
+                                        <form action="/xpora/detail_akun/set_officer/" method="post" enctype="multipart/form-data">
+                                    
                                             <div class="row mb-3">
                                                 <div class="col-sm-12 text-secondary">
                                                     <?php
@@ -100,24 +101,23 @@
 
                                                 </div>
                                             </div>
-                                            <div class="mt-2">Verification Status
+                                            <div class="mt-2">Verification Status <font color="#09ea69"><br><?php
+                                                                                                                if ($key['verified'] === '1') {
+                                                                                                                    echo "(Verified)";
+                                                                                                                } else {
+                                                                                                                    echo "(Not Verified)"; ?>
+                                                                                                                    
+                                                                                                              <?php  }
+                                                                                                                ?></font>
                                             </div>
                                             <div class="row mb-3">
                                                 <div class="col-sm-7 text-secondary">
-                                                    <fieldset disabled>
-                                                        <input type="text" class="form-control" placeholder="<?php
-                                                                                                                if ($key['verified'] === '1') {
-                                                                                                                    echo "Verified";
-                                                                                                                } else {
-                                                                                                                    echo "Not Verified";
-                                                                                                                }
-                                                                                                                ?>">
-                                                    </fieldset>
+                                                    
                                                 </div>
                                                 <div class="col-sm-5 text-secondary">
                                                     <?php
                                                     if ($key['verified'] === '1') { ?>
-                                                        <button type="button" class="btn btn-secondary" disabled>Verify</button>
+                                                        
                                                     <?php } else { ?>
                                                         <input type="submit" value="Verify" class="btn btn-secondary">
                                                     <?php }
@@ -125,6 +125,8 @@
 
                                                 </div>
                                             </div>
+                                            <input type="hidden" name="kd_data_diri" value=<?echo $id?>>
+                                            
                                         </form>
                                     <?php } ?>
                                    
@@ -148,7 +150,7 @@
                                 ?>
                                     <h5 class="font-weight-bold">Verifikasi legalitas</h5>
                                     <div class="row mb-3">
-                                        <form action="/xpora/detail_akun/update_nib" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('detail_akun'); ?>/update_nib/<?=$id?>" method="post" enctype="multipart/form-data">
                                             <div class="col-sm-4 text-secondary">
                                                 <label for="nib">NIB</label>
                                                 <input type="text" class="form-control" name="nib" id="nib" value=<?php echo $key["nib"]; ?> placeholder="NIB">
