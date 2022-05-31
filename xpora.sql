@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 24, 2022 at 04:46 AM
+-- Generation Time: May 31, 2022 at 08:46 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -59,16 +59,32 @@ CREATE TABLE `assigned_officer` (
   `negara` varchar(45) NOT NULL,
   `kota` varchar(45) NOT NULL,
   `nama` varchar(45) NOT NULL,
-  `id_usaha` int(10) NOT NULL,
-  `id_data_diri` int(10) DEFAULT NULL
+  `kd_data_diri` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `assigned_officer`
 --
 
-INSERT INTO `assigned_officer` (`id_officer`, `negara`, `kota`, `nama`, `id_usaha`, `id_data_diri`) VALUES
-(2, 'indonesia', 'jakarta', 'cba', 2, NULL);
+INSERT INTO `assigned_officer` (`id_officer`, `negara`, `kota`, `nama`, `kd_data_diri`) VALUES
+(2, 'indonesia', 'jakarta', 'cba', 'DD0001'),
+(3, '', '', '', NULL),
+(4, 'a', 'aa', 'a', 'DD0002'),
+(5, 'a', 'a', 'a', NULL),
+(6, 'a', 'a', 'a', NULL),
+(7, 'a', 'a', 'a', NULL),
+(8, '', '', '', NULL),
+(9, '', '', '', NULL),
+(10, 'a', 'a', 'a', NULL),
+(11, 'abc', 'abc', 'ccc', 'DD0004'),
+(12, '', '', '', 'DD0004'),
+(13, '', '', '', 'DD0004'),
+(14, '', '', '', 'DD0004'),
+(15, '', '', '', 'DD0004'),
+(16, '', '', '', 'DD0004'),
+(17, 'a', 'a', 'a', 'DD0004'),
+(18, '', '', '', 'DD0004'),
+(19, '', '', '', 'DD0004');
 
 -- --------------------------------------------------------
 
@@ -163,7 +179,7 @@ CREATE TABLE `data_diri` (
   `domisili` varchar(100) NOT NULL,
   `foto` varchar(100) DEFAULT NULL,
   `user_type` varchar(20) NOT NULL,
-  `verifikasi` int(11) NOT NULL,
+  `verifikasi` varchar(50) NOT NULL,
   `date_create` date NOT NULL,
   `priority` varchar(50) DEFAULT NULL,
   `verifikasi_date` date DEFAULT NULL,
@@ -177,10 +193,10 @@ CREATE TABLE `data_diri` (
 --
 
 INSERT INTO `data_diri` (`id_data_diri`, `kd_data_diri`, `nik`, `nama_pemilik`, `npwp`, `no_telp`, `email`, `domisili`, `foto`, `user_type`, `verifikasi`, `date_create`, `priority`, `verifikasi_date`, `assigned_officer`, `negara_officer`, `kota_officer`) VALUES
-(114, 'DD0004', '8892036577', 'SARA FAJRIA', '847907487', '08579465789', 'dayautama@gmail.com', 'Surabaya', 'DD0004_2.png', 'Direct exportir ', 0, '2022-06-09', NULL, NULL, NULL, NULL, NULL),
-(115, 'DD0005', '2452635666', 'GAVIN ALEXANDER', '456474647', '087856473665', 'grafindoindonesia@gmail.com', 'Padang', 'DD0005_2.png', 'Indirect Exportir', 0, '2022-08-17', NULL, NULL, NULL, NULL, NULL),
-(116, 'DD0006', '3546782913', 'KRISNA G', '3758757', '0812567857', 'krisjaya@gmail.com', 'Jakarta', 'DD0006_2.png', 'Direct exportir ', 0, '2022-07-12', NULL, NULL, NULL, NULL, NULL),
-(117, 'DD0007', '25711354684', 'MIKHAIL SIBBALD', '6758699', '08344562788', 'asiaanargo@gmail.com', 'Jakarta', 'DD0007_2.png', 'Indirect Exportir', 0, '2022-08-11', NULL, NULL, NULL, NULL, NULL);
+(114, 'DD0004', '8892036577', 'SARA FAJRIA', '847907487', '08579465789', 'dayautama@gmail.com', 'Surabaya', 'DD0004_2.png', 'Direct exportir ', 'On Progress', '2022-06-09', NULL, NULL, NULL, NULL, NULL),
+(115, 'DD0005', '2452635666', 'GAVIN ALEXANDER', '456474647', '087856473665', 'grafindoindonesia@gmail.com', 'Padang', 'DD0005_2.png', 'Indirect Exportir', '0', '2022-08-17', NULL, NULL, NULL, NULL, NULL),
+(116, 'DD0006', '3546782913', 'KRISNA G', '3758757', '0812567857', 'krisjaya@gmail.com', 'Jakarta', 'DD0006_2.png', 'Direct exportir ', '0', '2022-07-12', NULL, NULL, NULL, NULL, NULL),
+(117, 'DD0007', '25711354684', 'MIKHAIL SIBBALD', '6758699', '08344562788', 'asiaanargo@gmail.com', 'Jakarta', 'DD0007_2.png', 'Indirect Exportir', '0', '2022-08-11', NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -200,23 +216,25 @@ CREATE TABLE `data_pembuatan_rekening` (
   `cif` varchar(45) DEFAULT NULL,
   `lc` varchar(45) DEFAULT NULL,
   `pict` varchar(45) DEFAULT NULL,
-  `foto` varchar(500) DEFAULT NULL
+  `foto` varchar(500) DEFAULT NULL,
+  `kd_data_diri` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `data_pembuatan_rekening`
 --
 
-INSERT INTO `data_pembuatan_rekening` (`id_pembuatan`, `no_rek`, `nama_nasabah`, `jenis_rek`, `saldo`, `profit`, `tgl_pembukaan_rek`, `id_usaha`, `cif`, `lc`, `pict`, `foto`) VALUES
-('087BN', '1874562873', 'GAVIN ALEXANDER', 'Giro', '90000000', '450000', '2020-04-10', 1, '1029301284', '123', 'Giro_', 'Giro_'),
-('087BD', '1874562875', 'AVAN KANTONA', 'Taplus bisnis', '90000000', '450000', '2022-04-10', NULL, NULL, NULL, NULL, NULL),
-('293FO', '3251675467', 'KRISNA G', 'Giro', '175000000', '2187500', '2022-01-19', NULL, NULL, NULL, NULL, NULL),
-('101AU', '3278564453', 'M. ABDULLAH', 'Taplus Bisnis', '150000000', '1500000', '2022-03-02', NULL, NULL, NULL, NULL, NULL),
-('356CA', '7186733510', 'FEBRIAN B', 'Giro', '250000000', '3125000', '2020-05-14', NULL, NULL, NULL, NULL, NULL),
-('492GT', '7762562711', 'ALI ALATAS', 'Giro', '130000000', '65000', '2020-01-02', NULL, NULL, NULL, NULL, NULL),
-('562RK', '8944511009', 'MIKHAIL SIBBALD', 'Giro', '75000000', '375000', '2022-04-20', NULL, NULL, NULL, NULL, NULL),
-('101AR', '99817839080', 'M. RIZAL', 'Taplus Bisnis', '70000000', '700000', '2022-02-02', NULL, NULL, NULL, NULL, NULL),
-('101AJ', '99817839087', 'YUSUF ABDULLAH', 'Taplus Bisnis', '100000000', '1000000', '2020-01-02', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `data_pembuatan_rekening` (`id_pembuatan`, `no_rek`, `nama_nasabah`, `jenis_rek`, `saldo`, `profit`, `tgl_pembukaan_rek`, `id_usaha`, `cif`, `lc`, `pict`, `foto`, `kd_data_diri`) VALUES
+('', '', '', '', '', '', '0000-00-00', NULL, NULL, NULL, NULL, NULL, 'DD00010'),
+('087BN', '1874562873', 'GAVIN ALEXANDER', 'Giro', '90000000', '450000', '2020-04-10', 1, '1029301284', '123', 'Giro_', 'Giro_', 'DD0001'),
+('087BD', '1874562875', 'AVAN KANTONA', 'Taplus bisnis', '90000000', '450000', '2022-04-10', NULL, NULL, NULL, NULL, NULL, 'DD0002'),
+('293FO', '3251675467', 'KRISNA G', 'Giro', '175000000', '2187500', '2022-01-19', NULL, NULL, NULL, NULL, NULL, 'DD0003'),
+('101AU', '3278564453', 'M. ABDULLAH', 'Taplus Bisnis', '150000000', '1500000', '2022-03-02', NULL, NULL, NULL, NULL, NULL, 'DD0004'),
+('356CA', '7186733510', 'FEBRIAN B', 'Giro', '250000000', '3125000', '2020-05-14', NULL, NULL, NULL, NULL, NULL, 'DD0005'),
+('492GT', '7762562711', 'ALI ALATAS', 'Giro', '130000000', '65000', '2020-01-02', NULL, NULL, NULL, NULL, NULL, 'DD0006'),
+('562RK', '8944511009', 'MIKHAIL SIBBALD', 'Giro', '75000000', '375000', '2022-04-20', NULL, NULL, NULL, NULL, NULL, 'DD0007'),
+('101AR', '99817839080', 'M. RIZAL', 'Taplus Bisnis', '70000000', '700000', '2022-02-02', NULL, NULL, NULL, NULL, NULL, 'DD0008'),
+('101AJ', '99817839087', 'YUSUF ABDULLAH', 'Taplus Bisnis', '100000000', '1000000', '2020-01-02', NULL, NULL, NULL, NULL, NULL, 'DD0009');
 
 -- --------------------------------------------------------
 
@@ -426,7 +444,7 @@ CREATE TABLE `data_usaha` (
   `no_siup` varchar(50) NOT NULL,
   `no_peb` varchar(50) NOT NULL,
   `no_akta` varchar(50) NOT NULL,
-  `verified` tinyint(4) NOT NULL,
+  `verified` varchar(50) NOT NULL,
   `qyc_nib` tinyint(4) NOT NULL,
   `qyc_npwp` tinyint(4) NOT NULL,
   `qyc_siup` tinyint(4) NOT NULL,
@@ -447,30 +465,30 @@ CREATE TABLE `data_usaha` (
 --
 
 INSERT INTO `data_usaha` (`id_usaha`, `nama_usaha`, `domisili_perusahaan`, `email_perusahaan`, `website`, `bidang_usaha`, `komoditi_usaha`, `skala`, `satuan`, `nib`, `npwp_perusahaan`, `no_siup`, `no_peb`, `no_akta`, `verified`, `qyc_nib`, `qyc_npwp`, `qyc_siup`, `qyc_peb`, `qyc_akta`, `qyc_domisili`, `foto_nib`, `foto_npwp`, `foto_siup`, `foto_peb`, `foto_akta`, `foto_domisili`, `kd_data_diri`) VALUES
-(1, 'asasapo', 'bandung', 'jpem@gmail.comaas', 'asasasa', 'sas', 'asasasa', 'sds', 'cm', '1234', '12121', '11212081', '11212081', '11212081', 0, 0, 0, 0, 0, 0, 0, '1234_.jpg', '121211212121_.jpg', '11212081_.jpg', '11212081_.jpg', '11212081_.jpg', 'bandung_.jpg', NULL),
-(2, 'asasapoasasa', 'popipiasasaqq', 'jpem@gmail.coma', 'asasasa', 'sasasa', 'asasasa', 'sds', 'cm', '112120', '112120', '112120', '112120', '112120', 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(3, 'PT. Aku dan Dia ', 'Banten', 'aku@gmail.com', 'aku.co.id', 'Tesktill', 'Pembuatan karpet', '10000', 'Centimeter (Cm)', '1212112256709', '1267110225611924', '12723', '12239', '12457', 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0009'),
-(4, 'PT. Cuma Satu', 'Papua Barat', 'cumacuma@gmail.com', 'cumacuma.web', 'Pertanian dan Perkebunan', 'Pupuk', '11000', 'Hektar (Ha', '1278112256709', '1278110225611924', '12783', '12789', '12787', 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0010'),
-(7, 'PT. Boneka ', 'Bengkulu', 'boneka@gmail.com', 'boneka.web.id', 'Buah dan Sayur', 'Cabe', '9000', 'Gram (Gr)', '2312112256709', '2567110225611924', '09723', '78239', '23457', 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0008'),
-(8, 'PT. Suka Daya Maju ', 'Gorontalo', 'sukamaju@gmail.com', 'sukamaju.com', 'Tesktill', 'Pembuatan baju', '8000', 'Meter Square (M²)', '2312112256724', '2567110225621924', '21122', '21122', '21122', 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0007'),
-(9, 'PT. Sinar Laut ', 'Sumatra Selatan', 'sinarlaut@gmail.com', 'sinarlaut.com', 'Perikanan', 'Ikan salmon', '5000', 'Gram (Gr)', '2312113456721', '2567110345621921', '21121', '21121', '21121', 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0005'),
-(10, 'PT. Laut Mitra Perkasa ', 'Jawa Barat', 'lautmitra@gmail.com', 'lautmitra.web.id', 'Pertanian dan Perkebunan', 'Daun teh', '7000', 'Square Yard (Yd²)', '2312113456724', '2567110345621924', '21123', '21123', '21123', 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0006'),
-(11, 'PT. Bake', 'Daerah Istimewa Yogyakarta', 'bake@gmail.com', 'bake.web.id', 'Tesktill', 'Pembuatan bantal', '23000', 'Square Foot (Ft²)', '5803901625670', '6817610025611924', '93871', '39113', '88201', 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0022'),
-(12, 'PT. Happy ', 'Kalimantan Selatan', 'happy@gmail.com', 'happy.id', 'Tesktill', 'Pembuatan bantal', '26000', 'Square Yard (Yd²)', '5813701625070', '6827010025211924', '99814', '35627', '81069', 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0025'),
-(13, 'PT. Happy ', 'Jambi', 'happy@gmail.com', 'happy.id', 'Pertanian dan Perkebunan', 'Pembuatan bantal', '25000', 'Yard (Yd)', '5813901625070', '6827610025211924', '99811', '35623', '81061', 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0024'),
-(14, 'PT. Happy ', 'Kalimantan Utara', 'happy@gmail.com', 'happy.id', 'Tesktill', 'Pembuatan bantal', '24000', 'Kilometer Square (Km²)', '5813901625670', '6827610025611924', '93811', '39123', '88761', 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0023'),
-(15, 'PT. Happy ', 'Lampung', 'happy@gmail.com', 'happy.id', 'Tesktill', 'Pembuatan bantal', '28000', 'Centimeter (Cm)', '5814101625070', '6820911025211924', '99211', '35651', '81071', 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0026'),
-(17, 'PT. Graha Pesisir ', 'Jambi', 'graha@gmail.com', 'graha.co.id', 'Buah dan Sayur', 'Stroberi', '4000', 'Ons (Oz)', '9312113456781', '9567110345678921', '91145', '91677', '91190', 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0004'),
-(18, 'PT. The Boyz ', 'Jawa Timur', 'boyz@gmail.com', 'boyz.web.id', 'Perikanan', 'Kepiting', '20000', 'Foot (Ft)', '9803501225670', '9817610225611924', '23971', '29712', '28503', 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0019'),
-(19, 'PT. Ikonic ', 'Jawa Barat', 'ikon@gmail.com', 'ikon.web.id', 'Pertanian dan Perkebunan', 'Daun teh', '19000', 'Pound (Lb)', '9803701225670', '9817310225611924', '23972', '29711', '28501', 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0018'),
-(20, 'PT. Blibli Indonesia ', 'Banten', 'Blibli@gmail.com', 'blibli.com', 'Perikanan', 'Lobster', '21000', 'Pound (Lb)', '9803901225670', '9817610225611924', '23972', '29713', '28501', 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0020'),
-(21, 'PT. Moladin ', 'Sulawesi Tenggara', 'mamodin@gmail.com', 'moladin.web.id', 'Tesktill', 'Pembuatan sarung', '22000', 'Inch (In)', '9803901625670', '9817610025611924', '23871', '29113', '28201', 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0021'),
-(22, 'PT. Army Bomb ', 'Jawa Barat', 'army@gmail.com', 'army.web.id', 'Pertanian dan Perkebunan', 'Padi', '16000', 'Kilo Gram (Kg)', '9813201225670', '9827310225611924', '23876', '29515', '28100', 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0016'),
-(23, 'PT. Palembang Teater ', 'Kepulauan Riau', 'teater@gmail.com', 'teater.com', 'Buah dan Sayur', 'Kelengkeng', '17000', 'Square Yard (Yd²)', '9813701225670', '9827310225611924', '23872', '29511', '28101', 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0017'),
-(24, 'PT. Cileungsi', 'Jawa Tengah', 'bogor@gmail.com', 'darling.com', 'Buah dan Sayur', 'Naga', '15000', 'Gram (Gr)', '9833201225670', '9837310225611924', '23276', '29315', '28300', 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0014'),
-(25, 'PT. Bandung ', 'Lampung', 'bandung@gmail.com', 'bandung.web.id', 'Perikanan', 'Ikan layur', '14000', 'Pound (Lb)', '9834201225670', '9834010225611924', '23259', '29342', '28322', 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0013'),
-(26, 'PT. Memandang Jauh', 'Bangka Belitung', 'jauh@gmail.com', 'jauhsekali.com', 'Perikanan', 'Ikan mas', '13000', 'Ons (Oz)', '9872012256709', '9872010225611924', '23929', '29322', '28472', 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0012'),
-(27, 'PT. Bunga Mawar ', 'Sulawesi Selatan', 'bungamawar@gmail.com', 'bungamawar.com', 'Pertanian dan Perkebunan', 'Kopi', '12000', 'Ton (T)', '9878112256709', '9878110225611924', '98783', '98789', '98787', 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0011');
+(1, 'asasapo', 'bandung', 'jpem@gmail.comaas', 'asasasa', 'sas', 'asasasa', 'sds', 'cm', '120', '9567110345678921', '11212081', '11212081', '11212081', 'Verified', 0, 0, 0, 0, 0, 0, '1234_.jpg', '121211212121_.jpg', '11212081_.jpg', '11212081_.jpg', '11212081_.jpg', 'bandung_.jpg', 'DD0001'),
+(2, 'asasapoasasa', 'popipiasasaqq', 'jpem@gmail.coma', 'asasasa', 'sasasa', 'asasasa', 'sds', 'cm', '112120', '112120', '112120', '112120', '112120', '0', 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0002'),
+(3, 'PT. Aku dan Dia ', 'Banten', 'aku@gmail.com', 'aku.co.id', 'Tesktill', 'Pembuatan karpet', '10000', 'Centimeter (Cm)', '1212112256709', '1267110225611924', '12723', '12239', '12457', '0', 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0009'),
+(4, 'PT. Cuma Satu', 'Papua Barat', 'cumacuma@gmail.com', 'cumacuma.web', 'Pertanian dan Perkebunan', 'Pupuk', '11000', 'Hektar (Ha', '1278112256709', '1278110225611924', '12783', '12789', '12787', '0', 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0010'),
+(7, 'PT. Boneka ', 'Bengkulu', 'boneka@gmail.com', 'boneka.web.id', 'Buah dan Sayur', 'Cabe', '9000', 'Gram (Gr)', '2312112256709', '2567110225611924', '09723', '78239', '23457', '0', 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0008'),
+(8, 'PT. Suka Daya Maju ', 'Gorontalo', 'sukamaju@gmail.com', 'sukamaju.com', 'Tesktill', 'Pembuatan baju', '8000', 'Meter Square (M²)', '2312112256724', '2567110225621924', '21122', '21122', '21122', '0', 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0007'),
+(9, 'PT. Sinar Laut ', 'Sumatra Selatan', 'sinarlaut@gmail.com', 'sinarlaut.com', 'Perikanan', 'Ikan salmon', '5000', 'Gram (Gr)', '2312113456721', '2567110345621921', '21121', '21121', '21121', '0', 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0005'),
+(10, 'PT. Laut Mitra Perkasa ', 'Jawa Barat', 'lautmitra@gmail.com', 'lautmitra.web.id', 'Pertanian dan Perkebunan', 'Daun teh', '7000', 'Square Yard (Yd²)', '2312113456724', '2567110345621924', '21123', '21123', '21123', '0', 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0006'),
+(11, 'PT. Bake', 'Daerah Istimewa Yogyakarta', 'bake@gmail.com', 'bake.web.id', 'Tesktill', 'Pembuatan bantal', '23000', 'Square Foot (Ft²)', '5803901625670', '6817610025611924', '93871', '39113', '88201', '0', 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0022'),
+(12, 'PT. Happy ', 'Kalimantan Selatan', 'happy@gmail.com', 'happy.id', 'Tesktill', 'Pembuatan bantal', '26000', 'Square Yard (Yd²)', '5813701625070', '6827010025211924', '99814', '35627', '81069', '0', 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0025'),
+(13, 'PT. Happy ', 'Jambi', 'happy@gmail.com', 'happy.id', 'Pertanian dan Perkebunan', 'Pembuatan bantal', '25000', 'Yard (Yd)', '5813901625070', '6827610025211924', '99811', '35623', '81061', '0', 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0024'),
+(14, 'PT. Happy ', 'Kalimantan Utara', 'happy@gmail.com', 'happy.id', 'Tesktill', 'Pembuatan bantal', '24000', 'Kilometer Square (Km²)', '5813901625670', '6827610025611924', '93811', '39123', '88761', '0', 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0023'),
+(15, 'PT. Happy ', 'Lampung', 'happy@gmail.com', 'happy.id', 'Tesktill', 'Pembuatan bantal', '28000', 'Centimeter (Cm)', '5814101625070', '6820911025211924', '99211', '35651', '81071', '0', 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0026'),
+(17, 'PT. Graha Pesisir ', 'Jambia', 'graha@gmail.com', 'graha.co.id', 'Buah dan Sayur', 'Stroberi', '4000', 'Ons (Oz)', '9312113456781', '9567110345678921', '91145', '91677', '911999', 'On Progress', 0, 0, 0, 0, 1, 0, '9312113456781_.jpg', NULL, NULL, NULL, NULL, 'Jambia_.jpg', 'DD0004'),
+(18, 'PT. The Boyz ', 'Jawa Timur', 'boyz@gmail.com', 'boyz.web.id', 'Perikanan', 'Kepiting', '20000', 'Foot (Ft)', '9803501225670', '9817610225611924', '23971', '29712', '28503', '0', 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0019'),
+(19, 'PT. Ikonic ', 'Jawa Barat', 'ikon@gmail.com', 'ikon.web.id', 'Pertanian dan Perkebunan', 'Daun teh', '19000', 'Pound (Lb)', '9803701225670', '9817310225611924', '23972', '29711', '28501', '0', 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0018'),
+(20, 'PT. Blibli Indonesia ', 'Banten', 'Blibli@gmail.com', 'blibli.com', 'Perikanan', 'Lobster', '21000', 'Pound (Lb)', '9803901225670', '9817610225611924', '23972', '29713', '28501', '0', 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0020'),
+(21, 'PT. Moladin ', 'Sulawesi Tenggara', 'mamodin@gmail.com', 'moladin.web.id', 'Tesktill', 'Pembuatan sarung', '22000', 'Inch (In)', '9803901625670', '9817610025611924', '23871', '29113', '28201', '0', 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0021'),
+(22, 'PT. Army Bomb ', 'Jawa Barat', 'army@gmail.com', 'army.web.id', 'Pertanian dan Perkebunan', 'Padi', '16000', 'Kilo Gram (Kg)', '9813201225670', '9827310225611924', '23876', '29515', '28100', '0', 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0016'),
+(23, 'PT. Palembang Teater ', 'Kepulauan Riau', 'teater@gmail.com', 'teater.com', 'Buah dan Sayur', 'Kelengkeng', '17000', 'Square Yard (Yd²)', '9813701225670', '9827310225611924', '23872', '29511', '28101', '0', 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0017'),
+(24, 'PT. Cileungsi', 'Jawa Tengah', 'bogor@gmail.com', 'darling.com', 'Buah dan Sayur', 'Naga', '15000', 'Gram (Gr)', '9833201225670', '9837310225611924', '23276', '29315', '28300', '0', 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0014'),
+(25, 'PT. Bandung ', 'Lampung', 'bandung@gmail.com', 'bandung.web.id', 'Perikanan', 'Ikan layur', '14000', 'Pound (Lb)', '9834201225670', '9834010225611924', '23259', '29342', '28322', '0', 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0013'),
+(26, 'PT. Memandang Jauh', 'Bangka Belitung', 'jauh@gmail.com', 'jauhsekali.com', 'Perikanan', 'Ikan mas', '13000', 'Ons (Oz)', '9872012256709', '9872010225611924', '23929', '29322', '28472', '0', 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0012'),
+(27, 'PT. Bunga Mawar ', 'Sulawesi Selatan', 'bungamawar@gmail.com', 'bungamawar.com', 'Pertanian dan Perkebunan', 'Kopi', '12000', 'Ton (T)', '9878112256709', '9878110225611924', '98783', '98789', '98787', '0', 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'DD0011');
 
 -- --------------------------------------------------------
 
@@ -581,15 +599,16 @@ CREATE TABLE `inspirasi` (
   `level` varchar(20) NOT NULL,
   `start_date` date NOT NULL,
   `progres` varchar(10) NOT NULL,
-  `finish_date` date NOT NULL
+  `finish_date` date NOT NULL,
+  `kd_data_diri` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `inspirasi`
 --
 
-INSERT INTO `inspirasi` (`id_inspirasi`, `nama_kelas`, `kategory`, `level`, `start_date`, `progres`, `finish_date`) VALUES
-(1, 'Mandin Penyaluhan', 'asasapo', '2', '2022-03-11', '30', '2022-03-23');
+INSERT INTO `inspirasi` (`id_inspirasi`, `nama_kelas`, `kategory`, `level`, `start_date`, `progres`, `finish_date`, `kd_data_diri`) VALUES
+(1, 'Mandin Penyaluhan', 'asasapo', '2', '2022-03-11', '30', '2022-03-23', 'DD0001');
 
 -- --------------------------------------------------------
 
@@ -603,23 +622,25 @@ CREATE TABLE `kuantitas` (
   `kuantitas` varchar(50) NOT NULL,
   `kestabilan_gradeone` varchar(50) NOT NULL,
   `kestabilan_gradetwo` varchar(50) NOT NULL,
-  `id_usaha` int(11) NOT NULL,
   `foto_gradeone` varchar(500) DEFAULT NULL,
   `foto_gradetwo` varchar(500) DEFAULT NULL,
-  `unit` varchar(45) NOT NULL
+  `unit` varchar(45) NOT NULL,
+  `kd_data_diri` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `kuantitas`
 --
 
-INSERT INTO `kuantitas` (`id_kuantitas`, `nama_komoditas`, `kuantitas`, `kestabilan_gradeone`, `kestabilan_gradetwo`, `id_usaha`, `foto_gradeone`, `foto_gradetwo`, `unit`) VALUES
-(1, 'abc', '40', 'a', '1', 1, 'abc_.jpg', NULL, 'KG'),
-(2, 'a', 'a', 'a', '', 1, NULL, NULL, 'KG'),
-(3, 'lem', '200', 'A', '', 1, NULL, NULL, 'KG'),
-(4, 'a', '12', 'a', '', 1, 'a_.jpg', NULL, 'Kg'),
-(5, 'a', 'aa', 'a', '', 1, 'a_.jpg', NULL, 'a'),
-(6, 'abc', 'a', 'A', '', 1, 'abc_.jpg', NULL, 'kg');
+INSERT INTO `kuantitas` (`id_kuantitas`, `nama_komoditas`, `kuantitas`, `kestabilan_gradeone`, `kestabilan_gradetwo`, `foto_gradeone`, `foto_gradetwo`, `unit`, `kd_data_diri`) VALUES
+(1, 'abc', '40', 'a', '1', 'abc_.jpg', NULL, 'KG', 'DD0001'),
+(2, 'a', 'a', 'a', '', NULL, NULL, 'KG', 'DD0001'),
+(3, 'lem', '200', 'A', '', NULL, NULL, 'KG', 'DD0001'),
+(4, 'a', '12', 'a', '', 'a_.jpg', NULL, 'Kg', 'DD0001'),
+(5, 'a', 'aa', 'a', '', 'a_.jpg', NULL, 'a', 'DD0001'),
+(6, 'abc', 'a', 'A', '', 'abc_.jpg', NULL, 'kg', 'DD0001'),
+(8, 'abc', '12', 'A', '', NULL, NULL, 'kg', NULL),
+(9, 'abc', '13', 'A', '', 'abc_.jpg', NULL, 'kg', 'DD0004');
 
 -- --------------------------------------------------------
 
@@ -631,7 +652,7 @@ CREATE TABLE `kuantitas_image` (
   `id_kuantitas_image` int(10) NOT NULL,
   `image` varchar(500) DEFAULT NULL,
   `id_kuantitas` int(11) DEFAULT NULL,
-  `id_usaha` int(11) DEFAULT NULL
+  `kd_data_diri` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -691,19 +712,21 @@ CREATE TABLE `riwayat_ekspor` (
   `shipment` varchar(50) NOT NULL,
   `amount` varchar(50) NOT NULL,
   `negara_tujuan` varchar(45) NOT NULL,
-  `id_usaha` int(11) DEFAULT NULL
+  `kd_data_diri` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `riwayat_ekspor`
 --
 
-INSERT INTO `riwayat_ekspor` (`id_riwayat`, `komoditas`, `qty`, `frekuensi`, `incoterm`, `shipment`, `amount`, `negara_tujuan`, `id_usaha`) VALUES
-(1, 'abc', '2', 'sedang', 'a', 'ekspor', '50', 'US', 1),
-(2, 'cde', '3', 'sedang', 'b', 'ekspor', '50', 'Canada', 1),
-(3, 'a', 'a', 'a', 'a', 'a', 'a', 'a', 1),
-(4, 'lem', '12', 'sedang', 'US', 'jne', '12', 'US', 1),
-(5, 'abc', '12', 'abc', 'abc', 'abc', '12', 'abc', 1);
+INSERT INTO `riwayat_ekspor` (`id_riwayat`, `komoditas`, `qty`, `frekuensi`, `incoterm`, `shipment`, `amount`, `negara_tujuan`, `kd_data_diri`) VALUES
+(1, 'abc', '2', 'sedang', 'a', 'ekspor', '50', 'US', 'DD0001'),
+(2, 'cde', '3', 'sedang', 'b', 'ekspor', '50', 'Canada', 'DD0002'),
+(3, 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'DD0003'),
+(4, 'lem', '12', 'sedang', 'US', 'jne', '12', 'US', 'DD0001'),
+(5, 'abc', '12', 'abc', 'abc', 'abc', '12', 'abc', 'DD0001'),
+(7, 'abc', '12', 'abc', 'abc', 'abc', '12', 'abc', 'DD0004'),
+(8, 'abc', 'a', 'abc', 'abc', 'abc', '12', 'abc', 'DD0004');
 
 -- --------------------------------------------------------
 
@@ -715,18 +738,20 @@ CREATE TABLE `riwayat_image` (
   `id_riwayat_image` int(11) NOT NULL,
   `image` varchar(500) DEFAULT NULL,
   `id_riwayat` int(15) NOT NULL,
-  `id_usaha` int(10) NOT NULL
+  `kd_data_diri` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `riwayat_image`
 --
 
-INSERT INTO `riwayat_image` (`id_riwayat_image`, `image`, `id_riwayat`, `id_usaha`) VALUES
-(2, '2label_.jpg', 1, 1),
-(3, 'img2.jpg', 2, 1),
-(4, 'img1.jpg', 1, 1),
-(5, 'img3.jpg', 3, 1);
+INSERT INTO `riwayat_image` (`id_riwayat_image`, `image`, `id_riwayat`, `kd_data_diri`) VALUES
+(2, '2label_.jpg', 1, 'DD0001'),
+(3, 'img2.jpg', 2, 'DD0001'),
+(4, 'img1.jpg', 1, 'DD0001'),
+(5, 'img3.jpg', 3, 'DD0001'),
+(6, 'img7.jpg', 7, 'DD0004'),
+(7, 'img7.jpg', 7, 'DD0004');
 
 -- --------------------------------------------------------
 
@@ -756,8 +781,7 @@ ALTER TABLE `akun`
 -- Indexes for table `assigned_officer`
 --
 ALTER TABLE `assigned_officer`
-  ADD PRIMARY KEY (`id_officer`),
-  ADD KEY `id_usaha` (`id_usaha`);
+  ADD PRIMARY KEY (`id_officer`);
 
 --
 -- Indexes for table `commodities_post`
@@ -827,15 +851,13 @@ ALTER TABLE `inspirasi`
 -- Indexes for table `kuantitas`
 --
 ALTER TABLE `kuantitas`
-  ADD PRIMARY KEY (`id_kuantitas`),
-  ADD KEY `id_usaha` (`id_usaha`);
+  ADD PRIMARY KEY (`id_kuantitas`);
 
 --
 -- Indexes for table `kuantitas_image`
 --
 ALTER TABLE `kuantitas_image`
   ADD PRIMARY KEY (`id_kuantitas_image`),
-  ADD KEY `id_usaha` (`id_usaha`),
   ADD KEY `id_kuantitas` (`id_kuantitas`);
 
 --
@@ -861,16 +883,14 @@ ALTER TABLE `request_post`
 -- Indexes for table `riwayat_ekspor`
 --
 ALTER TABLE `riwayat_ekspor`
-  ADD PRIMARY KEY (`id_riwayat`),
-  ADD KEY `id_usaha` (`id_usaha`);
+  ADD PRIMARY KEY (`id_riwayat`);
 
 --
 -- Indexes for table `riwayat_image`
 --
 ALTER TABLE `riwayat_image`
   ADD PRIMARY KEY (`id_riwayat_image`),
-  ADD KEY `id_riwayat` (`id_riwayat`),
-  ADD KEY `riwayat_image_ibfk_1` (`id_usaha`);
+  ADD KEY `id_riwayat` (`id_riwayat`);
 
 --
 -- Indexes for table `verifikasi_legalitas`
@@ -892,7 +912,7 @@ ALTER TABLE `akun`
 -- AUTO_INCREMENT for table `assigned_officer`
 --
 ALTER TABLE `assigned_officer`
-  MODIFY `id_officer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_officer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `commodities_post`
@@ -922,7 +942,7 @@ ALTER TABLE `inspirasi`
 -- AUTO_INCREMENT for table `kuantitas`
 --
 ALTER TABLE `kuantitas`
-  MODIFY `id_kuantitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_kuantitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `kuantitas_image`
@@ -952,23 +972,17 @@ ALTER TABLE `request_post`
 -- AUTO_INCREMENT for table `riwayat_ekspor`
 --
 ALTER TABLE `riwayat_ekspor`
-  MODIFY `id_riwayat` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_riwayat` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `riwayat_image`
 --
 ALTER TABLE `riwayat_image`
-  MODIFY `id_riwayat_image` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_riwayat_image` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `assigned_officer`
---
-ALTER TABLE `assigned_officer`
-  ADD CONSTRAINT `assigned_officer_ibfk_1` FOREIGN KEY (`id_usaha`) REFERENCES `data_usaha` (`id_usaha`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `data_pembuatan_rekening`
@@ -983,16 +997,9 @@ ALTER TABLE `data_transaksi`
   ADD CONSTRAINT `data_transaksi_ibfk_1` FOREIGN KEY (`Id_Buyer`) REFERENCES `data_buyer` (`Id_Buyer`);
 
 --
--- Constraints for table `kuantitas`
---
-ALTER TABLE `kuantitas`
-  ADD CONSTRAINT `kuantitas_ibfk_1` FOREIGN KEY (`id_usaha`) REFERENCES `data_usaha` (`id_usaha`);
-
---
 -- Constraints for table `kuantitas_image`
 --
 ALTER TABLE `kuantitas_image`
-  ADD CONSTRAINT `kuantitas_image_ibfk_1` FOREIGN KEY (`id_usaha`) REFERENCES `data_usaha` (`id_usaha`),
   ADD CONSTRAINT `kuantitas_image_ibfk_2` FOREIGN KEY (`id_kuantitas`) REFERENCES `kuantitas` (`id_kuantitas`);
 
 --
@@ -1002,17 +1009,10 @@ ALTER TABLE `matchmaking_log`
   ADD CONSTRAINT `matchmaking_log_ibfk_1` FOREIGN KEY (`id_usaha`) REFERENCES `data_usaha` (`id_usaha`);
 
 --
--- Constraints for table `riwayat_ekspor`
---
-ALTER TABLE `riwayat_ekspor`
-  ADD CONSTRAINT `id_usaha` FOREIGN KEY (`id_usaha`) REFERENCES `data_usaha` (`id_usaha`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
 -- Constraints for table `riwayat_image`
 --
 ALTER TABLE `riwayat_image`
-  ADD CONSTRAINT `id_riwayat` FOREIGN KEY (`id_riwayat`) REFERENCES `riwayat_ekspor` (`id_riwayat`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `riwayat_image_ibfk_1` FOREIGN KEY (`id_usaha`) REFERENCES `data_usaha` (`id_usaha`);
+  ADD CONSTRAINT `id_riwayat` FOREIGN KEY (`id_riwayat`) REFERENCES `riwayat_ekspor` (`id_riwayat`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
