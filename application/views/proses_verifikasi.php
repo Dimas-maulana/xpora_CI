@@ -38,18 +38,19 @@
                             <td style="vertical-align: middle; white-space:nowrap;" onclick="sData(this)"><?= $rs->domisili_perusahaan; ?></td>
                             <td style="vertical-align: middle; white-space:nowrap;" onclick="sData(this)"> 
                             <?php 
-                            if ($rs->verifikasi == 0) { ?>
-                                    <a href="<?= site_url('detail_akun'); ?>" class="btn btn-warning btn-sm" style="width: 100%;">Need to Verification </a>
+                            if ($rs->verifikasi == "0") { ?>
+                                    <a href="<?= site_url('detail_akun'); ?>/index/<?= $rs->kd_data_diri ?>" class="btn btn-warning btn-sm" style="width: 100%;">Need to Verification </a>
                                 <?php } 
                                 else { ?> <div style="color:green; text-align:center;"> Verified</div> <?php } ?>
                             </td>
                             <td style="vertical-align: middle; text-align:center; white-space:nowrap;" onclick="sData(this)">
-                                <a href="#deleteEmployeeModal" class="btn btn-info btn-sm" data-toggle="modal">Chose</a>
+                                <!-- <a href="#deleteEmployeeModal" class="btn btn-info btn-sm" data-toggle="modal">Chose</a> -->
+                                <a href="<?= site_url('detail_akun'); ?>/index/<?= $rs->kd_data_diri ?>" class="btn btn-primary btn-sm">Chose</a>
                             </td>
                             <td style="vertical-align: middle; text-align:center; white-space:nowrap;" onclick="sData(this)"><?= $rs->priority; ?></td>
                             <td style="vertical-align: middle; white-space:nowrap;" onclick="sData(this)"><?= $rs->verifikasi_date; ?></td>
                             <td style="text-align:center; white-space:nowrap;">
-                                <a href="<?= site_url('detail_akun'); ?>" class="btn btn-info btn-sm">Detail</a>
+                                <a href="<?= site_url('detail_akun'); ?>/index/<?= $rs->kd_data_diri ?>" class="btn btn-info btn-sm">Detail</a>
                             </td>
                         </tr>
                     <?php endforeach ?>

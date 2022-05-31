@@ -3,38 +3,42 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class detail_akun_model extends CI_Model
 {
-    public function get_akun($id)
+    
+    public function get_data($id)
     {
-        $id_usaha = $id;
-        return $this->db->query('SELECT * FROM akun WHERE user_id='.$id_usaha)->result_array();
-    }
-    public function get_data()
-    {
-        $id_usaha = null;
-        return $this->db->query('SELECT * FROM data_usaha WHERE id_usaha=1')->result_array();
+        $kd_diri = $id;
+
+        $this->db->where('kd_data_diri',$kd_diri);
+        return $this->db->get('data_usaha')->result_array();
     }
 
-    public function get_ekspor()
+    public function get_ekspor($id)
     {
-        $id_usaha = null;
-        return $this->db->query('SELECT * FROM riwayat_ekspor WHERE id_usaha=1')->result_array();
+        $kd_diri = $id;
+        $this->db->where('kd_data_diri',$kd_diri);
+        return $this->db->get('riwayat_ekspor')->result_array();
+        // return $this->db->query('SELECT * FROM riwayat_ekspor WHERE id_usaha=1')->result_array();
     }
 
-    public function get_kuantitas()
+    public function get_kuantitas($id)
     {
-        $id_usaha = null;
-        return $this->db->query('SELECT * FROM kuantitas WHERE id_usaha=1')->result_array();
+        $kd_diri = $id;
+        $this->db->where('kd_data_diri',$kd_diri);
+        return $this->db->get('kuantitas')->result_array();
+        // return $this->db->query('SELECT * FROM kuantitas WHERE id_usaha=1')->result_array();
     }
 
-    public function get_officer()
+    public function get_officer($id)
     {
-        $id_usaha = null;
-        return $this->db->query('SELECT * FROM assigned_officer WHERE id_usaha=1')->result_array();
+        $kd_diri = $id;
+        $this->db->where('kd_data_diri',$kd_diri);
+        return $this->db->get('assigned_officer')->result_array();
+        
     }
 
-    public function update($data)
+    public function update($data,$id)
     {
-        $this->db->where('id_usaha', 1);
+        $this->db->where('kd_data_diri', $id);
         $this->db->update('data_usaha', $data);
     }
 
@@ -58,9 +62,9 @@ class detail_akun_model extends CI_Model
         $this->db->insert('assigned_officer', $data);
     }
 
-    public function set_data_usaha($data)
+    public function set_data_usaha($data,$id)
     {
-        $this->db->where('id_usaha', 1);
+        $this->db->where('kd_data_diri', $id);
         $this->db->update('data_usaha', $data);
     }
 

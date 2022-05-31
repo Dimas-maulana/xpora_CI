@@ -164,7 +164,7 @@ class inspirasi extends CI_Controller
     }
 
     
-    function index()
+    function index($id)
     {
         //konfigurasi pagination
         $config['base_url'] = site_url('inspirasi'); //site url
@@ -205,7 +205,7 @@ class inspirasi extends CI_Controller
             'content' => 'template/content',
             'footer' => 'template/footer',
             'app' => 'inspirasi',
-            'inspirasi' => $this->inspirasi_model->get_data($config["per_page"], $data['page']),
+            'inspirasi' => $this->inspirasi_model->get_data($config["per_page"], $data['page'],$id),
         );
         $this->load->view('template/main', $data);
     }

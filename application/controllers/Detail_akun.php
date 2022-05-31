@@ -23,23 +23,25 @@ class detail_akun extends CI_Controller
         $this->load->helper('form');
         $this->load->model('detail_akun_model');
         $data = array(
+            'id' => $id,
             'title' => 'detail_akun',
             'header' => 'template/header',
             'menu' => 'template/menu',
             'content' => 'template/content',
             'app' => 'detail_akun',
-            'akun' => $this->detail_akun_model->get_akun($id),
+
             'verif' => $this->detail_akun_model->get_data($id),
             'ekspor' => $this->detail_akun_model->get_ekspor($id),
             'kuantitas' => $this->detail_akun_model->get_kuantitas($id),
             'officer' => $this->detail_akun_model->get_officer($id),
-            'img_riwayat' => $this->detail_akun_model->get_img_riwayat($id),
-            'img_kuantitas' => $this->detail_akun_model->get_img_kuantitas($id),
+            'img_riwayat' => $this->detail_akun_model->get_img_riwayat(),
+            'img_kuantitas' => $this->detail_akun_model->get_img_kuantitas(),
+
         );
         $this->load->view('template/main', $data);
     }
 
-    public function update_nib()
+    public function update_nib($id)
     {
 
         $nib = $this->input->post('nib');
@@ -58,16 +60,16 @@ class detail_akun extends CI_Controller
                 'qyc_nib' => $this->input->post('qyc'),
                 'foto_nib' => $filename,
             );
-            $this->detail_akun_model->update($data);
+            $this->detail_akun_model->update($data,$id);
         } else {
             $data = array(
                 'nib' => $nib,
                 'qyc_nib' => $this->input->post('qyc'),
             );
-            $this->detail_akun_model->update($data);
+            $this->detail_akun_model->update($data,$id);
         }
-
-        redirect('detail_akun/index');
+        
+        redirect(site_url('detail_akun/index/'.$id)); 
     }
 
     public function download_nib()
@@ -76,7 +78,7 @@ class detail_akun extends CI_Controller
 
         force_download('assets/foto/nib/'. $img , NULL);
 
-        redirect('detail_akun/index');
+        redirect($_SERVER['REQUEST_URI'], 'refresh');
     }
 
     public function download_npwp()
@@ -85,7 +87,7 @@ class detail_akun extends CI_Controller
 
         force_download('assets/foto/npwp/'. $img , NULL);
 
-        redirect('detail_akun/index');
+        redirect($_SERVER['REQUEST_URI'], 'refresh');
     }
 
     public function download_siup()
@@ -94,7 +96,7 @@ class detail_akun extends CI_Controller
 
         force_download('assets/foto/siup/'. $img , NULL);
 
-        redirect('detail_akun/index');
+        redirect($_SERVER['REQUEST_URI'], 'refresh');
     }
     public function download_akta()
     {
@@ -102,7 +104,7 @@ class detail_akun extends CI_Controller
 
         force_download('assets/foto/akta/'. $img , NULL);
 
-        redirect('detail_akun/index');
+        redirect($_SERVER['REQUEST_URI'], 'refresh');
     }
     public function download_peb()
     {
@@ -110,7 +112,7 @@ class detail_akun extends CI_Controller
 
         force_download('assets/foto/peb/'. $img , NULL);
 
-        redirect('detail_akun/index');
+        redirect($_SERVER['REQUEST_URI'], 'refresh');
     }
     public function download_domisili()
     {
@@ -118,7 +120,7 @@ class detail_akun extends CI_Controller
 
         force_download('assets/foto/domisili/'. $img , NULL);
 
-        redirect('detail_akun/index');
+        redirect($_SERVER['REQUEST_URI'], 'refresh');
     }
     public function download_riwayat()
     {
@@ -126,7 +128,7 @@ class detail_akun extends CI_Controller
 
         force_download('assets/foto/riwayat/'. $img , NULL);
 
-        redirect('detail_akun/index');
+        redirect($_SERVER['REQUEST_URI'], 'refresh');
     }
     public function download_kuantitas()
     {
@@ -134,14 +136,14 @@ class detail_akun extends CI_Controller
 
         force_download('assets/foto/kuantitas/'. $img , NULL);
 
-        redirect('detail_akun/index');
+        redirect($_SERVER['REQUEST_URI'], 'refresh');
     }
 
 
 
 
 
-    public function update_npwp()
+    public function update_npwp($id)
     {
 
         $npwp = $this->input->post('npwp');
@@ -160,19 +162,19 @@ class detail_akun extends CI_Controller
                 'qyc_npwp' => $this->input->post('qyc'),
                 'foto_npwp' => $filename,
             );
-            $this->detail_akun_model->update($data);
+            $this->detail_akun_model->update($data,$id);
         } else {
             $data = array(
                 'npwp_perusahaan' => $npwp,
                 'qyc_npwp' => $this->input->post('qyc'),
             );
-            $this->detail_akun_model->update($data);
+            $this->detail_akun_model->update($data,$id);
         }
 
-        redirect('detail_akun/index');
+        redirect($_SERVER['REQUEST_URI'], 'refresh');
     }
 
-    public function update_siup()
+    public function update_siup($id)
     {
 
         $siup = $this->input->post('siup');
@@ -191,19 +193,19 @@ class detail_akun extends CI_Controller
                 'qyc_siup' => $this->input->post('qyc'),
                 'foto_siup' => $filename,
             );
-            $this->detail_akun_model->update($data);
+            $this->detail_akun_model->update($data,$id);
         } else {
             $data = array(
                 'no_siup' => $siup,
                 'qyc_siup' => $this->input->post('qyc'),
             );
-            $this->detail_akun_model->update($data);
+            $this->detail_akun_model->update($data,$id);
         }
 
-        redirect('detail_akun/index');
+        redirect($_SERVER['REQUEST_URI'], 'refresh');
     }
 
-    public function update_akta()
+    public function update_akta($id)
     {
 
         $akta = $this->input->post('akta');
@@ -222,19 +224,19 @@ class detail_akun extends CI_Controller
                 'qyc_akta' => $this->input->post('qyc'),
                 'foto_akta' => $filename,
             );
-            $this->detail_akun_model->update($data);
+            $this->detail_akun_model->update($data,$id);
         } else {
             $data = array(
                 'no_akta' => $akta,
                 'qyc_akta' => $this->input->post('qyc'),
             );
-            $this->detail_akun_model->update($data);
+            $this->detail_akun_model->update($data,$id);
         }
 
-        redirect('detail_akun/index');
+        redirect($_SERVER['REQUEST_URI'], 'refresh');
     }
 
-    public function update_peb()
+    public function update_peb($id)
     {
 
         $peb = $this->input->post('peb');
@@ -253,16 +255,16 @@ class detail_akun extends CI_Controller
                 'qyc_peb' => $this->input->post('qyc'),
                 'foto_peb' => $filename,
             );
-            $this->detail_akun_model->update($data);
+            $this->detail_akun_model->update($data,$id);
         } else {
             $data = array(
                 'no_peb' => $peb,
                 'qyc_peb' => $this->input->post('qyc'),
             );
-            $this->detail_akun_model->update($data);
+            $this->detail_akun_model->update($data,$id);
         }
 
-        redirect('detail_akun/index');
+        redirect($_SERVER['REQUEST_URI'], 'refresh');
     }
 
     public function set_kuantitas()
@@ -403,7 +405,7 @@ class detail_akun extends CI_Controller
         redirect('detail_akun/index');
     }
 
-    public function update_domisili()
+    public function update_domisili($id)
     {
         $domisili = $this->input->post('domisili');
         $config['upload_path'] = './assets/foto/domisili';
@@ -421,13 +423,13 @@ class detail_akun extends CI_Controller
                 'qyc_domisili' => $this->input->post('qyc'),
                 'foto_domisili' => $filename,
             );
-            $this->detail_akun_model->update($data);
+            $this->detail_akun_model->update($data,$id);
         } else {
             $data = array(
                 'domisili' => $domisili,
                 'qyc_domisili' => $this->input->post('qyc'),
             );
-            $this->detail_akun_model->update($data);
+            $this->detail_akun_model->update($data,$id);
         }
 
         redirect('detail_akun/index');
@@ -435,7 +437,10 @@ class detail_akun extends CI_Controller
 
     public function set_officer()
     {
+        $kd_diri = $this->input->post('kd_data_diri');
+
         $data = array(
+            'kd_data_diri' => $this->input->post('kd_data_diri'),
             'negara' => $this->input->post('negara'),
             'kota' => $this->input->post('kota'),
             'nama' => $this->input->post('officer'),
@@ -446,7 +451,7 @@ class detail_akun extends CI_Controller
         $data = array(
             'verified' => 1,
         );
-        $this->detail_akun_model->set_data_usaha($data);
+        $this->detail_akun_model->set_data_usaha($data,$kd_diri);
 
         redirect('detail_akun/index');
     }
@@ -574,7 +579,8 @@ class detail_akun extends CI_Controller
 
     public function excel_all()
     {
-        $data['verification'] = $this->detail_akun_model->get_data();
+
+        $data['verification'] = $this->detail_akun_model->get_data("DD0001");
         $data['riwayat'] = $this->detail_akun_model->get_ekspor();
         $data['kuantitas'] = $this->detail_akun_model->get_kuantitas();
 
