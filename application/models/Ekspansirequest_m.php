@@ -15,13 +15,20 @@ class ekspansirequest_m extends CI_ModeL
         return $query->result();
     }
 
+    public function get_by_request_id($id) {
+        $this->db->from('ekspansi_request as er');
+        $this->db->where('er.request_post_id', $id);
+        $query = $this->db->get();
+
+        return $query->row();
+    }
+
     public function get_by_id($id)
     {
         $this->db->from('ekspansi_request');
-        $this->db->join('ekspansi_request', 'ekspansi_request.kd_data_diri=data_diri.kd_data_diri');
         $this->db->where('ekspansi_request.kd_data_diri', $id);
         $query = $this->db->get();
-        return $query->row();
+        return $query->result();
     }
 
     public function update($table, $data, $where)
@@ -57,7 +64,7 @@ class ekspansirequest_m extends CI_ModeL
     public function unposted()
     {
         $this->db->from('ekspansi_request');
-        $this->db->where('status', 'unposted');
+        $this->db->where('status', 'un-posted');
         $query = $this->db->get();
         return $query->result();
     }

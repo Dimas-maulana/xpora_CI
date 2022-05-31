@@ -46,4 +46,23 @@ class matchmaking_log_model extends CI_ModeL
         $query = $this->db->get();
         return $query->result();
     }
+
+    public function get_detail_by_id($id) {
+        $this->db->select('em.*');
+        $this->db->from('ekspansi_matchmaking as em');
+        $this->db->where('em.matchmaking_id', $id);
+        $query = $this->db->get();
+
+        return $query->result();
+    }
+
+    public function get_log_from_user($user_id) {
+        $this->db->select('em.*');
+        $this->db->from('ekspansi_matchmaking as em');
+        $this->db->where('em.buyer_id', $user_id);
+        $this->db->or_where('em.seller_id', $user_id);
+        $query = $this->db->get();
+
+        return $query->result();
+    }
 }

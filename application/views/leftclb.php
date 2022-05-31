@@ -45,28 +45,6 @@
                                 <a href="akun/detail_akun/<?= $rs->kd_data_diri ?>" class="btn btn-info btn-sm">Detail</a>
                             </td>
                         </tr>
-
-                        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="staticBackdropLabel">Anda Yakin Ingin Menghapus Data Berikut:</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <label>Nik : <?= $rs->nik; ?> </label> <br>
-                                        <label>Nama Pemilik : <?= $rs->nama_pemilik; ?></label> <br>
-                                        <label>Nama Usaha : <?= $rs->nama_usaha; ?></label> <br>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-                                        <a href="akun/delete_akun/<?= $rs->kd_data_diri ?>" class="btn btn-danger btn-sm">Delete</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     <?php endforeach ?>
                 </tbody>
             </table>

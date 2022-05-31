@@ -59,7 +59,7 @@ class dashboard extends CI_Controller
             $value2      = 0;
             foreach($q_comodity as $data){
                 if(intval($data['bulan']) == intval(($i+1))){
-                    $value = $value + $data['jumlah_pengajuan'];
+                    $value = $value + (isset($data['jumlah_pengajuan']) ? $data['jumlah_pengajuan'] : 0);
                     $value2++;
                 }
             }
@@ -73,7 +73,7 @@ class dashboard extends CI_Controller
             $value      = 0;
             foreach($q_transaction as $data){
                 if(intval($data['bulan']) == intval(($i+1))){
-                    $value = $value + $data['profit'];
+                    $value = $value + (isset($data['profit']) ? $data['profit'] : 0);
                 }
             }
             array_push($arvalue_transaction, $value);
@@ -119,7 +119,7 @@ class dashboard extends CI_Controller
         array_push($arvalue_polarlabel, "'Matchmaking'", "'Comodities'", "'Request'");
         array_push($arvalue_polarcolor, "'#16676e'", "'#d88f1a'", "'#36b9cc'");
         //echo json_encode($arvalue_polar); die;
-        // }
+         
 
         // foreach($q_distinctjenisrek as $data){
         // }

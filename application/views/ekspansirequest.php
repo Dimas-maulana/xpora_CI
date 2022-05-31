@@ -17,13 +17,13 @@
             <th rowspan="2" class="align-middle">Action</th>
           </tr>
           <tr>
-            <th class="searchHeader">Commodity Name</th>
-            <th class="searchHeader">User ID</th>
-            <th class="searchHeader">Request ID</th>
-            <th class="searchHeader">Destination</th>
-            <th class="searchHeader">Category</th>
+            <th class="searchHeader">Search</th>
+            <th class="searchHeader">Search</th>
+            <th class="searchHeader">Search</th>
+            <th class="searchHeader">Search</th>
+            <th class="searchHeader">Search</th>
             <th class="searchHeader">Status</th>
-            <th class="searchHeader">Application</th>
+            <th class="searchHeader">Search</th>
             <th class="searchHeader">Payment</th>
             <th class="searchHeader">Create Date</th>
           </tr>
@@ -47,14 +47,12 @@
                   <td style="text-align:center; white-space:nowrap;">
                     <button class="btn btn-success btn-sm" type="submit" name="approve" value="Posted" style="font-size: 8px;">Approve</button>
                     <button class="btn btn-danger btn-sm" type="submit" name="approve" value="Un-Posted" style="font-size: 8px;">Decline</button>
-                    <a href="#deleteEmployeeModal" class="btn btn-info btn-sm" data-toggle="modal">Detail</a>
-
+                    <a href="<?= site_url('ekspansirequest/detail/' . $rs->request_post_id) ?>" class="btn btn-info btn-sm">Detail</a>
                   </td>
                 </form>
               <?php } else { ?>
                 <td style="text-align:center; white-space:nowrap;">
-
-                  <a href="#deleteEmployeeModal" class="btn btn-info btn-sm" data-toggle="modal">Detail</a>
+                  <a href="<?= site_url('ekspansirequest/detail/' . $rs->request_post_id) ?>" class="btn btn-info btn-sm">Detail</a>
                 </td> <?php } ?>
             </tr>
 

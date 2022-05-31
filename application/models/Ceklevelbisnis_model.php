@@ -8,12 +8,13 @@
 
     public function all_data()
     {
-        $this->db->select('data_diri.kd_data_diri, data_diri.nama_pemilik, clb.number_attempt, clb.result, clb.follow_up_recomendation, clb.date, clb.nama_usaha');
+        $this->db->select('clb.attempt, data_diri.nama_pemilik, clb.kd_data_diri, clb.type_of_rest, clb.result, clb.recomendation, clb.follow_up_recomendation, clb.number_attempt, clb.nama_usaha, clb.date');
         $this->db->from('data_diri');
         $this->db->join('clb', 'clb.kd_data_diri=data_diri.kd_data_diri');
-        $this->db->order_by('data_diri.kd_data_diri', 'ASC');
+        $this->db->order_by('clb.attempt', 'ASC');
         $query = $this->db->get();
         return $query->result();
     }
+    
     }
 ?>

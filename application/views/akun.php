@@ -18,11 +18,11 @@
                         <th rowspan="2" class="align-middle">Action</th>
                     </tr>
                     <tr>
-                        <th class="searchHeader">User ID</th>
-                        <th class="searchHeader">User Name</th>
-                        <th class="searchHeader">Company Name</th>
-                        <th class="searchHeader">Region</th>
-                        <th class="searchHeader">Comodity</th>
+                        <th class="searchHeader">Search</th>
+                        <th class="searchHeader">Search</th>
+                        <th class="searchHeader">Search</th>
+                        <th class="searchHeader">Search</th>
+                        <th class="searchHeader">Search</th>
                         <th class="searchHeader">Verification</th>
                         <th class="searchHeader">User Type</th>
                         <th class="searchHeader">Create Date</th>
@@ -39,7 +39,7 @@
                             <td style="vertical-align: middle; white-space:nowrap;"><?= $rs->domisili_perusahaan; ?></td>
                             <td style="vertical-align: middle; white-space:nowrap;"><?= $rs->komoditi_usaha; ?></td>
                             <td style="vertical-align: middle; white-space:nowrap;"> <?php if ($rs->verifikasi == 0) { ?>
-                                    <a href="<?= site_url('detail_akun'); ?>" class="btn btn-warning btn-sm" style="width: 100%;">Need to Verification </a>
+                                    <a href="<?= site_url('detail_akun'); ?>/index/<?= $rs->kd_data_diri; ?>" class="btn btn-warning btn-sm" style="width: 100%;">Need to Verification </a>
                                 <?php } else { ?> <div style="color:green; text-align:center;"> Verified</div> <?php } ?>
 
                             <td style="vertical-align: middle; white-space:nowrap;"><?= $rs->user_type; ?></td>

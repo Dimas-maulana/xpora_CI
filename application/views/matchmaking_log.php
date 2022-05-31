@@ -17,14 +17,14 @@
                         <th rowspan="2" class="align-middle">Action</th>
                     </tr>
                     <tr>
-                        <th class="searchHeader">Matchmaking ID</th>
-                        <th class="searchHeader">Seller ID</th>
-                        <th class="searchHeader">Buyer ID</th>
-                        <th class="searchHeader">Destination</th>
-                        <th class="searchHeader">Commodity</th>
+                        <th class="searchHeader">Search</th>
+                        <th class="searchHeader">Search</th>
+                        <th class="searchHeader">Search</th>
+                        <th class="searchHeader">Search</th>
+                        <th class="searchHeader">Search</th>
                         <th class="searchHeader">Status</th>
                         <th class="searchHeader">Payment System</th>
-                        <th class="searchHeader">Value</th>
+                        <th class="searchHeader">Search</th>
                         <th class="searchHeader">Application Date</th>
                     </tr>
                 </thead>
@@ -43,9 +43,7 @@
                             <td style="vertical-align: middle; white-space:nowrap;" onclick="sData(this)"><?= $rs->value; ?></td>
                             <td style="vertical-align: middle; white-space:nowrap;" onclick="sData(this)"><?= $rs->application_date; ?></td>
                             <td style="text-align:center; white-space:nowrap;">
-                                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#staticBackdrop">
-                                    Detail
-                                </button>
+                                <a href="<?= site_url('matchmaking_log/detail/' . $rs->matchmaking_id) ?>" class="btn btn-info btn-sm">Detail</a>
                             </td>
                         </tr>
                     <?php endforeach ?>

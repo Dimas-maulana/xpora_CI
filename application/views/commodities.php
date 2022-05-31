@@ -63,7 +63,7 @@
                             <td style="vertical-align: middle; white-space:nowrap;" onclick="sData(this)"><?= $rs->create_date; ?></td>
                             <td style="vertical-align: middle; white-space:nowrap;" onclick="sData(this)"><?= $rs->hs_code; ?></td>
                             <td style="text-align:center; white-space:nowrap;">
-                                <a href="#" class="btn btn-info btn-sm">Detail</a>
+                                <a href="<?= site_url('commodities/detail/' . $rs->comodity_posted_id) ?>" class="btn btn-info btn-sm">Detail</a>
                             </td>
                         </tr>
                     <?php endforeach ?>

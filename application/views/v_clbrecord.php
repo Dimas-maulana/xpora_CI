@@ -11,23 +11,23 @@ $clb_record = $url == "c_clbrecord" ? "menuActive" : "";
 </div>
 <h5>Detail Account / CLB Record</h5>
 <ul class="nav nav-tabs">
-<li class="nav-item">
-        <a class="nav-link " href="">User Data</a>
+    <li class="nav-item">
+        <a class="nav-link" href="<?= site_url('akun'); ?>/detail_akun/<?= $id ?>">User Data</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href=<?= site_url('detail_akun'); ?>>Verification Data</a>
+        <a class="nav-link" href="<?= site_url('detail_akun'); ?>/index/<?= $id ?>">Verification Data</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href=<?= site_url('c_ekspansibisnis'); ?>>Ekspansi Bisnis</a>
+        <a class="nav-link" href="<?= site_url('c_ekspansibisnis'); ?>/index/<?= $id ?>">Ekspansi Bisnis</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="<?= site_url('inspirasi'); ?>">Inspirasi</a>
+        <a class="nav-link" href="<?= site_url('inspirasi'); ?>/index/<?= $id ?>">Inspirasi</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="<?= site_url('produk_bni'); ?>">Produk BNI</a>
+        <a class="nav-link" href="<?= site_url('produk_bni'); ?>/index/<?= $id ?>">Produk BNI</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link <?= $clb_record ?>" href="<?= site_url('c_clbrecord'); ?>"><span>CLB Record</span></a>
+        <a class="nav-link active" href="<?= site_url('c_clbrecord'); ?>/index/<?= $id ?>">CLB Record</a>
     </li>
 </ul>
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -45,9 +45,12 @@ $clb_record = $url == "c_clbrecord" ? "menuActive" : "";
                         <label class="custom-file-label" for="uploadImageFile">Choose file</label>
                     </div>
                 </div>
-                <div style="padding-top:20px;">
-                    <button type="button" class="btn btn-outline-primary btn-sm" style="margin-bottom: 10px; padding-right:55px;">Download All Data</button>
-                </div>
+                <div class="mt-2">
+                                        <form action="/xpora-dashboard-ukm/c_clbrecord/excel_all/<?php echo $id ?>">
+                                        <input type="hidden" name="kd_data_diri" value=" <?php $id ?>"> 
+                                            <button class="btn btn-success" type="submit" style="font-size: 15px;">Download CLB Record</button>
+                                        </form>
+                                    </div>
             </div>
         </div>
 </div>
@@ -92,7 +95,7 @@ $clb_record = $url == "c_clbrecord" ? "menuActive" : "";
         </div>
     </div>
 </div>
-                <!-- Delete Modal HTML -->
+        <!-- Delete Modal HTML -->
         <div  div id="deleteEmployeeModal" class="modal fade">
             <div class="modal-dialog">
               <div class="modal-content">

@@ -10,22 +10,22 @@
 <h5>Detail Account / User Data</h5>
 <ul class="nav nav-tabs">
     <li class="nav-item">
-        <a class="nav-link " href="">User Data</a>
+        <a class="nav-link" href="<?= site_url('akun'); ?>/detail_akun/<?= $id ?>">User Data</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href=<?= site_url('detail_akun'); ?>>Verification Data</a>
+        <a class="nav-link" href="<?= site_url('detail_akun'); ?>/index/<?= $id ?>">Verification Data</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href=<?= site_url('c_ekspansibisnis'); ?>>Ekspansi Bisnis</a>
+        <a class="nav-link" href="<?= site_url('c_ekspansibisnis'); ?>/index/<?= $id ?>">Ekspansi Bisnis</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link active" href="<?= site_url('inspirasi'); ?>">Inspirasi</a>
+        <a class="nav-link active" href="<?= site_url('inspirasi'); ?>/index/<?= $id ?>">Inspirasi</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="<?= site_url('produk_bni'); ?>">Produk BNI</a>
+        <a class="nav-link" href="<?= site_url('produk_bni'); ?>/index/<?= $id ?>">Produk BNI</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="<?= site_url('c_clbrecord'); ?>">CLB Record</a>
+        <a class="nav-link" href="<?= site_url('c_clbrecord'); ?>/index/<?= $id ?>">CLB Record</a>
     </li>
 </ul>
 </nav><!-- Begin Page Content -->
@@ -40,7 +40,7 @@
                                 <div class="d-flex flex-column align-items-center text-center">
                                     <img src="https://aecsp.qc.ca/wp-content/uploads/2021/03/person_icon-icons.com_50075.png" alt="Admin" class="p-1 bg-secondary" width="150">
                                     <div class="mt-2">
-                                       
+
 
                                     </div>
                                     <div class="mt-2">
@@ -49,88 +49,92 @@
                                         </form>
                                     </div>
                                 </div>
-                                
-                                    <div class="table-responsive">
-                                        <div class="table-wrapper">
-                                            <table class="table-striped">
-                                                <thead>
-                                                    <th>
-                                                        <div class="rounded form-group">
-                                                            <form action="<?= base_url('inspirasi/cari') ?>" method="post">
-                                                                <input type="search" name="id_kelas" class="form-control rounded" placeholder="Nama Kelas" aria-label="Search" aria-describedby="search-addon" />
-                                                                <span class="input-group-text border-0" id="search-addon">
-                                                                    <button type="submit" class="btn btn-secondary btn-sm">Search</button>
-                                                                </span>
-                                                            </form>
-                                                        </div>
-                                                    </th>
-                                                    <th>
-                                                        <div class="rounded form-group">
-                                                            <form action="<?= base_url('inspirasi/cari') ?>" method="post">
-                                                                <input type="search" name="nama_kelas" class="form-control rounded" placeholder="Nama Kelas" aria-label="Search" aria-describedby="search-addon" />
-                                                                <span class="input-group-text border-0" id="search-addon">
-                                                                    <button type="submit" class="btn btn-secondary btn-sm">Search</button>
-                                                                </span>
-                                                            </form>
-                                                        </div>
-                                                    </th>
-                                                    <th>
-                                                        <div class="rounded form-group">
-                                                            <form action="<?= base_url('inspirasi/cari') ?>" method="post">
-                                                                <input type="search" name="kategory" class="form-control rounded" placeholder="Kategori" aria-label="Search" aria-describedby="search-addon" />
-                                                                <span class="input-group-text border-0" id="search-addon">
-                                                                    <button type="submit" class="btn btn-secondary btn-sm">Search</button>
-                                                                </span>
-                                                            </form>
-                                                        </div>
-                                                    </th>
-                                                    <th>
-                                                        <div class="rounded form-group">
-                                                            <form action="<?= base_url('inspirasi/cari') ?>" method="post">
-                                                                <input type="search" name="level" class="form-control rounded" placeholder="Level" aria-label="Search" aria-describedby="search-addon" />
-                                                                <span class="input-group-text border-0" id="search-addon">
-                                                                    <button type="submit" class="btn btn-secondary btn-sm">Search</button>
-                                                                </span>
-                                                            </form>
-                                                        </div>
-                                                    </th>
-                                                    <th>
-                                                        <div class="rounded form-group">
-                                                            <form action="<?= base_url('inspirasi/cari') ?>" method="post">
-                                                                <input type="search" name="start_date" class="form-control rounded" placeholder="Start Date" aria-label="Search" aria-describedby="search-addon" />
-                                                                <span class="input-group-text border-0" id="search-addon">
-                                                                    <button type="submit" class="btn btn-secondary btn-sm">Search</button>
-                                                                </span>
-                                                            </form>
-                                                        </div>
-                                                    </th>
-                                                    <th>
-                                                        <div class="rounded form-group">
-                                                            <form action="<?= base_url('inspirasi/cari') ?>" method="post">
-                                                                <input type="search" name="progres" class="form-control rounded" placeholder="Progress" aria-label="Search" aria-describedby="search-addon" />
-                                                                <span class="input-group-text border-0" id="search-addon">
-                                                                    <button type="submit" class="btn btn-secondary btn-sm">Search</button>
-                                                                </span>
-                                                            </form>
-                                                        </div>
-                                                    </th>
-                                                    <th>
-                                                        <div class="rounded form-group">
-                                                            <form action="<?= base_url('inspirasi/cari') ?>" method="post">
-                                                                <input type="search" name="finish_date" class="form-control rounded" placeholder="Finish Date" aria-label="Search" aria-describedby="search-addon" />
-                                                                <span class="input-group-text border-0" id="search-addon">
-                                                                    <button type="submit" class="btn btn-secondary btn-sm">Search</button>
-                                                                </span>
-                                                            </form>
-                                                        </div>
-                                                    </th>
 
-                                                </thead>
-                                                <!-- awalan Tbody -->
-                                                <tbody>
-                                                    <?php foreach ($inspirasi  as $row) : ?>
+                                <div class="table-responsive">
+                                    <div class="table-wrapper">
+                                        <table class="table-striped">
+                                            <thead>
+                                                <th>
+                                                    <div class="rounded form-group">
+                                                        <form action="<?= base_url('inspirasi/cari') ?>" method="post">
+                                                            <input type="search" name="id_kelas" class="form-control rounded" placeholder="Nama Kelas" aria-label="Search" aria-describedby="search-addon" />
+                                                            <span class="input-group-text border-0" id="search-addon">
+                                                                <button type="submit" class="btn btn-secondary btn-sm">Search</button>
+                                                            </span>
+                                                        </form>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div class="rounded form-group">
+                                                        <form action="<?= base_url('inspirasi/cari') ?>" method="post">
+                                                            <input type="search" name="nama_kelas" class="form-control rounded" placeholder="Nama Kelas" aria-label="Search" aria-describedby="search-addon" />
+                                                            <span class="input-group-text border-0" id="search-addon">
+                                                                <button type="submit" class="btn btn-secondary btn-sm">Search</button>
+                                                            </span>
+                                                        </form>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div class="rounded form-group">
+                                                        <form action="<?= base_url('inspirasi/cari') ?>" method="post">
+                                                            <input type="search" name="kategory" class="form-control rounded" placeholder="Kategori" aria-label="Search" aria-describedby="search-addon" />
+                                                            <span class="input-group-text border-0" id="search-addon">
+                                                                <button type="submit" class="btn btn-secondary btn-sm">Search</button>
+                                                            </span>
+                                                        </form>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div class="rounded form-group">
+                                                        <form action="<?= base_url('inspirasi/cari') ?>" method="post">
+                                                            <input type="search" name="level" class="form-control rounded" placeholder="Level" aria-label="Search" aria-describedby="search-addon" />
+                                                            <span class="input-group-text border-0" id="search-addon">
+                                                                <button type="submit" class="btn btn-secondary btn-sm">Search</button>
+                                                            </span>
+                                                        </form>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div class="rounded form-group">
+                                                        <form action="<?= base_url('inspirasi/cari') ?>" method="post">
+                                                            <input type="search" name="start_date" class="form-control rounded" placeholder="Start Date" aria-label="Search" aria-describedby="search-addon" />
+                                                            <span class="input-group-text border-0" id="search-addon">
+                                                                <button type="submit" class="btn btn-secondary btn-sm">Search</button>
+                                                            </span>
+                                                        </form>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div class="rounded form-group">
+                                                        <form action="<?= base_url('inspirasi/cari') ?>" method="post">
+                                                            <input type="search" name="progres" class="form-control rounded" placeholder="Progress" aria-label="Search" aria-describedby="search-addon" />
+                                                            <span class="input-group-text border-0" id="search-addon">
+                                                                <button type="submit" class="btn btn-secondary btn-sm">Search</button>
+                                                            </span>
+                                                        </form>
+                                                    </div>
+                                                </th>
+                                                <th>
+                                                    <div class="rounded form-group">
+                                                        <form action="<?= base_url('inspirasi/cari') ?>" method="post">
+                                                            <input type="search" name="finish_date" class="form-control rounded" placeholder="Finish Date" aria-label="Search" aria-describedby="search-addon" />
+                                                            <span class="input-group-text border-0" id="search-addon">
+                                                                <button type="submit" class="btn btn-secondary btn-sm">Search</button>
+                                                            </span>
+                                                        </form>
+                                                    </div>
+                                                </th>
+
+                                            </thead>
+                                            <!-- awalan Tbody -->
+                                            <tbody>
+
+                                                <?php foreach ((array)$inspirasi  as $row) : ?>
+                                                    <?php if ($row == null) {
+                                                    } else {
+                                                    ?>
                                                         <tr>
-                                                            <td><input type="checkbox" id="checkbox" name="checkbox[]" value="<?php echo $row->id_inspirasi; ?>"></td>
+                                                            <td><input type="checkbox" id="checkbox" name="checkbox" value="<?php echo $row->id_inspirasi; ?>"></td>
                                                             <td><?php echo $row->nama_kelas; ?></td>
                                                             <td><?php echo $row->kategory; ?></td>
                                                             <td><?php echo $row->level; ?></td>
@@ -138,17 +142,23 @@
                                                             <td><?php echo $row->progres; ?></td>
                                                             <td><?php echo $row->finish_date; ?></td>
                                                         </tr>
-                                                    <?php endforeach; ?>
+                                                    <?php
+                                                    }
+                                                    ?>
 
 
 
-                                                    
-                                                </tbody>
-                                                <!-- akhir tbody -->
-                                            </table>
-                                        </div>
+                                                <?php endforeach; ?>
+
+
+
+
+                                            </tbody>
+                                            <!-- akhir tbody -->
+                                        </table>
                                     </div>
-                                
+                                </div>
+
 
 
                                 <!-- Page -->
