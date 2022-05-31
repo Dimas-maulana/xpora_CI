@@ -151,6 +151,8 @@ class dashboard extends CI_Controller
             'count'                 => $count,
             'color_jenisrek'        => $arcolor_jenisrek,
             'eksmatch'              => $q_eksmatch,
+            'request'               => $q_request,
+            'comodities'            => $q_comodities,
         ];
         //echo json_encode($data); die;
         //$this->load->view('templates/wrapper', $data);

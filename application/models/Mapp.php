@@ -14,6 +14,8 @@ class Mapp extends CI_Model
         select *, date_format(created_at, '%m') bulan 
         from data_pengajuan_komodity 
         WHERE year(created_at) = year(CURDATE()) 
+        ORDER BY created_at desc
+        limit 5
         ");
 
         return $query->result_array();
@@ -25,6 +27,8 @@ class Mapp extends CI_Model
         SELECT t.*, DATE_FORMAT(t.tgl_transaksi, '%m') bulan
         FROM data_transaksi t
         WHERE year(t.tgl_transaksi) = year(CURDATE())
+        ORDER BY t.tgl_transaksi desc
+        limit 5
         ");
 
         return $query->result_array();
@@ -59,6 +63,7 @@ class Mapp extends CI_Model
         SELECT r.*, DATE_FORMAT(r.tgl_pembukaan_rek, '%m') bulan
         FROM data_pembuatan_rekening r
         WHERE YEAR(r.tgl_pembukaan_rek) = year(CURDATE())
+        limit 5
         ");
 
         return $query->result_array();
@@ -81,13 +86,17 @@ class Mapp extends CI_Model
 FROM 
 (
 SELECT (SELECT COUNT(user_type)
-FROM data_diri d
-WHERE d.user_type = 'Indirect Exportir') indrct,
+FROM data_diri
+WHERE data_diri.user_type = 'Indirect Exportir') indrct,
+
 (SELECT COUNT(user_type)
-FROM data_diri d
-WHERE d.user_type = 'Direct Exportir ') drct,
-(SELECT COUNT(b.Id_buyer)
-FROM data_buyer b) buyer,
+FROM data_diri 
+WHERE data_diri.user_type = 'Direct Exportir') drct,
+
+(SELECT COUNT(user_type)
+FROM data_diri 
+WHERE data_diri.user_type = 'buyer') byr,
+
 (SELECT COUNT(user_type)
 FROM data_diri d
 WHERE d.user_type = 'Diaspora') dspr
