@@ -49,7 +49,7 @@
                                             <div class="row mb-3">
                                                 <div class="col-sm-12 text-secondary">
                                                     <?php
-                                                    if ($key['verified'] === '1') {
+                                                    if ($key['verified'] === 'Verified'||$key['verified'] === 'Cancel'||$key['verified'] === 'On Progress') {
                                                     ?>
                                                         <fieldset disabled>
                                                             <label for="disabledTextInput" class="form-label">Negara</label>
@@ -67,7 +67,7 @@
                                             <div class="row mb-3">
                                                 <div class="col-sm-12 text-secondary">
                                                     <?php
-                                                    if ($key['verified'] === '1') {
+                                                    if ($key['verified'] === 'Verified'||$key['verified'] === 'Cancel'||$key['verified'] === 'On Progress') {
                                                     ?>
                                                         <fieldset disabled>
                                                             <label for="disabledTextInput" class="form-label">Kota</label>
@@ -85,7 +85,7 @@
                                             <div class="row mb-3">
                                                 <div class="col-sm-12 text-secondary">
                                                     <?php
-                                                    if ($key['verified'] === '1') {
+                                                    if ($key['verified'] === 'Verified'||$key['verified'] === 'Cancel'||$key['verified'] === 'On Progress') {
                                                     ?>
                                                         <fieldset disabled>
                                                             <label for="disabledTextInput" class="form-label">Nama</label>
