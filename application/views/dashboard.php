@@ -54,7 +54,7 @@
 						</div>
 						<div class="row no-gutters align-items-center">
 							<div class="col-auto">
-								<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $count['buyer'] ?></div>
+								<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $count['byr'] ?></div>
 							</div>
 						</div>
 					</div>
@@ -305,27 +305,27 @@
 					<table class="table table-bordered datatable" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
-                    <th>ID Matchmaking</th>
-                    <th>Seller ID</th>
-                    <th>Buyer ID</th>
-                    <th>comodity</th>
-                    <th>Request Total</th>
-                    <th>Available Comodities</th>
+                    <th>Request Post Id</th>
+                    <th>Comodity Name</th>
+                    <th>Kode Data Diri</th>
+                    <th>Destination</th>
                     <th>Status</th>
-                    <th>Application Date</th>
+                    <th>Payment</th>
+                    <th>Create Date</th>
+                    <th>Quantity Comodity</th>
                 </tr>
             </thead>
             <tbody>
-							<?php $i = 1; foreach($eksmatch as $value) { ?>
+							<?php $i = 1; foreach($request as $value) { ?>
                 <tr>
-                    <td><?= $value['matchmaking_id'] ?></td>
-                    <td><?= $value['seller_id'] ?></td>
-                    <td><?= $value['buyer_id'] ?></td>
-                    <td><?= $value['comodity'] ?></td>
-                    <td><?= isset($value['request_total']) ? $value['request_total'] : 'undefined' ?></td>
-                    <td><?= isset($value['available_quantity_comoditas']) ? $value['available_quantity_comoditas'] : 'undefined' ?></td>
+                    <td><?= $value['request_post_id'] ?></td>
+                    <td><?= $value['comodity_name'] ?></td>
+                    <td><?= $value['kd_data_diri'] ?></td>
+                    <td><?= $value['destination'] ?></td>
                     <td><?= $value['status'] ?></td>
-                    <td><?= $value['application_date'] ?></td>
+                    <td><?= $value['payment'] ?></td>
+                    <td><?= $value['create_date'] ?></td>
+                    <td><?= $value['qty_komoditas'] ?></td>
                 </tr>
 							<?php } ?>
             </tbody>
@@ -592,7 +592,7 @@ var myLineChart = new Chart(ctx, {
   data: {
     labels: [<?= implode(", ", $monthlabel) ?>],
     datasets: [{
-      label: "Total Pengajuan: ",
+      label: "Total submission: ",
       lineTension: 0.3,
       backgroundColor: "rgba(78, 115, 223, 0.05)",
       borderColor: "#16676e",
