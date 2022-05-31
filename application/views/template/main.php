@@ -41,11 +41,10 @@
     <script src="<?= site_url('templates/vendor/chart.js/Chart.min.js'); ?>"></script>
 
     <!-- Page level custom scripts -->
-    <!-- <script src="<?= site_url('templates/js/demo/chart-area-demo.js'); ?>"></script> -->
-    <!-- <script src="<?= site_url('templates/js/demo/chart-pie-demo.js'); ?>"></script> -->
+    <script src="<?= site_url('templates/js/demo/chart-area-demo.js'); ?>"></script>
+    <script src="<?= site_url('templates/js/demo/chart-pie-demo.js'); ?>"></script>
     <script src="<?= site_url('templates/js/script.js'); ?>"></script>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>

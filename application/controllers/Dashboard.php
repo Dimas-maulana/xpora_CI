@@ -59,20 +59,21 @@ class dashboard extends CI_Controller
             $value2      = 0;
             foreach($q_comodity as $data){
                 if(intval($data['bulan']) == intval(($i+1))){
-                    $value = $value + $data['Jumlah_pengajuan'];
+                    $value = $value + (isset($data['jumlah_pengajuan']) ? $data['jumlah_pengajuan'] : 0);
                     $value2++;
                 }
             }
             array_push($arvalue_komodity, $value);
             array_push($arvalue_komodity2, $value2);
         }
+        //echo json_encode($q_comodity); die;
 
 		for ($i=0; $i < 12; $i++) { 
             $stat       = 0;
             $value      = 0;
             foreach($q_transaction as $data){
                 if(intval($data['bulan']) == intval(($i+1))){
-                    $value = $value + $data['Profit'];
+                    $value = $value + (isset($data['profit']) ? $data['profit'] : 0);
                 }
             }
             array_push($arvalue_transaction, $value);
@@ -117,7 +118,7 @@ class dashboard extends CI_Controller
         array_push($arvalue_polar, count($q_eksmatch), count($q_comodities), count($q_request));
         array_push($arvalue_polarlabel, "'Matchmaking'", "'Comodities'", "'Request'");
         array_push($arvalue_polarcolor, "'#16676e'", "'#d88f1a'", "'#36b9cc'");
-    
+        // echo json_encode($arvalue_polar); die;
         // }
 
         // foreach($q_distinctjenisrek as $data){
@@ -151,8 +152,10 @@ class dashboard extends CI_Controller
             'count'                 => $count,
             'color_jenisrek'        => $arcolor_jenisrek,
             'eksmatch'              => $q_eksmatch,
+            'request'               => $q_request,
+            'comodities'            => $q_comodities,
         ];
-        //echo json_encode($data); die;
+        //echo json_encode($arvalue_komodity); die;
         //$this->load->view('templates/wrapper', $data);
         $this->load->view('template/main', $data);
     }

@@ -33,9 +33,10 @@ class detail_akun extends CI_Controller
             'verif' => $this->detail_akun_model->get_data($id),
             'ekspor' => $this->detail_akun_model->get_ekspor($id),
             'kuantitas' => $this->detail_akun_model->get_kuantitas($id),
+            'riwayat' => $this->detail_akun_model->get_riwayat($id),
             'officer' => $this->detail_akun_model->get_officer($id),
-            'img_riwayat' => $this->detail_akun_model->get_img_riwayat(),
-            'img_kuantitas' => $this->detail_akun_model->get_img_kuantitas(),
+            'img_riwayat' => $this->detail_akun_model->get_img_riwayat($id),
+            'img_kuantitas' => $this->detail_akun_model->get_img_kuantitas($id),
 
         );
         $this->load->view('template/main', $data);
@@ -69,74 +70,74 @@ class detail_akun extends CI_Controller
             $this->detail_akun_model->update($data,$id);
         }
         
-        redirect($_SERVER['REQUEST_URI'], 'refresh'); 
+        redirect(site_url('detail_akun/index/'.$id)); 
     }
 
-    public function download_nib()
+    public function download_nib($id)
     {
         $img = $this->input->post('download');
 
         force_download('assets/foto/nib/'. $img , NULL);
 
-        redirect('detail_akun/index');
+        redirect(site_url('detail_akun/index/'.$id));
     }
 
-    public function download_npwp()
+    public function download_npwp($id)
     {
         $img = $this->input->post('download');
 
         force_download('assets/foto/npwp/'. $img , NULL);
 
-        redirect('detail_akun/index');
+        redirect(site_url('detail_akun/index/'.$id));
     }
 
-    public function download_siup()
+    public function download_siup($id)
     {
         $img = $this->input->post('download');
 
         force_download('assets/foto/siup/'. $img , NULL);
 
-        redirect('detail_akun/index');
+        redirect(site_url('detail_akun/index/'.$id));
     }
-    public function download_akta()
+    public function download_akta($id)
     {
         $img = $this->input->post('download');
 
         force_download('assets/foto/akta/'. $img , NULL);
 
-        redirect('detail_akun/index');
+        redirect(site_url('detail_akun/index/'.$id));
     }
-    public function download_peb()
+    public function download_peb($id)
     {
         $img = $this->input->post('download');
 
         force_download('assets/foto/peb/'. $img , NULL);
 
-        redirect('detail_akun/index');
+        redirect(site_url('detail_akun/index/'.$id));
     }
-    public function download_domisili()
+    public function download_domisili($id)
     {
         $img = $this->input->post('download');
 
         force_download('assets/foto/domisili/'. $img , NULL);
 
-        redirect('detail_akun/index');
+        redirect(site_url('detail_akun/index/'.$id));
     }
-    public function download_riwayat()
+    public function download_riwayat($id)
     {
         $img = $this->input->post('download');
 
         force_download('assets/foto/riwayat/'. $img , NULL);
 
-        redirect('detail_akun/index');
+        redirect(site_url('detail_akun/index/'.$id));
     }
-    public function download_kuantitas()
+    public function download_kuantitas($id)
     {
         $img = $this->input->post('download');
 
         force_download('assets/foto/kuantitas/'. $img , NULL);
 
-        redirect('detail_akun/index');
+        redirect(site_url('detail_akun/index/'.$id));
     }
 
 
@@ -171,7 +172,7 @@ class detail_akun extends CI_Controller
             $this->detail_akun_model->update($data,$id);
         }
 
-        redirect('detail_akun/index');
+        redirect(site_url('detail_akun/index/'.$id));
     }
 
     public function update_siup($id)
@@ -202,7 +203,7 @@ class detail_akun extends CI_Controller
             $this->detail_akun_model->update($data,$id);
         }
 
-        redirect('detail_akun/index');
+        redirect(site_url('detail_akun/index/'.$id));
     }
 
     public function update_akta($id)
@@ -233,7 +234,7 @@ class detail_akun extends CI_Controller
             $this->detail_akun_model->update($data,$id);
         }
 
-        redirect('detail_akun/index');
+        redirect(site_url('detail_akun/index/'.$id));
     }
 
     public function update_peb($id)
@@ -264,12 +265,12 @@ class detail_akun extends CI_Controller
             $this->detail_akun_model->update($data,$id);
         }
 
-        redirect('detail_akun/index');
+        redirect(site_url('detail_akun/index/'.$id));
     }
 
-    public function set_kuantitas()
+    public function set_kuantitas($id)
     {
-        $id = 1;
+        
         $komoditas = $this->input->post('nama');
         $qty = $this->input->post('qty');
         $kestabilan = $this->input->post('grade');
@@ -290,7 +291,7 @@ class detail_akun extends CI_Controller
                 'kuantitas' => $qty,
                 'kestabilan_gradeone' => $kestabilan,
                 'foto_gradeone' => $filename,
-                'id_usaha' => $id,
+                'kd_data_diri' => $id,
                 'unit' => $unit,
 
             );
@@ -300,23 +301,23 @@ class detail_akun extends CI_Controller
                 'nama_komoditas' => $komoditas,
                 'kuantitas' => $qty,
                 'kestabilan_gradeone' => $kestabilan,
-                'id_usaha' => $id,
+                'kd_data_diri' => $id,
                 'unit' => $unit,
 
             );
             $this->detail_akun_model->set_kuantitas($data);
         }
 
-        redirect('detail_akun/index');
+        redirect(site_url('detail_akun/index/'.$id));
     }
 
-    public function upd_kuantitas()
+    public function upd_kuantitas($id)
     {
         $komoditas = $this->input->post('nama');
         $qty = $this->input->post('qty');
         $kestabilan = $this->input->post('grade');
         $unit = $this->input->post('unit');
-        $id = $this->input->post('id_qty');
+        $idk = $this->input->post('id_qty');
 
         $config['upload_path'] = './assets/foto/kuantitas';
         $config['allowed_types'] = 'jpg|jpeg|png';
@@ -333,7 +334,7 @@ class detail_akun extends CI_Controller
                 'kuantitas' => $qty,
                 'kestabilan_gradeone' => $kestabilan,
                 'foto_gradeone' => $filename,
-                'id_kuantitas' => $id,
+                'id_kuantitas' => $idk,
                 'unit' => $unit,
 
             );
@@ -343,19 +344,19 @@ class detail_akun extends CI_Controller
                 'nama_komoditas' => $komoditas,
                 'kuantitas' => $qty,
                 'kestabilan_gradeone' => $kestabilan,
-                'id_kuantitas' => $id,
+                'id_kuantitas' => $idk,
                 'unit' => $unit,
 
             );
             $this->detail_akun_model->upd_kuantitas($data);
         }
 
-        redirect('detail_akun/index');
+        redirect(site_url('detail_akun/index/'.$id));
     }
 
-    public function set_riwayat()
+    public function set_riwayat($id)
     {
-        $id = 1;
+        $id_usaha = $this->input->post('id_usaha');
         $komoditas = $this->input->post('komoditas');
         $qty = $this->input->post('qty');
         $incoterm = $this->input->post('incoterm');
@@ -383,9 +384,12 @@ class detail_akun extends CI_Controller
                 'amount' => $amount,
                 'incoterm' => $incoterm,
                 'negara_tujuan' => $tujuan,
-                'id_usaha' => $id
+                'kd_data_diri' => $id,
+                
+                
+
             );
-            $this->detail_akun_model->set_riwayat($data);
+            $this->detail_akun_model->set_riwayat($data,$id);
         } else {
             $data = array(
                 'komoditas' => $komoditas,
@@ -396,13 +400,13 @@ class detail_akun extends CI_Controller
                 'amount' => $amount,
                 'incoterm' => $incoterm,
                 'negara_tujuan' => $tujuan,
-                'id_usaha' => $id
+                'kd_data_diri' => $id
 
             );
-            $this->detail_akun_model->set_riwayat($data);
+            $this->detail_akun_model->set_riwayat($data,$id);
         }
 
-        redirect('detail_akun/index');
+        redirect(site_url('detail_akun/index/'.$id));
     }
 
     public function update_domisili($id)
@@ -426,36 +430,50 @@ class detail_akun extends CI_Controller
             $this->detail_akun_model->update($data,$id);
         } else {
             $data = array(
-                'domisili' => $domisili,
+                'domisili_perusahaan' => $domisili,
                 'qyc_domisili' => $this->input->post('qyc'),
             );
             $this->detail_akun_model->update($data,$id);
         }
 
-        redirect('detail_akun/index');
+        redirect(site_url('detail_akun/index/'.$id));
     }
 
-    public function set_officer()
+    public function set_officer($id)
     {
+        $verif = null;
+        $kd_diri = $id;
+        $status = $this->input->post('status');
+        if ($status=="verify") {
+            $verif = "Verified";
+        }else {
+            $verif = "On Progress";
+        }
+        
         $data = array(
+            'kd_data_diri' => $id,
             'negara' => $this->input->post('negara'),
             'kota' => $this->input->post('kota'),
             'nama' => $this->input->post('officer'),
-            'id_usaha' => 1
+            
         );
-        $this->detail_akun_model->set_officer($data);
+        $this->detail_akun_model->set_officer($data,$id);
 
         $data = array(
-            'verified' => 1,
+            'verified' => $verif,
         );
-        $this->detail_akun_model->set_data_usaha($data);
+        $this->detail_akun_model->set_data_usaha($data,$kd_diri);
 
-        redirect('detail_akun/index');
+        $data = array(
+            'verifikasi' => $verif,
+        );
+        $this->detail_akun_model->set_verif_data_diri($data,$kd_diri);
+
+        redirect(site_url('detail_akun/index/'.$id));
     }
 
-    public function set_riwayat_img()
+    public function set_riwayat_img($id)
     {
-        $id_usaha = 1;
         $val = $this->input->post('val');
         $config['upload_path'] = './assets/foto/riwayat';
         $config['allowed_types'] = 'jpg|jpeg|png';
@@ -470,14 +488,14 @@ class detail_akun extends CI_Controller
             $data = array(
                 'image' => $filename,
                 'id_riwayat' => $val,
-                'id_usaha' => $id_usaha,
+                'kd_data_diri' => $id,
             );
             $this->detail_akun_model->set_img_riwayat($data);
         }
-        redirect('detail_akun/index');
+        redirect(site_url('detail_akun/index/'.$id));
     }
 
-    public function upd_riwayat_img()
+    public function upd_riwayat_img($id)
     {
 
         $id_riwayatimg = $this->input->post('val');
@@ -494,14 +512,15 @@ class detail_akun extends CI_Controller
             $data = array(
                 'id_riwayat_image' => $id_riwayatimg,
                 'image' => $filename,
+                
             );
-            $this->detail_akun_model->upd_img_riwayat($data);
+            $this->detail_akun_model->upd_img_riwayat($data,$id);
 
-            redirect('detail_akun/index');
+            redirect(site_url('detail_akun/index/'.$id));
         }
     }
 
-    public function set_kuantitas_img()
+    public function set_kuantitas_img($id)
     {
         $id_usaha = 1;
         $val = $this->input->post('val');
@@ -522,12 +541,12 @@ class detail_akun extends CI_Controller
             );
             $this->detail_akun_model->set_img_kuantitas($data);
         }
-        redirect('detail_akun/index');
+        redirect(site_url('detail_akun/index/'.$id));
     }
 
-    public function excel_verif()
+    public function excel_verif($id)
     {
-        $data['verification'] = $this->detail_akun_model->get_data();
+        $data['verification'] = $this->detail_akun_model->get_data($id);
 
         require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel.php');
         require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel/Writer/Excel2007.php');
@@ -574,11 +593,12 @@ class detail_akun extends CI_Controller
         exit();
     }
 
-    public function excel_all()
+    public function excel_all($id)
     {
-        $data['verification'] = $this->detail_akun_model->get_data();
-        $data['riwayat'] = $this->detail_akun_model->get_ekspor();
-        $data['kuantitas'] = $this->detail_akun_model->get_kuantitas();
+
+        $data['verification'] = $this->detail_akun_model->get_data($id);
+        $data['riwayat'] = $this->detail_akun_model->get_ekspor($id);
+        $data['kuantitas'] = $this->detail_akun_model->get_kuantitas($id);
 
         require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel.php');
         require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel/Writer/Excel2007.php');

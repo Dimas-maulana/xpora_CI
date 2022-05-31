@@ -26,11 +26,6 @@ class proses_verifikasi extends CI_Controller
         $this->load->view('template/main', $data);
     }
 
-    function prosesVerifikasi ($param='')
-    {
-        echo $param;
-    }   
-
     public function set_officer()
     {
         $dataa = array(

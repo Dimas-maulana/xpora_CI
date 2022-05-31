@@ -200,13 +200,13 @@ class inspirasi extends CI_Controller
 
 
         $data = array(
+            'id' => $id,
             'title' => 'inspirasi',
             'header' => 'template/header',
             'menu' => 'template/menu',
             'content' => 'template/content',
             'footer' => 'template/footer',
             'app' => 'inspirasi',
-            'id'=>$id,
             'inspirasi' => $this->inspirasi_model->get_data($config["per_page"], $data['page'],$id),
         );
         $this->load->view('template/main', $data);
