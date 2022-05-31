@@ -14,8 +14,6 @@ class Mapp extends CI_Model
         select *, date_format(created_at, '%m') bulan 
         from data_pengajuan_komodity 
         WHERE year(created_at) = year(CURDATE()) 
-        ORDER BY created_at desc
-        limit 5
         ");
 
         return $query->result_array();
@@ -27,8 +25,6 @@ class Mapp extends CI_Model
         SELECT t.*, DATE_FORMAT(t.tgl_transaksi, '%m') bulan
         FROM data_transaksi t
         WHERE year(t.tgl_transaksi) = year(CURDATE())
-        ORDER BY t.tgl_transaksi desc
-        limit 5
         ");
 
         return $query->result_array();
