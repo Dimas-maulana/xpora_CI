@@ -118,7 +118,7 @@ class dashboard extends CI_Controller
         array_push($arvalue_polar, count($q_eksmatch), count($q_comodities), count($q_request));
         array_push($arvalue_polarlabel, "'Matchmaking'", "'Comodities'", "'Request'");
         array_push($arvalue_polarcolor, "'#16676e'", "'#d88f1a'", "'#36b9cc'");
-        echo json_encode($arvalue_polar); die;
+        //echo json_encode($arvalue_polar); die;
         // }
 
         // foreach($q_distinctjenisrek as $data){

@@ -556,10 +556,9 @@
                                 <th>Id Transaksi</th>
                                 <th>Nama Komodity</th>
                                 <th>Metode Bayar</th>
-                                <th>Total Pengajuan</th>
+                                <th>Quantity</th>
 								<th>total_bayar</th>
-                                <th>Saldo</th>
-								<th>Profit</th>
+                                <th>Profit</th>
 								<th>Tanggal</th>
                             </tr>
                         </thead>
@@ -570,7 +569,7 @@
                                 <td><?= $value['id_transaksi'] ?></td>
                                 <td><?= $value['nama_komodity'] ?></td>
                                 <td><?= $value['metode_bayar'] ?></td>
-                                <td><?= isset($value['total_pengajuan']) ? $value['total_pengajuan'] : 'undefined' ?></td>
+                                <td><?= $value['quantity'] ?></td>
                                 <td><?= $value['total_bayar'] ?></td>
                                 <td><?= $value['profit'] ?></td>
                                 <td><?= $value['tgl_transaksi'] ?></td>
