@@ -10,22 +10,22 @@
 <h5>Detail Account / User Data</h5>
 <ul class="nav nav-tabs">
     <li class="nav-item">
-        <a class="nav-link" href="">User Data</a>
+        <a class="nav-link" href="<?= site_url('akun'); ?>/detail_akun/<?= $id ?>">User Data</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link active" href="<?= site_url('detail_akun'); ?>">Verification Data</a>
+        <a class="nav-link active" href="<?= site_url('detail_akun'); ?>/index/<?= $id ?>">Verification Data</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href=<?= site_url('c_ekspansibisnis'); ?>>Ekspansi Bisnis</a>
+        <a class="nav-link" href="<?= site_url('c_ekspansibisnis'); ?>/index/<?= $id ?>">Ekspansi Bisnis</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="<?= site_url('inspirasi'); ?>">Inspirasi</a>
+        <a class="nav-link" href="<?= site_url('inspirasi'); ?>/index/<?= $id ?>">Inspirasi</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="<?= site_url('produk_bni'); ?>">Produk BNI</a>
+        <a class="nav-link" href="<?= site_url('produk_bni'); ?>/index/<?= $id ?>">Produk BNI</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="<?= site_url('c_clbrecord'); ?>">CLB Record</a>
+        <a class="nav-link" href="<?= site_url('c_clbrecord'); ?>/index/<?= $id ?>">CLB Record</a>
     </li>
 </ul>
 <table class="table-striped">

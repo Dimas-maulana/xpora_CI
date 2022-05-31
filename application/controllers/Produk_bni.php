@@ -26,7 +26,7 @@ class produk_bni extends CI_Controller
         $this->load->view('template/main', $data);
     }
 
-    public function update_produk()
+    public function update_produk($id)
     {
 
         $tabungan_bisnis = $this->input->post('tabungan_bisnis');
@@ -62,10 +62,11 @@ class produk_bni extends CI_Controller
             $this->produk_bni_model->update_produk($data);
         }
 
-        redirect('produk_bni/index');
+        // redirect('produk_bni/index');
+        redirect(site_url('produk_bni/index/'.$id)); 
     }
 
-    public function set_produk()
+    public function set_produk($id)
     {
         $tabungan_bisnis = $this->input->post('tabungan_bisnis');
         $no_rek = $this->input->post('no_rek');
@@ -100,21 +101,21 @@ class produk_bni extends CI_Controller
             $this->produk_bni_model->set_produk($data);
         }
 
-        redirect('produk_bni/index');
+        redirect(site_url('produk_bni/index/'.$id)); 
     }
 
-    public function download()
+    public function download($id)
     {
         $img = $this->input->post('download');
 
         force_download('assets/foto/produk/'. $img .'.jpg' , NULL);
 
-        redirect('produk_bni/index');
+        redirect(site_url('produk_bni/index/'.$id)); 
     }
 
-    public function excel_verif()
+    public function excel_verif($id)
     {
-        $data['verification'] = $this->produk_bni_model->get_all_produk();
+        $data['verification'] = $this->produk_bni_model->get_all_produk($id);
 
         require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel.php');
         require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel/Writer/Excel2007.php');

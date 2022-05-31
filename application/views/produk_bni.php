@@ -9,24 +9,24 @@
 </div>
 <h5>Detail Account / User Data</h5>
 <ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link " href=" site_url('detail_akun/DD0001')">User Data</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="<?= site_url('detail_akun'); ?>">Verification Data</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href=<?= site_url('c_ekspansibisnis'); ?>>Ekspansi Bisnis</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="<?= site_url('inspirasi'); ?>">Inspirasi</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="<?= site_url('produk_bni'); ?>">Produk BNI</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="<?= site_url('c_clbrecord'); ?>">CLB Record</a>
-  </li>
+    <li class="nav-item">
+        <a class="nav-link" href="<?= site_url('akun'); ?>/detail_akun/<?= $id ?>">User Data</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="<?= site_url('detail_akun'); ?>/index/<?= $id ?>">Verification Data</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="<?= site_url('c_ekspansibisnis'); ?>/index/<?= $id ?>">Ekspansi Bisnis</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="<?= site_url('inspirasi'); ?>/index/<?= $id ?>">Inspirasi</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" href="<?= site_url('produk_bni'); ?>/index/<?= $id ?>">Produk BNI</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="<?= site_url('c_clbrecord'); ?>/index/<?= $id ?>">CLB Record</a>
+    </li>
 </ul>
 </nav><!-- Begin Page Content -->
 <table class="table-striped">
@@ -39,11 +39,9 @@
               <div class="card-body">
                 <div class="d-flex flex-column align-items-center text-center">
                   <img src="https://aecsp.qc.ca/wp-content/uploads/2021/03/person_icon-icons.com_50075.png" alt="Admin" class="p-1 bg-secondary" width="150">
+                  
                   <div class="mt-2">
-                    <button class="btn btn-secondary" type="button" style="font-size: 12px" ;>Download all data</button>
-                  </div>
-                  <div class="mt-2">
-                    <form action="/xpora/produk_bni/excel_verif">
+                    <form action="<?= site_url('produk_bni'); ?>/excel_verif/<?= $id ?>">
                       <button class="btn btn-secondary" type="submit" style="font-size: 12px;">Download product data</button>
                     </form>
                   </div>
@@ -86,7 +84,7 @@
                       <label for="">Proof Pict</label>
                       <input type="file" name="foto" class="form-control" placeholder="Proof pict" value="<?php echo $produk["cif"]; ?>">
 
-                      <form action="/xpora/produk_bni/download" method="post" enctype="multipart/form-data">
+                      <form action= "<?= site_url('produk_bni'); ?>/download/<?= $id ?>" method="post" enctype="multipart/form-data">
                         <div class="col-sm-2 text-secondary">
                           <button class="btn btn-success" type="submit" value=<?php echo $produk["foto"]; ?> name="download">Download</button>
                         </div>
