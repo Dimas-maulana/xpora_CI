@@ -47,8 +47,8 @@
                                 <!-- <a href="#deleteEmployeeModal" class="btn btn-info btn-sm" data-toggle="modal">Chose</a> -->
                                 <a href="<?= site_url('detail_akun'); ?>/index/<?= $rs->kd_data_diri ?>" class="btn btn-primary btn-sm">Chose</a>
                             </td>
-                            <td style="vertical-align: middle; text-align:center; white-space:nowrap;" onclick="sData(this)"><?= $rs->priority; ?></td>
-                            <td style="vertical-align: middle; white-space:nowrap;" onclick="sData(this)"><?= $rs->verifikasi_date; ?></td>
+                            <td style="vertical-align: middle; text-align:center; white-space:nowrap;" onclick="sData(this)"><?= isset($rs->priority) ? $rs->priority : 'undefined'; ?></td>
+                            <td style="vertical-align: middle; white-space:nowrap;" onclick="sData(this)"><?= isset($rs->verifikasi_date) ? $rs->verifikasi_date : 'undefined'; ?></td>
                             <td style="text-align:center; white-space:nowrap;">
                                 <a href="<?= site_url('detail_akun'); ?>/index/<?= $rs->kd_data_diri ?>" class="btn btn-info btn-sm">Detail</a>
                             </td>

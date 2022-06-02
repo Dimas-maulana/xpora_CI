@@ -162,8 +162,12 @@ $(document).ready(function () {
 		tabel.buttons().container().appendTo($(".sekuy"));
 		var sekuy = $(".sekuy")[0].children[0].children[0];
 		var sekuy2 = $(".sekuy")[0].children[0].children[1];
-		sekuy.classList.remove("dt-button");
-		sekuy2.classList.remove("dt-button");
+		if (sekuy) {
+			sekuy.classList.remove("dt-button");
+		}
+		if (sekuy2) {
+			sekuy2.classList.remove("dt-button");
+		}
 	} else if ($("#detailTable").length) {
 		detailTable.buttons().container().appendTo($(".detailDonlod"));
 		var detailDonlod = $(".detailDonlod")[0].children[0].children[0];
