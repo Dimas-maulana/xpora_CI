@@ -201,7 +201,7 @@ class inspirasi extends CI_Controller
 
         $data = array(
             'id' => $id,
-            'title' => 'Detail akun > Inspirasi',
+            'title' => 'inspirasi',
             'header' => 'template/header',
             'menu' => 'template/menu',
             'content' => 'template/content',
