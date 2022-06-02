@@ -41,6 +41,7 @@ class c_ekspansibisnis extends CI_Controller
             'content' => 'template/content',
             'footer' => 'template/footer',
             'app' => 'v_ekspansibisnis',
+            'id' => $user_id,
             'matchmaking_logs' => $matchmaking_logs,
             'ekspansi_komoditas' => $ekspansi_komoditas,
             'ekspansi_request' => $ekspansi_requests
