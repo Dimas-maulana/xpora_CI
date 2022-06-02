@@ -45,13 +45,13 @@
                             <td style="text-align:center; white-space:nowrap;">
                             <?php if ($rs->status == "Waiting for Approval") { ?>
             
-                    <a href="#deleteEmployeeModal" class="btn btn-info btn-sm" data-toggle="modal">Detail</a>
+                    <a href="<?= site_url('commodities/detail/' . $rs->comodity_posted_id) ?>" class="btn btn-info btn-sm">Detail</a>
 
                   </td>
               <?php } else { ?>
                 
 
-                  <a href="#deleteEmployeeModal" class="btn btn-info btn-sm" data-toggle="modal">Detail</a>
+                  <a href="<?= site_url('commodities/detail/' . $rs->comodity_posted_id) ?>" class="btn btn-info btn-sm">Detail</a>
                 </td> <?php } ?>
             </tr>
             <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
