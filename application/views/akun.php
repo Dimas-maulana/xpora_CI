@@ -45,7 +45,7 @@
                             <td style="vertical-align: middle; white-space:nowrap;"><?= $rs->user_type; ?></td>
                             <td style="vertical-align: middle; white-space:nowrap;"><?= $rs->date_create; ?></td>
                             <td style="text-align:center; white-space:nowrap;">
-                                <a href="akun/detail_akun/<?= $rs->kd_data_diri ?>" class="btn btn-info btn-sm">Detail</a>
+                                <a href="<?= site_url('akun/detail_akun/'.$rs->kd_data_diri) ?>" class="btn btn-info btn-sm">Detail</a>
                                 <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#staticBackdrop">Delete</button>
                             </td>
                         </tr>
@@ -66,7 +66,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-                                        <a href="akun/delete_akun/<?= $rs->kd_data_diri ?>" class="btn btn-danger btn-sm">Delete</a>
+                                        <a href="<?= site_url('akun/delete_akun/'.$rs->kd_data_diri) ?>" class="btn btn-danger btn-sm">Delete</a>
                                     </div>
                                 </div>
                             </div>

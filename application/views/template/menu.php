@@ -210,8 +210,8 @@ $cancel = $urll == "cancel" ? "tabActive" : "";
                             Download
                         </button>
                         <div class="dropdown-menu dropdown-menu-right sekuy" aria-labelledby="dropdownMenu2">
-                             <a class="dropdown-item " href="<?= base_url('akun/export') ?>">Download all data</a>
-                             <a class="dropdown-item" href="<?= base_url('akun/export_filter/' . $this->session->userdata('cari')) ?>">Download filtered data</a>
+                             <!-- <a class="dropdown-item " href="<?= base_url('akun/export') ?>">Download all data</a>
+                             <a class="dropdown-item" href="<?= base_url('akun/export_filter/' . $this->session->userdata('cari')) ?>">Download filtered data</a> -->
                         </div>
                     </div>
                 </ul>
