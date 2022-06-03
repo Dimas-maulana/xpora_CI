@@ -12,6 +12,7 @@
         $this->db->from('data_diri');
         $this->db->join('clb', 'clb.kd_data_diri=data_diri.kd_data_diri');
         $this->db->order_by('clb.attempt', 'ASC');
+        $this->db->group_by('clb.kd_data_diri');
         $query = $this->db->get();
         return $query->result();
     }
