@@ -46,11 +46,11 @@
                             <td style="vertical-align: middle; white-space:nowrap;"><?= $rs->date_create; ?></td>
                             <td style="text-align:center; white-space:nowrap;">
                                 <a href="<?= site_url('akun/detail_akun/'.$rs->kd_data_diri) ?>" class="btn btn-info btn-sm">Detail</a>
-                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#staticBackdrop">Delete</button>
+                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#staticBackdrop<?= $rs->kd_data_diri ?>">Delete</button>
                             </td>
                         </tr>
 
-                        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal fade" id="staticBackdrop<?= $rs->kd_data_diri ?>" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
