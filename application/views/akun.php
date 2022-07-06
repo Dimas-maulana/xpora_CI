@@ -11,7 +11,7 @@
                         <th>User Name</th>
                         <th>Company Name</th>
                         <th>Region</th>
-                        <th>Comodity</th>
+                        <th>Product</th>
                         <th>Verification</th>
                         <th>User Type</th>
                         <th>Create Date</th>

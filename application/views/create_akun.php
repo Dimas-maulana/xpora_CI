@@ -180,8 +180,23 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col-sm-12 text-secondary">
-                            <label>Komoditi Usaha</label>
-                            <input type="text" name="komoditi_usaha" class="form-control" placeholder="Komoditi Usaha" autocomplete="off" pattern="[A-Za-z\s]{3,100}" required>
+                            <label>Product</label>
+                            <select id="inputState" class="form-control" name="Product" required>
+                                <option selected disabled>Product</option>
+                                <option value="LIVING COMFORTS & AMENITIES">LIVING COMFORTS & AMENITIES</option>
+                                <option value="FOOD & BEVERAGE">FOOD & BEVERAGE</option>
+                                <option value="MANUFACTURED">MANUFACTURED</option>
+                                <option value="RENEWABLE ENERGY FASHION AND BEAUTY PRODUCTS">RENEWABLE ENERGY FASHION AND BEAUTY PRODUCTS</option>
+                                <option value="MEDICAL &HEALTH CARE">MEDICAL &HEALTH CARE</option>
+                                <option value="FASHION">FASHION</option>
+                                <option value="IRON MANUFACTURER">IRON MANUFACTURER</option>
+                                <option value="HANDYCRAFT & HOME DÉCOR">HANDYCRAFT & HOME DÉCOR</option>
+                                <option value="RENEWABLE ENERGY">RENEWABLE ENERGY</option>
+                                <option value="FASHION & BEAUTY">FASHION & BEAUTY</option>
+                                <option value="KONVEKSI">KONVEKSI</option>
+                                <option value="HOME DECOR & LIVING COMFORT">HOME DECOR & LIVING COMFORT</option>
+                                <option value="FURNITURE MANUFACTURER">FURNITURE MANUFACTURER</option>
+                            </select>
                         </div>
                     </div>
                     <div class="row mb-3">

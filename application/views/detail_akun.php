@@ -33,7 +33,7 @@
         <div class="container">
             <div class="main-body">
                 <div class="row">
-                    <div class="col-lg-3">
+                    <div class="col-lg-2">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex flex-column align-items-center text-center">
@@ -49,7 +49,7 @@
                                             <div class="row mb-3">
                                                 <div class="col-sm-12 text-secondary">
                                                     <?php
-                                                    if ($key['verified'] === 'Verified'||$key['verified'] === 'Cancel'||$key['verified'] === 'On Progress') {
+                                                    if ($key['verified'] === 'Verified' || $key['verified'] === 'Cancel' || $key['verified'] === 'On Progress') {
                                                     ?>
                                                         <fieldset disabled>
                                                             <label for="disabledTextInput" class="form-label">Negara</label>
@@ -67,7 +67,7 @@
                                             <div class="row mb-3">
                                                 <div class="col-sm-12 text-secondary">
                                                     <?php
-                                                    if ($key['verified'] === 'Verified'||$key['verified'] === 'Cancel'||$key['verified'] === 'On Progress') {
+                                                    if ($key['verified'] === 'Verified' || $key['verified'] === 'Cancel' || $key['verified'] === 'On Progress') {
                                                     ?>
                                                         <fieldset disabled>
                                                             <label for="disabledTextInput" class="form-label">Kota</label>
@@ -85,7 +85,7 @@
                                             <div class="row mb-3">
                                                 <div class="col-sm-12 text-secondary">
                                                     <?php
-                                                    if ($key['verified'] === 'Verified'||$key['verified'] === 'Cancel'||$key['verified'] === 'On Progress') {
+                                                    if ($key['verified'] === 'Verified' || $key['verified'] === 'Cancel' || $key['verified'] === 'On Progress') {
                                                     ?>
                                                         <fieldset disabled>
                                                             <label for="disabledTextInput" class="form-label">Nama</label>
@@ -102,29 +102,32 @@
                                                 </div>
                                             </div>
                                             <div class="mt-2">Verification Status <font color="#09ea69"><br><?php
-                                                                                                            if ($key['verified'] === "Verified" ) {
-                                                                                                                echo "(Verified)";?></font><font color="#FCF104"><?php 
-                                                                                                            } else if($key['verified'] === "On Progress" ) {
-                                                                                                                echo "(On Progress)"; ?></font><font color="#FCF104"><?php 
-                                                                                                            } else if($key['verified'] === "Cancel" ){
-                                                                                                                echo "(Cancelled)"; ?></font><font color="#FC3004> <?php
-                                                                                                            }else {
+                                                                                                            if ($key['verified'] === "Verified") {
+                                                                                                                echo "(Verified)"; ?></font>
+                                                <font color="#FCF104"><?php
+                                                                                                            } else if ($key['verified'] === "On Progress") {
+                                                                                                                echo "(On Progress)"; ?></font>
+                                                <font color="#FCF104"><?php
+                                                                                                            } else if ($key['verified'] === "Cancel") {
+                                                                                                                echo "(Cancelled)"; ?></font>
+                                                <font color="#FC3004> <?php
+                                                                                                            } else {
                                                                                                                 echo "(Not Verified)";
-                                                                                                            }?></font>
+                                                                                                            } ?></font>
                                             </div>
-                                            <div class="row mb-3">
-                                                <div class="col-sm-7 text-secondary">
+                                            <div class=" row mb-3">
+                                                    <div class="col-sm-1 text-secondary">
 
-                                                </div>
-                                                <div class="col-sm-5 text-secondary">
-                                                    <?php
-                                                    if ($key['verified'] === "Verified" || $key['verified'] === "Cancel" ) { ?>
+                                                    </div>
+                                                    <div class="col-sm-1 text-secondary">
+                                                        <?php
+                                                        if ($key['verified'] === "Verified" || $key['verified'] === "Cancel") { ?>
 
-                                                    <?php } else { ?>
-                                                        <input type="submit" value="verify" name="status" class="btn btn-secondary">
-                                                        <input type="submit" value="simpan" name="status" class="btn btn-secondary">
+                                                        <?php } else { ?>
+                                                            <input type="submit" value="verify" name="status" class="btn btn-secondary">
+                                                            <input type="submit" value="simpan" name="status" class="btn btn-secondary">
                                         </form>
-                                        <?php }
+                                    <?php }
                                     ?>
 
                                 </div>
@@ -146,7 +149,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-9">
+            <div class="col-lg-10">
                 <div class="card">
                     <div class="card-body">
                         <?php
@@ -177,16 +180,22 @@
                                         <input type="file" id="foto" name="foto" class="form-control"></input>
                                     </div>
 
-                                    <div class="col-sm-2">
-                                        <label for="submit">Action</label>
+                                    <div class="col-sm-1">
+                                        <label for="submit">Update</label>
                                         <button class="btn btn-primary" type="submit" id="submit">Upload</button>
                                     </div>
                                 </form>
-                                <form action="<?= site_url('detail_akun'); ?>/download_nib/<?= $id ?>" method="post" enctype="multipart/form-data">
-                                    <div cclass="col-sm-2 text-secondary">
-                                        <button class="btn btn-success" type="submit" value=<?php echo $key["foto_nib"]; ?> name="download">Download</button>
-                                    </div>
-                                </form>
+                                <div class="col-sm-1">
+                                    <form action="<?= site_url('detail_akun'); ?>/download_nib/<?= $id ?>" method="post" enctype="multipart/form-data">
+                                        <label for="submit">Download</label>
+                                        <div cclass="col-sm-2 text-secondary">
+
+                                            <button class="btn btn-success" type="submit" value=<?php echo $key["foto_nib"]; ?> name="download">Download</button>
+                                        </div>
+                                    </form>
+                                </div>
+
+
                             </div>
 
 
@@ -213,14 +222,15 @@
                                         <label for="foto">Proof Pict</label>
                                         <input type="file" id="foto" name="foto" class="form-control"></input>
                                     </div>
-                                    <div class="col-sm-2">
-                                        <label for="submit">Action</label>
+                                    <div class="col-sm-1">
+                                        <label for="submit">Update</label>
                                         <button class="btn btn-primary" type="submit" id="submit">Upload</button>
                                     </div>
                                 </form>
 
                                 <form action="<?= site_url('detail_akun'); ?>/download_npwp/<?= $id ?>" method="post" enctype="multipart/form-data">
-                                    <div cclass="col-sm-2 text-secondary">
+                                    <div class="col-sm-2 text-secondary">
+                                        <label for="submit">Download</label>
                                         <button class="btn btn-success" type="submit" value=<?php echo $key["foto_npwp"]; ?> name="download">Download</button>
                                     </div>
                                 </form>
@@ -250,16 +260,20 @@
                                         <label for="foto">Proof Pict</label>
                                         <input type="file" id="foto" name="foto" class="form-control"></input>
                                     </div>
-                                    <div class="col-sm-2">
-                                        <label for="submit">Action</label>
+                                    <div class="col-sm-1">
+                                        <label for="submit">Update</label>
                                         <button class="btn btn-primary" type="submit" id="submit">Upload</button>
                                     </div>
                                 </form>
-                                <form action="<?= site_url('detail_akun'); ?>/download_siup/<?= $id ?>" method="post" enctype="multipart/form-data">
-                                    <div cclass="col-sm-2 text-secondary">
-                                        <button class="btn btn-success" type="submit" value=<?php echo $key["foto_siup"]; ?> name="download">Download</button>
-                                    </div>
-                                </form>
+                                <div class="col-sm-1">
+                                    <form action="<?= site_url('detail_akun'); ?>/download_siup/<?= $id ?>" method="post" enctype="multipart/form-data">
+                                        <label for="submit">Download</label>
+                                        <div cclass="col-sm-2 text-secondary">
+
+                                            <button class="btn btn-success" type="submit" value=<?php echo $key["foto_siup"]; ?> name="download">Download</button>
+                                        </div>
+                                    </form>
+                                </div>
 
                             </div>
 
@@ -286,16 +300,20 @@
                                         <label for="foto">Proof Pict</label>
                                         <input type="file" id="foto" name="foto" class="form-control"></input>
                                     </div>
-                                    <div class="col-sm-2">
-                                        <label for="submit">Action</label>
+                                    <div class="col-sm-1">
+                                        <label for="submit">Update</label>
                                         <button class="btn btn-primary" type="submit" id="submit">Upload</button>
                                     </div>
                                 </form>
-                                <form action="<?= site_url('detail_akun'); ?>/download_peb/<?= $id ?>" method="post" enctype="multipart/form-data">
-                                    <div cclass="col-sm-2 text-secondary">
-                                        <button class="btn btn-success" type="submit" value=<?php echo $key["foto_domisili"]; ?> name="download">Download</button>
-                                    </div>
-                                </form>
+                                <div class="col-sm-1">
+                                    <form action="<?= site_url('detail_akun'); ?>/download_peb/<?= $id ?>" method="post" enctype="multipart/form-data">
+                                        <label for="submit">Download</label>
+                                        <div cclass="col-sm-2 text-secondary">
+
+                                            <button class="btn btn-success" type="submit" value=<?php echo $key["foto_peb"]; ?> name="download">Download</button>
+                                        </div>
+                                    </form>
+                                </div>
 
                             </div>
 
@@ -323,16 +341,20 @@
                                         <input type="file" id="foto" name="foto" class="form-control"></input>
 
                                     </div>
-                                    <div class="col-sm-2">
-                                        <label for="submit">Action</label>
+                                    <div class="col-sm-1">
+                                        <label for="submit">Update</label>
                                         <button class="btn btn-primary" type="submit" id="submit">Upload</button>
                                     </div>
                                 </form>
-                                <form action="<?= site_url('detail_akun'); ?>/download_akta/<?= $id ?>" method="post" enctype="multipart/form-data">
-                                    <div cclass="col-sm-2 text-secondary">
-                                        <button class="btn btn-success" type="submit" value=<?php echo $key["foto_akta"]; ?> name="download">Download</button>
-                                    </div>
-                                </form>
+                                <div class="col-sm-1">
+                                    <form action="<?= site_url('detail_akun'); ?>/download_akta/<?= $id ?>" method="post" enctype="multipart/form-data">
+                                        <label for="submit">Download</label>
+                                        <div cclass="col-sm-2 text-secondary">
+
+                                            <button class="btn btn-success" type="submit" value=<?php echo $key["foto_akta"]; ?> name="download">Download</button>
+                                        </div>
+                                    </form>
+                                </div>
 
                             </div>
 
